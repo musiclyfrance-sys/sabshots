@@ -11,6 +11,29 @@ alwaysApply: true
 This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` before writing any code. Heed deprecation notices.
 <!-- END:nextjs-agent-rules -->
 
+<!-- BEGIN:sabshots-rules -->
+# SabShots Project Rules (priorité absolue)
+
+Ces règles s'appliquent à tout le travail sur ce projet et priment sur les autres conventions de ce fichier.
+
+## Déploiement et versioning
+- Le code vit sur GitHub : `https://github.com/musiclyfrance-sys/sabshots` (remote `origin`, branche `master`).
+- Toute modification doit être commitée et poussée sur GitHub. On ne laisse jamais de travail uniquement en local.
+- Vercel redéploie automatiquement à chaque push sur `master`. Le site de production est `https://sabshots.vercel.app`.
+- Le workflow standard après chaque changement est : `git add -A`, puis `git commit`, puis `git push origin master`.
+
+## Règles de rédaction du contenu (copywriting)
+- Toujours formuler des phrases complètes. On évite les phrases coupées après deux ou trois mots suivies d'un point.
+- Ne jamais utiliser le tiret cadratin. Quand une pause est nécessaire, on le remplace par une virgule.
+- Ces règles s'appliquent au contenu du site comme aux textes marketing produits pour ce projet.
+
+## Skills enregistrés pour ce projet
+On utilise ces skills selon le besoin au fil de l'avancement :
+- `/seo-audit` pour l'audit et l'optimisation SEO.
+- `/ui-ux-pro-max` pour le design UI et UX.
+- `/copywriting` pour la rédaction du contenu.
+<!-- END:sabshots-rules -->
+
 # Website Reverse-Engineer Template
 
 ## What This Is
