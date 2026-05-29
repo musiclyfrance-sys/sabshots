@@ -14,44 +14,44 @@ interface Testimonial {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    title: 'A joy to work with.',
-    body: 'Working with this photographer on our wedding day was a joy. Their creativity, professionalism, and ability to capture genuine moments resulted in timeless photos we truly cherish. Highly recommended!',
-    reviewer: 'Johnson',
+    title: 'A magical Eiffel Tower session',
+    body: 'Our Eiffel Tower session was magical, and the photos captured Paris exactly as we dreamed it.',
+    reviewer: 'Sofia, Italy',
     avatarSrc: '/assets/testimonial-1.jpg',
   },
   {
     id: 2,
-    title: 'Creative Wedding Photography!',
-    body: 'Incredible wedding photos—full of emotion, creativity, and beautiful details. Every image feels meaningful, and we\'re beyond happy with the results. Highly recommended!',
-    reviewer: 'Sarah Davis',
+    title: 'The best portraits I have had',
+    body: 'I came solo and felt at ease the whole time, and the portraits are the best I have ever had.',
+    reviewer: 'James, United States',
     avatarSrc: '/assets/testimonial-2.jpg',
   },
   {
     id: 3,
-    title: 'Memorable Family Photos!',
-    body: 'Incredible wedding photos—rich in emotion, creativity, and stunning detail. Every image feels special, and we couldn\'t be happier. Highly recommended!',
-    reviewer: 'Michael Brown',
+    title: 'Incredible for my feed',
+    body: 'Every spot was beautiful and the photos look incredible on my feed, I cannot recommend him enough.',
+    reviewer: 'Mei, Singapore',
     avatarSrc: '/assets/testimonial-3.jpg',
   },
   {
     id: 4,
-    title: 'Breathtaking Landscapes!',
-    body: 'The landscape photos are absolutely breathtaking—authentic, artistic, and beautifully composed. Each image feels like a true masterpiece and looks stunning on display. Truly exceptional work!',
-    reviewer: 'Emily Johnson',
+    title: 'Our proposal, captured perfectly',
+    body: 'He captured our proposal perfectly, and we will treasure these images for the rest of our lives.',
+    reviewer: 'Lucas and Emma, Brazil',
     avatarSrc: '/assets/testimonial-4.jpg',
   },
   {
     id: 5,
-    title: 'Incredible Portraits!',
-    body: 'The portrait session was unforgettable—the photographer made me feel confident and at ease, and the results truly reflect my personality. The creativity and skill exceeded my expectations. I\'ll definitely be back for more!',
-    reviewer: 'Jane Smith',
+    title: 'A smooth, friendly experience',
+    body: 'It was a smooth and friendly experience from the first message all the way to the final gallery.',
+    reviewer: 'Amira, United Arab Emirates',
     avatarSrc: '/assets/testimonial-5.jpg',
   },
   {
     id: 6,
-    title: 'Stunning Work!',
-    body: 'Working with this photographer for our wedding was a wonderful experience. Their attention to detail and ability to capture the true essence of the day was incredible—every photo tells a story we\'ll cherish forever. Highly recommended!',
-    reviewer: 'John Doe',
+    title: 'Stunning family photos',
+    body: 'He is professional, creative, and fast, and our family photos in Paris turned out absolutely stunning.',
+    reviewer: 'Thomas, Germany',
     avatarSrc: '/assets/testimonial-6.jpg',
   },
 ]
@@ -166,7 +166,7 @@ export default function TestimonialsSection() {
                   fontFamily: 'Manrope, sans-serif',
                 }}
               >
-                Hear from Our User
+                What My Clients Say
               </h2>
 
               {/* subtitle */}
@@ -181,7 +181,7 @@ export default function TestimonialsSection() {
                   fontFamily: 'Manrope, sans-serif',
                 }}
               >
-                Read how our users have achieved success
+                People from around the world share their Paris experience.
               </p>
             </div>
           </div>

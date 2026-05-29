@@ -36,16 +36,16 @@ const PROCESS_SVG_ICONS = [
 
 const processCards: ProcessCard[] = [
   {
-    title: 'Capture the Vision',
-    description: 'We capture stunning images that reflect your brand.',
+    title: 'Plan Your Session',
+    description: 'We choose the spot, the time, and the style that fit your vision.',
   },
   {
-    title: 'Enhance the Details',
-    description: 'Photos are edited and color-corrected for consistency.',
+    title: 'Shoot Across Paris',
+    description: 'We meet on location and capture natural, striking images.',
   },
   {
-    title: 'Deliver with Impact',
-    description: 'Final images are optimized for web and social media.',
+    title: 'Receive Your Photos',
+    description: 'Your edited and retouched photos arrive within a few days.',
   },
 ]
 
@@ -128,7 +128,7 @@ export default function ProcessSection() {
               }}
               className="text-center block"
             >
-              Capture the Vision
+              How a Session Works
             </h2>
 
             {/* p.paragraph-large.center */}
@@ -143,7 +143,7 @@ export default function ProcessSection() {
               }}
               className="text-center"
             >
-              We capture images with exceptional clarity and lighting.
+              A simple three-step process, from your first message to your final photos.
             </p>
           </div>
 

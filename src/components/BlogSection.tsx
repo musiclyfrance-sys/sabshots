@@ -16,27 +16,27 @@ interface BlogPost {
 const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: 'Tips for Photographers',
-    category: 'Popular',
+    title: 'The Best Photo Spots in Paris',
+    category: 'Guide',
     image: '/assets/blog-1.png',
-    imageAlt: 'Serene floral portrait photography',
-    href: '#',
+    imageAlt: 'Best photo spots in Paris',
+    href: '/blog/best-photo-spots-in-paris',
   },
   {
     id: 2,
-    title: 'Camera Lenses',
-    category: 'News',
+    title: 'When to Shoot at the Eiffel Tower',
+    category: 'Tips',
     image: '/assets/blog-2.png',
-    imageAlt: 'Modern camera close-up',
-    href: '#',
+    imageAlt: 'Best time to photograph the Eiffel Tower',
+    href: '/blog/when-to-shoot-eiffel-tower',
   },
   {
     id: 3,
-    title: 'Exploring Natural Light',
-    category: 'Popular',
+    title: 'How to Prepare for Your Paris Session',
+    category: 'Guide',
     image: '/assets/blog-3.png',
-    imageAlt: 'Natural light canyon photography',
-    href: '#',
+    imageAlt: 'Preparing for a Paris photo session',
+    href: '/blog/how-to-prepare-paris-session',
   },
 ]
 
@@ -161,7 +161,7 @@ export function BlogSection() {
               margin: 0,
             }}
           >
-            Highlights from my photography journey, featuring my creative process and latest projects.
+            Tips and guides to help you plan the perfect photo session in Paris.
           </p>
         </div>
 

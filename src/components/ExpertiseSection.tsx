@@ -146,7 +146,7 @@ export default function ExpertiseSection() {
                   lineHeight: '22px',
                 }}
               >
-                Expertise
+                Services
               </span>
             </div>
 
@@ -180,7 +180,7 @@ export default function ExpertiseSection() {
                 maxWidth: '450px',
               }}
             >
-              I bring your ideas to life with captivating images, focusing on creativity and lighting.
+              From private Eiffel Tower shoots to custom sessions anywhere in Paris, I bring your vision to life.
             </p>
           </div>
 
@@ -506,7 +506,7 @@ export default function ExpertiseSection() {
                       textAlign: 'left',
                     }}
                   >
-                    E-Commerce Shoots
+                    Instagrammable Paris
                   </div>
                   <p
                     style={{
@@ -520,7 +520,7 @@ export default function ExpertiseSection() {
                       margin: 0,
                     }}
                   >
-                    Visuals that enhance value and conversion.
+                    The most photogenic spots in Paris, delivered quickly.
                   </p>
                 </div>
                 <div
@@ -534,9 +534,9 @@ export default function ExpertiseSection() {
                     width: '100%',
                   }}
                 >
-                  <TagBadge label="Styling" />
-                  <TagBadge label="Product" />
-                  <TagBadge label="Optimized" />
+                  <TagBadge label="Streets" />
+                  <TagBadge label="Cafés" />
+                  <TagBadge label="Rooftops" />
                 </div>
               </div>
 
@@ -634,7 +634,7 @@ export default function ExpertiseSection() {
                       textAlign: 'left',
                     }}
                   >
-                    Portrait Photography
+                    Custom Sessions
                   </div>
                   <p
                     style={{
@@ -648,7 +648,7 @@ export default function ExpertiseSection() {
                       margin: 0,
                     }}
                   >
-                    For individuals, couples, and professionals.
+                    You pick the location anywhere in Paris.
                   </p>
                 </div>
                 <div
@@ -662,9 +662,9 @@ export default function ExpertiseSection() {
                     width: '100%',
                   }}
                 >
-                  <TagBadge label="Studio" />
-                  <TagBadge label="Location" />
-                  <TagBadge label="Retouch" />
+                  <TagBadge label="Couples" />
+                  <TagBadge label="Solo" />
+                  <TagBadge label="Proposals" />
                 </div>
               </div>
             </div>

@@ -89,7 +89,7 @@ export default function Footer() {
                       padding: 0,
                     }}
                   >
-                    Captivating Visual Stories
+                    Your Paris Story in Photos
                   </p>
                 </div>
               </div>
@@ -254,7 +254,7 @@ export default function Footer() {
                   </div>
                   <div style={{ padding: '8px 6px' }}>
                     <Link
-                      href="https://maps.com/"
+                      href="https://www.google.com/maps/place/Paris"
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -274,12 +274,12 @@ export default function Footer() {
                         e.currentTarget.style.color = 'rgb(124, 124, 124)'
                       }}
                     >
-                      XYZ Square
+                      Paris, France
                     </Link>
                   </div>
                   <div style={{ padding: '8px 6px' }}>
                     <Link
-                      href="mailto:Hello@mail.com"
+                      href="mailto:sabounjiyassir@gmail.com"
                       style={{
                         fontSize: '14px',
                         fontWeight: 300,
@@ -297,7 +297,7 @@ export default function Footer() {
                         e.currentTarget.style.color = 'rgb(124, 124, 124)'
                       }}
                     >
-                      Hello@mail.com
+                      sabounjiyassir@gmail.com
                     </Link>
                   </div>
                 </div>
@@ -321,56 +321,108 @@ export default function Footer() {
                   padding: 0,
                 }}
               >
-                © All Rights Reserved, 2025
+                © 2019 website SabShots made with 🖤. All rights reserved.
               </p>
 
-              {/* License + Changelog links */}
+              {/* Social links — GetYourGuide, Instagram, WhatsApp */}
               <div
                 className="flex flex-row justify-center items-center"
-                style={{ gap: '5px', height: '28px' }}
+                style={{ gap: '10px' }}
               >
-                <Link
-                  href="/templates-info/license"
+                {/* GetYourGuide */}
+                <a
+                  href="https://www.getyourguide.com/yassir-sabounji-s514149/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Book on GetYourGuide"
                   style={{
-                    fontSize: '14px',
-                    fontWeight: 300,
-                    fontFamily: 'Manrope, sans-serif',
-                    lineHeight: '20px',
-                    color: 'rgb(124, 124, 124)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '999px',
+                    backgroundColor: '#ff5533',
+                    color: '#fff',
                     textDecoration: 'none',
-                    transition: 'all',
-                    padding: '4px 6px',
+                    transition: 'opacity 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'rgb(1, 1, 1)'
+                    e.currentTarget.style.opacity = '0.85'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'rgb(124, 124, 124)'
+                    e.currentTarget.style.opacity = '1'
                   }}
                 >
-                  License
-                </Link>
-                <Link
-                  href="/templates-info/changelog"
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
+                    <circle cx="12" cy="12" r="9.5" />
+                    <path d="M8 14c1 1.3 2.4 2 4 2s3-.7 4-2" />
+                    <circle cx="9" cy="10" r="1" fill="#fff" stroke="none" />
+                    <circle cx="15" cy="10" r="1" fill="#fff" stroke="none" />
+                  </svg>
+                </a>
+                {/* Instagram */}
+                <a
+                  href="https://www.instagram.com/sab.shots/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
                   style={{
-                    fontSize: '14px',
-                    fontWeight: 300,
-                    fontFamily: 'Manrope, sans-serif',
-                    lineHeight: '20px',
-                    color: 'rgb(124, 124, 124)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '999px',
+                    background:
+                      'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
+                    color: '#fff',
                     textDecoration: 'none',
-                    transition: 'all',
-                    padding: '4px 6px',
+                    transition: 'opacity 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = 'rgb(1, 1, 1)'
+                    e.currentTarget.style.opacity = '0.85'
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = 'rgb(124, 124, 124)'
+                    e.currentTarget.style.opacity = '1'
                   }}
                 >
-                  Changelog
-                </Link>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2">
+                    <rect x="2" y="2" width="20" height="20" rx="5" />
+                    <circle cx="12" cy="12" r="4.5" />
+                    <circle cx="17.5" cy="6.5" r="1" fill="#fff" stroke="none" />
+                  </svg>
+                </a>
+                {/* WhatsApp */}
+                <a
+                  href="https://wa.me/33652077909?text=Hey%2C%20I%20just%20saw%20your%20website%20and%20I%20want%20to%20book%20a%20photo%20session%20in%20Paris."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '999px',
+                    backgroundColor: '#25d366',
+                    color: '#fff',
+                    textDecoration: 'none',
+                    transition: 'opacity 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '0.85'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = '1'
+                  }}
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+                    <path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.6.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.1-.6-1.5-.9-2-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.4-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z" />
+                    <path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-2.8.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

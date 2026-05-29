@@ -171,7 +171,7 @@ export default function TrustedGloballySection() {
                 margin: 0,
               }}
             >
-              Trusted Globally by Brands and Creatives
+              Trusted by Clients from Around the World
             </h2>
             <p
               style={{
@@ -185,8 +185,8 @@ export default function TrustedGloballySection() {
                 textAlign: 'center',
               }}
             >
-              Over 100 brands and creatives trust me to capture their stories through bold,
-              refined imagery.
+              More than 500 clients from over 80 nationalities have trusted me to capture their
+              Paris memories.
             </p>
           </div>
 

@@ -177,7 +177,7 @@ export default function CtaSection() {
                       margin: 0,
                     }}
                   >
-                    Reach out to us to transform your vision into captivating photography.
+                    Reach out and let&apos;s plan your private photo session in Paris.
                   </p>
                 </div>
               </div>

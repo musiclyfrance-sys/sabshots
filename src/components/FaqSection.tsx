@@ -7,20 +7,28 @@ import type { FAQItem } from '@/types'
 
 const faqItems: FAQItem[] = [
   {
-    question: 'What services do you offer?',
-    answer: 'We provide portrait, event, product, and brand photography.',
+    question: 'Where in Paris do you shoot?',
+    answer: 'Anywhere you like, from the Eiffel Tower and Trocadéro to hidden streets and rooftops across the city.',
   },
   {
     question: 'How do I book a session?',
-    answer: 'Simply contact us with your preferred date — we\'ll confirm availability.',
+    answer: 'Send me your preferred date and location, and I will confirm availability within 24 hours.',
   },
   {
-    question: 'Do you offer photo editing?',
-    answer: 'Yes, all final photos include professional retouching.',
+    question: 'How long is a photo session?',
+    answer: 'It depends on the location you choose and the vision you have. You can set the duration yourself, or I can suggest a few options that fit your shoot.',
   },
   {
-    question: 'How long until I get my photos?',
-    answer: 'Usually within 5–7 days after the shoot.',
+    question: 'When will I receive my photos?',
+    answer: 'Your edited photos are delivered 5 to 7 days after the first delivery of your RAW photos.',
+  },
+  {
+    question: 'Do you photograph couples and proposals?',
+    answer: 'Yes, I photograph couples, solo travelers, families, and surprise marriage proposals.',
+  },
+  {
+    question: 'Do you speak my language?',
+    answer: 'I work with clients from more than 80 nationalities, and I speak English, French, Arabic, and Spanish.',
   },
 ]
 
@@ -128,7 +136,7 @@ export default function FaqSection() {
                 textAlign: 'center',
               }}
             >
-              Get answers to your questions and discover how we can enhance your brand.
+              Everything you need to know before booking your Paris photo session.
             </p>
           </div>
 
