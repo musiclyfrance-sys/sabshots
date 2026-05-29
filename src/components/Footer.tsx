@@ -187,29 +187,6 @@ export default function Footer() {
                   </div>
                   <div style={{ padding: '8px 6px' }}>
                     <Link
-                      href="/blog"
-                      style={{
-                        fontSize: '14px',
-                        fontWeight: 300,
-                        fontFamily: 'Manrope, sans-serif',
-                        lineHeight: '20px',
-                        color: 'rgb(124, 124, 124)',
-                        textDecoration: 'none',
-                        display: 'block',
-                        transition: 'all',
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.color = 'rgb(1, 1, 1)'
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.color = 'rgb(124, 124, 124)'
-                      }}
-                    >
-                      Blog
-                    </Link>
-                  </div>
-                  <div style={{ padding: '8px 6px' }}>
-                    <Link
                       href="/about"
                       style={{
                         fontSize: '14px',
@@ -229,6 +206,29 @@ export default function Footer() {
                       }}
                     >
                       About
+                    </Link>
+                  </div>
+                  <div style={{ padding: '8px 6px' }}>
+                    <Link
+                      href="/blog"
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: 300,
+                        fontFamily: 'Manrope, sans-serif',
+                        lineHeight: '20px',
+                        color: 'rgb(124, 124, 124)',
+                        textDecoration: 'none',
+                        display: 'block',
+                        transition: 'all',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = 'rgb(1, 1, 1)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = 'rgb(124, 124, 124)'
+                      }}
+                    >
+                      Blog
                     </Link>
                   </div>
                 </div>
@@ -312,10 +312,10 @@ export default function Footer() {
               {/* Copyright */}
               <p
                 style={{
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontWeight: 300,
                   fontFamily: 'Manrope, sans-serif',
-                  lineHeight: '22px',
+                  lineHeight: '20px',
                   color: 'rgb(124, 124, 124)',
                   margin: 0,
                   padding: 0,
@@ -342,7 +342,7 @@ export default function Footer() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '999px',
-                    backgroundColor: '#ff5533',
+                    backgroundColor: 'rgb(1, 1, 1)',
                     color: '#fff',
                     textDecoration: 'none',
                     transition: 'opacity 0.2s ease',
@@ -354,12 +354,13 @@ export default function Footer() {
                     e.currentTarget.style.opacity = '1'
                   }}
                 >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round">
-                    <circle cx="12" cy="12" r="9.5" />
-                    <path d="M8 14c1 1.3 2.4 2 4 2s3-.7 4-2" />
-                    <circle cx="9" cy="10" r="1" fill="#fff" stroke="none" />
-                    <circle cx="15" cy="10" r="1" fill="#fff" stroke="none" />
-                  </svg>
+                  <Image
+                    src="/assets/getyourguide.svg"
+                    alt="GetYourGuide"
+                    width={20}
+                    height={20}
+                    style={{ width: '20px', height: '20px' }}
+                  />
                 </a>
                 {/* Instagram */}
                 <a
@@ -374,8 +375,7 @@ export default function Footer() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '999px',
-                    background:
-                      'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)',
+                    backgroundColor: 'rgb(1, 1, 1)',
                     color: '#fff',
                     textDecoration: 'none',
                     transition: 'opacity 0.2s ease',
@@ -406,7 +406,7 @@ export default function Footer() {
                     width: '36px',
                     height: '36px',
                     borderRadius: '999px',
-                    backgroundColor: '#25d366',
+                    backgroundColor: 'rgb(1, 1, 1)',
                     color: '#fff',
                     textDecoration: 'none',
                     transition: 'opacity 0.2s ease',

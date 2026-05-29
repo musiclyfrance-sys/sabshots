@@ -506,7 +506,7 @@ export default function ExpertiseSection() {
                       textAlign: 'left',
                     }}
                   >
-                    Instagrammable Paris
+                    Photo Session in Paris
                   </div>
                   <p
                     style={{
@@ -535,8 +535,7 @@ export default function ExpertiseSection() {
                   }}
                 >
                   <TagBadge label="Streets" />
-                  <TagBadge label="Cafés" />
-                  <TagBadge label="Rooftops" />
+                  <TagBadge label="Monuments" />
                 </div>
               </div>
 
