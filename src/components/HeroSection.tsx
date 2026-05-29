@@ -144,7 +144,7 @@ export default function HeroSection() {
                   whiteSpace: 'nowrap',
                 }}
               >
-                Creative Photograpy
+                Paris Photographer
               </span>
             </div>
 
@@ -161,7 +161,7 @@ export default function HeroSection() {
                   margin: 0,
                 }}
               >
-                Captivating Visual Stories
+                Your Paris Story in Photos
               </h1>
               <p
                 style={{
@@ -174,8 +174,8 @@ export default function HeroSection() {
                   margin: 0,
                 }}
               >
-                Meticulously composed visuals, enhanced by strategic lighting and refined artistic
-                guidance.
+                Private photo sessions in Paris, tailored to you and trusted by over 500 clients
+                worldwide.
               </p>
             </div>
 
@@ -216,7 +216,7 @@ export default function HeroSection() {
                   ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(1, 1, 1)'
                 }}
               >
-                Get In Touch
+                Book a Session
               </a>
 
               {/* Secondary button — "View Portfolio" */}
