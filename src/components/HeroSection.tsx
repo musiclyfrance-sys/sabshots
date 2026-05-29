@@ -255,116 +255,30 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* .hero-wrapper-image */}
+          {/* Hero portrait — SabShots */}
           <div
             className="reveal reveal-delay-2"
             style={{
               position: 'relative',
-              width: '800px',
+              width: '940px',
               maxWidth: '100%',
-              height: '400px',
-              overflow: 'visible',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'flex-end',
             }}
           >
-            {/* Main hero portrait */}
             <Image
-              src="/assets/hero-image.png"
-              alt="Captivating Visual Stories — hero portrait"
-              width={800}
-              height={400}
+              src="/assets/sabshots-hero.png"
+              alt="Portrait of SabShots, professional photographer in Paris"
+              width={1923}
+              height={876}
               style={{
-                width: '800px',
-                maxWidth: '100%',
-                height: '400px',
-                objectFit: 'cover',
+                width: '100%',
+                height: 'auto',
+                objectFit: 'contain',
                 display: 'block',
               }}
               priority
-            />
-
-            {/* Thumbnail 1 — base, bottom-left (90x90, top:270, left:80) */}
-            <Image
-              src="/assets/portrait-1.avif"
-              alt="Portrait thumbnail"
-              width={90}
-              height={90}
-              style={{
-                position: 'absolute',
-                top: '270px',
-                left: '80px',
-                width: '90px',
-                height: '90px',
-                objectFit: 'cover',
-                borderRadius: '999px',
-              }}
-            />
-
-            {/* Thumbnail 2 — ._4, top-left (70x70, top:20, left:160) */}
-            <Image
-              src="/assets/portrait-2.avif"
-              alt="Portrait thumbnail"
-              width={70}
-              height={70}
-              style={{
-                position: 'absolute',
-                top: '20px',
-                left: '160px',
-                width: '70px',
-                height: '70px',
-                objectFit: 'cover',
-                borderRadius: '999px',
-              }}
-            />
-
-            {/* Thumbnail 3 — ._1, top-right (90x90, top:0, right:80 → left:630) */}
-            <Image
-              src="/assets/portrait-2.avif"
-              alt="Portrait thumbnail"
-              width={90}
-              height={90}
-              style={{
-                position: 'absolute',
-                top: '0px',
-                left: '630px',
-                width: '90px',
-                height: '90px',
-                objectFit: 'cover',
-                borderRadius: '999px',
-              }}
-            />
-
-            {/* Thumbnail 4 — ._4._6, small center-top (45x45, top:8, left:459) */}
-            <Image
-              src="/assets/portrait-3.avif"
-              alt="Portrait thumbnail"
-              width={45}
-              height={45}
-              style={{
-                position: 'absolute',
-                top: '8px',
-                left: '459px',
-                width: '45px',
-                height: '45px',
-                objectFit: 'cover',
-                borderRadius: '999px',
-              }}
-            />
-
-            {/* Thumbnail 5 — ._4._5, mid-right (70x70, top:230, left:530) */}
-            <Image
-              src="/assets/portrait-4.avif"
-              alt="Portrait thumbnail"
-              width={70}
-              height={70}
-              style={{
-                position: 'absolute',
-                top: '230px',
-                left: '530px',
-                width: '70px',
-                height: '70px',
-                objectFit: 'cover',
-                borderRadius: '999px',
-              }}
             />
           </div>
         </div>
