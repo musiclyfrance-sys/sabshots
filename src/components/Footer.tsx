@@ -61,19 +61,18 @@ export default function Footer() {
                     href="/"
                     className="flex items-center"
                     style={{
-                      width: '65px',
-                      height: '22.8px',
+                      height: '26px',
                       color: 'rgb(1, 1, 1)',
                       textDecoration: 'none',
                       transition: 'all',
                     }}
                   >
                     <Image
-                      src="/assets/logo.png"
-                      alt="Eight black outlined stars arranged in a circle on a transparent background."
-                      width={188}
-                      height={66}
-                      style={{ width: '65px', height: 'auto', display: 'block' }}
+                      src="/assets/logo-dark.svg"
+                      alt="SabShots — photographe professionnel à Paris"
+                      width={1500}
+                      height={293}
+                      style={{ width: '134px', height: 'auto', display: 'block' }}
                       priority
                     />
                   </Link>

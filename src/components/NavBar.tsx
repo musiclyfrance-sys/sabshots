@@ -62,8 +62,7 @@ export default function NavBar() {
             href="/"
             className="flex flex-row justify-center items-center relative"
             style={{
-              width: '65px',
-              height: '22.8125px',
+              height: '24px',
               backgroundColor: 'transparent',
               cursor: 'pointer',
               transition: 'all',
@@ -71,11 +70,11 @@ export default function NavBar() {
             }}
           >
             <Image
-              src="/assets/logo.png"
-              alt="Eight black outlined stars arranged in a circle on a transparent background."
-              width={188}
-              height={66}
-              style={{ width: '65px', height: 'auto' }}
+              src="/assets/logo-dark.svg"
+              alt="SabShots — photographe professionnel à Paris"
+              width={1500}
+              height={293}
+              style={{ width: '124px', height: 'auto' }}
               priority
             />
           </Link>
