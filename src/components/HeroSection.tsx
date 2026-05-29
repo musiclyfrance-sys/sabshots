@@ -1,0 +1,382 @@
+'use client'
+
+import { useEffect, useRef } from 'react'
+import Image from 'next/image'
+import { cn } from '@/lib/utils'
+
+export default function HeroSection() {
+  const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    const section = sectionRef.current
+    if (!section) return
+
+    const reveals = section.querySelectorAll<HTMLElement>('.reveal')
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible')
+          }
+        })
+      },
+      { threshold: 0.15 }
+    )
+
+    reveals.forEach((el) => observer.observe(el))
+
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <main
+      ref={sectionRef}
+      style={{
+        position: 'relative',
+        margin: '100px 0',
+        padding: '12px',
+        height: '790px',
+        fontFamily: 'Manrope, sans-serif',
+        color: 'rgb(1, 1, 1)',
+        fontSize: '16px',
+        overflow: 'visible',
+      }}
+    >
+      {/* .padding-global */}
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '8px',
+          height: '100%',
+        }}
+      >
+        {/* .container-medium */}
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '50px',
+            width: '1000px',
+            maxWidth: '100%',
+            height: '750px',
+            borderRadius: '40px',
+            padding: '8px',
+            position: 'relative',
+          }}
+        >
+          {/* Subtle dot-grid background overlay */}
+          <div
+            aria-hidden="true"
+            style={{
+              position: 'absolute',
+              inset: 0,
+              borderRadius: '40px',
+              backgroundImage:
+                'radial-gradient(circle, rgba(1,1,1,0.12) 1px, transparent 1px)',
+              backgroundSize: '24px 24px',
+              pointerEvents: 'none',
+              zIndex: 0,
+            }}
+          />
+
+          {/* Camera aperture icon — continuous spin */}
+          <div
+            className="reveal"
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
+          >
+            <Image
+              src="/assets/icon-camera-hero.png"
+              alt="Camera aperture"
+              width={24}
+              height={24}
+              style={{
+                position: 'relative',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                overflow: 'clip',
+                animation: 'heroIconSpin 4s linear infinite',
+                transformStyle: 'preserve-3d',
+                willChange: 'transform',
+              }}
+            />
+          </div>
+
+          {/* .section-tittle.center */}
+          <div
+            className="reveal reveal-delay-1"
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'center',
+              alignItems: 'center',
+              gap: '14px',
+              maxWidth: '984px',
+              textAlign: 'center',
+              position: 'relative',
+            }}
+          >
+            {/* Badge */}
+            <div
+              style={{
+                display: 'flex',
+                backgroundColor: 'rgb(255, 255, 255)',
+                padding: '4px 12px',
+                borderRadius: '26px',
+                height: '30px',
+                alignItems: 'center',
+              }}
+            >
+              <span
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  color: 'rgb(1, 1, 1)',
+                  lineHeight: '22px',
+                  display: 'block',
+                  zIndex: 1,
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                Creative Photograpy
+              </span>
+            </div>
+
+            {/* Heading + Paragraph */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+              <h1
+                style={{
+                  fontSize: '52px',
+                  fontWeight: 500,
+                  lineHeight: '62px',
+                  color: 'rgb(1, 1, 1)',
+                  textAlign: 'center',
+                  fontFamily: 'Manrope, sans-serif',
+                  margin: 0,
+                }}
+              >
+                Captivating Visual Stories
+              </h1>
+              <p
+                style={{
+                  fontSize: '18px',
+                  fontWeight: 400,
+                  lineHeight: '25px',
+                  color: 'rgb(124, 124, 124)',
+                  textAlign: 'center',
+                  fontFamily: 'Manrope, sans-serif',
+                  margin: 0,
+                }}
+              >
+                Meticulously composed visuals, enhanced by strategic lighting and refined artistic
+                guidance.
+              </p>
+            </div>
+
+            {/* Button column */}
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'row',
+                alignItems: 'center',
+                gap: '10px',
+              }}
+            >
+              {/* Primary button — "Get In Touch" */}
+              <a
+                href="#contact"
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  color: 'rgb(255, 255, 255)',
+                  backgroundColor: 'rgb(1, 1, 1)',
+                  padding: '9px 20px',
+                  height: '40px',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '99px',
+                  cursor: 'pointer',
+                  fontFamily: 'Manrope, sans-serif',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={(e) => {
+                  ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(40, 40, 40)'
+                }}
+                onMouseLeave={(e) => {
+                  ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(1, 1, 1)'
+                }}
+              >
+                Get In Touch
+              </a>
+
+              {/* Secondary button — "View Portfolio" */}
+              <a
+                href="#portfolio"
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  color: 'rgb(1, 1, 1)',
+                  backgroundColor: 'rgb(255, 255, 255)',
+                  padding: '9px 20px',
+                  height: '42px',
+                  display: 'flex',
+                  flexDirection: 'row',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  borderRadius: '99px',
+                  border: '1px solid rgb(245, 245, 245)',
+                  cursor: 'pointer',
+                  fontFamily: 'Manrope, sans-serif',
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease',
+                  whiteSpace: 'nowrap',
+                }}
+                onMouseEnter={(e) => {
+                  ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                    'rgb(240, 240, 240)'
+                }}
+                onMouseLeave={(e) => {
+                  ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor =
+                    'rgb(255, 255, 255)'
+                }}
+              >
+                View Portfolio
+              </a>
+            </div>
+          </div>
+
+          {/* .hero-wrapper-image */}
+          <div
+            className="reveal reveal-delay-2"
+            style={{
+              position: 'relative',
+              width: '800px',
+              maxWidth: '100%',
+              height: '400px',
+              overflow: 'visible',
+            }}
+          >
+            {/* Main hero portrait */}
+            <Image
+              src="/assets/hero-image.png"
+              alt="Captivating Visual Stories — hero portrait"
+              width={800}
+              height={400}
+              style={{
+                width: '800px',
+                maxWidth: '100%',
+                height: '400px',
+                objectFit: 'cover',
+                display: 'block',
+              }}
+              priority
+            />
+
+            {/* Thumbnail 1 — base, bottom-left (90x90, top:270, left:80) */}
+            <Image
+              src="/assets/portrait-1.avif"
+              alt="Portrait thumbnail"
+              width={90}
+              height={90}
+              style={{
+                position: 'absolute',
+                top: '270px',
+                left: '80px',
+                width: '90px',
+                height: '90px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 2 — ._4, top-left (70x70, top:20, left:160) */}
+            <Image
+              src="/assets/portrait-2.avif"
+              alt="Portrait thumbnail"
+              width={70}
+              height={70}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                left: '160px',
+                width: '70px',
+                height: '70px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 3 — ._1, top-right (90x90, top:0, right:80 → left:630) */}
+            <Image
+              src="/assets/portrait-2.avif"
+              alt="Portrait thumbnail"
+              width={90}
+              height={90}
+              style={{
+                position: 'absolute',
+                top: '0px',
+                left: '630px',
+                width: '90px',
+                height: '90px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 4 — ._4._6, small center-top (45x45, top:8, left:459) */}
+            <Image
+              src="/assets/portrait-3.avif"
+              alt="Portrait thumbnail"
+              width={45}
+              height={45}
+              style={{
+                position: 'absolute',
+                top: '8px',
+                left: '459px',
+                width: '45px',
+                height: '45px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 5 — ._4._5, mid-right (70x70, top:230, left:530) */}
+            <Image
+              src="/assets/portrait-4.avif"
+              alt="Portrait thumbnail"
+              width={70}
+              height={70}
+              style={{
+                position: 'absolute',
+                top: '230px',
+                left: '530px',
+                width: '70px',
+                height: '70px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Inline keyframes for camera icon spin */}
+      <style>{`
+        @keyframes heroIconSpin {
+          from { transform: rotateZ(0deg); }
+          to   { transform: rotateZ(360deg); }
+        }
+      `}</style>
+    </main>
+  )
+}
