@@ -71,7 +71,7 @@ export default function AboutPage() {
           style={{
             position: 'relative', zIndex: 1,
             maxWidth: '1000px', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: '1fr 1fr',
+            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
             gap: '40px', alignItems: 'start',
             paddingBottom: '60px',
           }}
@@ -112,7 +112,7 @@ export default function AboutPage() {
             </div>
 
             {/* Heading */}
-            <h1 style={{ fontSize: '44px', fontWeight: 500, lineHeight: '54px', color: 'rgb(1,1,1)', margin: 0 }}>
+            <h1 style={{ fontSize: 'clamp(32px, 7vw, 44px)', fontWeight: 500, lineHeight: '1.2', color: 'rgb(1,1,1)', margin: 0 }}>
               Hey Im Keylis,&thinsp;wue.
             </h1>
 

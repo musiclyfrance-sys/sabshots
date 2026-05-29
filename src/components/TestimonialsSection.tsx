@@ -84,7 +84,7 @@ export default function TestimonialsSection() {
         display: 'block',
         position: 'relative',
         padding: '12px',
-        margin: '100px 0',
+        margin: 'clamp(56px, 12vw, 100px) 0',
         fontFamily: 'Manrope, sans-serif',
         fontSize: '16px',
         color: 'rgb(1, 1, 1)',
@@ -157,10 +157,10 @@ export default function TestimonialsSection() {
               {/* h2 */}
               <h2
                 style={{
-                  fontSize: '32px',
+                  fontSize: 'clamp(26px, 5vw, 32px)',
                   fontWeight: 500,
                   color: 'rgb(1, 1, 1)',
-                  lineHeight: '44px',
+                  lineHeight: '1.3',
                   textAlign: 'center',
                   margin: '0px',
                   fontFamily: 'Manrope, sans-serif',
@@ -199,7 +199,7 @@ export default function TestimonialsSection() {
               className="reveal reveal-delay-1"
               style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
                 gap: '20px',
                 width: '100%',
                 alignItems: 'center',

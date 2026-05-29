@@ -60,7 +60,7 @@ export default function FaqSection() {
     <section
       ref={sectionRef}
       className="relative w-full"
-      style={{ padding: '12px', margin: '100px 0' }}
+      style={{ padding: '12px', margin: 'clamp(56px, 12vw, 100px) 0' }}
     >
       {/* padding-global */}
       <div
@@ -112,9 +112,9 @@ export default function FaqSection() {
               className="text-center"
               style={{
                 fontFamily: 'Manrope, sans-serif',
-                fontSize: '32px',
+                fontSize: 'clamp(26px, 5vw, 32px)',
                 fontWeight: 500,
-                lineHeight: '44px',
+                lineHeight: '1.3',
                 color: 'rgb(1, 1, 1)',
                 maxWidth: '700px',
                 textAlign: 'center',

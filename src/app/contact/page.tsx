@@ -81,9 +81,9 @@ export default function ContactPage() {
           </div>
           <h1
             style={{
-              fontSize: '52px',
+              fontSize: 'clamp(34px, 8vw, 52px)',
               fontWeight: 500,
-              lineHeight: '62px',
+              lineHeight: '1.15',
               color: 'rgb(1, 1, 1)',
               margin: 0,
             }}
@@ -118,7 +118,7 @@ export default function ContactPage() {
           }}
         >
           {/* Name + Email row */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '16px' }}>
             <div>
               <label style={labelStyle}>Your Name</label>
               <input

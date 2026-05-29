@@ -76,7 +76,7 @@ export default function TrustedGloballySection() {
       style={{
         display: 'block',
         position: 'relative',
-        margin: '100px 0',
+        margin: 'clamp(56px, 12vw, 100px) 0',
         padding: '12px',
         fontFamily: 'Manrope, sans-serif',
         fontSize: '16px',
@@ -162,10 +162,10 @@ export default function TrustedGloballySection() {
             {/* Title */}
             <h2
               style={{
-                fontSize: '32px',
+                fontSize: 'clamp(26px, 5vw, 32px)',
                 fontWeight: 500,
                 fontFamily: 'Manrope, sans-serif',
-                lineHeight: '44px',
+                lineHeight: '1.3',
                 color: 'rgb(1, 1, 1)',
                 maxWidth: '700px',
                 margin: 0,

@@ -67,7 +67,7 @@ export default function ExpertiseSection() {
       ref={sectionRef}
       style={{
         display: 'block',
-        margin: '100px 0',
+        margin: 'clamp(56px, 12vw, 100px) 0',
         padding: '12px',
         fontFamily: 'Manrope, sans-serif',
         fontSize: '16px',
@@ -155,9 +155,9 @@ export default function ExpertiseSection() {
               style={{
                 display: 'block',
                 fontFamily: 'Manrope, sans-serif',
-                fontSize: '32px',
+                fontSize: 'clamp(26px, 5vw, 32px)',
                 fontWeight: 500,
-                lineHeight: '44px',
+                lineHeight: '1.3',
                 color: 'rgb(1, 1, 1)',
                 textAlign: 'center',
                 margin: 0,
@@ -188,7 +188,7 @@ export default function ExpertiseSection() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(3, minmax(0, 314.664px))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
               gap: '20px',
               width: '100%',
               maxWidth: '984px',

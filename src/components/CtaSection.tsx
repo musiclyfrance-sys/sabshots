@@ -46,7 +46,7 @@ export default function CtaSection() {
       className="relative block"
       style={{
         padding: '12px',
-        margin: '100px 0',
+        margin: 'clamp(56px, 12vw, 100px) 0',
         fontFamily: 'Manrope, sans-serif',
         fontSize: '16px',
         fontWeight: 400,
@@ -153,10 +153,10 @@ export default function CtaSection() {
                 >
                   <h2
                     style={{
-                      fontSize: '32px',
+                      fontSize: 'clamp(26px, 5vw, 32px)',
                       fontWeight: 500,
                       fontFamily: 'Manrope, sans-serif',
-                      lineHeight: '44px',
+                      lineHeight: '1.3',
                       color: 'rgb(255, 255, 255)',
                       textAlign: 'center',
                       maxWidth: '700px',

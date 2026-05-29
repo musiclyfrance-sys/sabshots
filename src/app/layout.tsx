@@ -10,9 +10,10 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Lightoory — Photography & Visual Studio",
+  metadataBase: new URL("https://sabshots.vercel.app"),
+  title: "SabShots — Paris Photographer | Private Photo Sessions",
   description:
-    "Professional photography and visual storytelling studio. Capturing moments, crafting narratives through the art of light.",
+    "Private photo sessions in Paris with SabShots, a professional photographer with 8 years of experience. Eiffel Tower shoots, Instagrammable spots, and custom sessions for over 500 clients worldwide.",
 };
 
 export default function RootLayout({

@@ -57,7 +57,7 @@ export default function PortfolioPage() {
             Creative Photograpy
           </div>
 
-          <h1 style={{ fontSize: '52px', fontWeight: 500, lineHeight: '62px', color: 'rgb(1,1,1)', margin: 0, maxWidth: '700px' }}>
+          <h1 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0, maxWidth: '700px' }}>
             A Glimpse into My Perspective
           </h1>
 
@@ -69,7 +69,7 @@ export default function PortfolioPage() {
 
       {/* Portfolio grid — 3 cols, all portrait cards, all CLICKABLE */}
       <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 12px 80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
           {portfolioItems.map((item) => (
             <Link
               key={item.slug}

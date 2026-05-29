@@ -36,7 +36,7 @@ export default function BlogPage() {
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)' }}>
             Our Blog
           </div>
-          <h1 style={{ fontSize: '52px', fontWeight: 500, lineHeight: '62px', color: 'rgb(1,1,1)', margin: 0, maxWidth: '700px' }}>
+          <h1 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0, maxWidth: '700px' }}>
             News &amp; Update
           </h1>
           <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '25px', color: 'rgb(124,124,124)', margin: 0, maxWidth: '450px' }}>
@@ -47,7 +47,7 @@ export default function BlogPage() {
 
       {/* Blog grid — cards are clickable */}
       <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 12px 80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
           {blogPosts.map((post) => (
             <Link
               key={post.slug}

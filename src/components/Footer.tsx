@@ -16,7 +16,7 @@ export default function Footer() {
         display: 'block',
         width: '100%',
         padding: '12px',
-        marginTop: '100px',
+        marginTop: 'clamp(56px, 12vw, 100px)',
         overflow: 'hidden',
       }}
     >
@@ -96,8 +96,8 @@ export default function Footer() {
 
               {/* container-menu-footer: 3-column link grid */}
               <div
-                className="flex flex-row justify-end items-start"
-                style={{ gap: '40px', width: '100%', maxWidth: '467px' }}
+                className="flex flex-row flex-wrap justify-start md:justify-end items-start"
+                style={{ gap: '32px', width: '100%', maxWidth: '467px' }}
               >
                 {/* Pages column */}
                 <div
@@ -289,6 +289,7 @@ export default function Footer() {
                         textDecoration: 'none',
                         display: 'block',
                         transition: 'all',
+                        overflowWrap: 'anywhere',
                       }}
                       onMouseEnter={(e) => {
                         e.currentTarget.style.color = 'rgb(1, 1, 1)'
@@ -306,8 +307,8 @@ export default function Footer() {
 
             {/* column-footer: bottom bar */}
             <div
-              className="flex flex-row justify-between items-center w-full"
-              style={{ height: '28px' }}
+              className="flex flex-row flex-wrap justify-between items-center w-full"
+              style={{ gap: '16px', minHeight: '28px' }}
             >
               {/* Copyright */}
               <p

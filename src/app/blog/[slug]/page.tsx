@@ -60,7 +60,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         {/* Title */}
-        <h1 style={{ fontSize: '48px', fontWeight: 500, lineHeight: '58px', margin: '0 0 12px', color: 'rgb(1,1,1)' }}>
+        <h1 style={{ fontSize: 'clamp(32px, 7vw, 48px)', fontWeight: 500, lineHeight: '1.18', margin: '0 0 12px', color: 'rgb(1,1,1)' }}>
           {post.title}
         </h1>
 

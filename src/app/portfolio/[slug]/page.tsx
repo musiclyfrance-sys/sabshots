@@ -66,7 +66,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           <p style={{ fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', margin: '0 0 8px' }}>
             {item.year}
           </p>
-          <h1 style={{ fontSize: '40px', fontWeight: 500, lineHeight: '48px', margin: '0 0 10px', color: 'rgb(1,1,1)' }}>
+          <h1 style={{ fontSize: 'clamp(30px, 6.5vw, 40px)', fontWeight: 500, lineHeight: '48px', margin: '0 0 10px', color: 'rgb(1,1,1)' }}>
             {item.title}
           </h1>
           <p style={{ fontSize: '16px', fontWeight: 300, color: 'rgb(124,124,124)', margin: 0 }}>
@@ -97,7 +97,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, marginBottom: '16px' }}>
             {item.category}
           </div>
-          <h2 style={{ fontSize: '32px', fontWeight: 500, lineHeight: '44px', margin: 0, color: 'rgb(1,1,1)' }}>
+          <h2 style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 500, lineHeight: '1.3', margin: 0, color: 'rgb(1,1,1)' }}>
             An Insight into My Perspective
           </h2>
           <p style={{ fontSize: '16px', fontWeight: 300, color: 'rgb(124,124,124)', margin: '8px 0 0', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
@@ -107,7 +107,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
 
         {/* Additional images — 2-col grid */}
         {item.images.length > 1 && (
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '48px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '16px', marginBottom: '48px' }}>
             {item.images.slice(1).map((src, i) => (
               <div
                 key={i}
@@ -122,7 +122,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         {/* More work */}
         <div style={{ paddingTop: '48px', borderTop: '1px solid rgb(220,222,228)' }}>
           <h3 style={{ fontSize: '24px', fontWeight: 500, marginBottom: '24px', color: 'rgb(1,1,1)' }}>More Work</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
             {others.map((other) => (
               <Link key={other.slug} href={`/portfolio/${other.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                 <div

@@ -51,7 +51,9 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
     <div
       className="relative cursor-pointer"
       style={{
-        width: '314.664px',
+        width: '100%',
+        maxWidth: '314.664px',
+        marginInline: 'auto',
         height: '416px',
       }}
       onMouseEnter={() => setIsHovered(true)}
@@ -198,7 +200,7 @@ export default function PortfolioSection() {
         fontSize: '16px',
         color: 'rgb(1, 1, 1)',
         padding: '12px',
-        margin: '100px 0px',
+        margin: 'clamp(56px, 12vw, 100px) 0px',
       }}
     >
       {/* .padding-global */}
@@ -253,7 +255,7 @@ export default function PortfolioSection() {
             <h2
               className="block text-center"
               style={{
-                fontSize: '32px',
+                fontSize: 'clamp(26px, 5vw, 32px)',
                 fontWeight: 500,
                 color: 'rgb(1, 1, 1)',
                 maxWidth: '700px',
@@ -281,7 +283,7 @@ export default function PortfolioSection() {
             <div
               className="grid mx-auto"
               style={{
-                gridTemplateColumns: 'repeat(3, 314.664px)',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
                 gridTemplateRows: 'repeat(2, 416px)',
                 gap: '20px',
                 width: '984px',

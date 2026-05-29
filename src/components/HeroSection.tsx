@@ -34,9 +34,8 @@ export default function HeroSection() {
       ref={sectionRef}
       style={{
         position: 'relative',
-        margin: '100px 0',
+        margin: 'clamp(56px, 12vw, 100px) 0',
         padding: '12px',
-        height: '790px',
         fontFamily: 'Manrope, sans-serif',
         color: 'rgb(1, 1, 1)',
         fontSize: '16px',
@@ -61,10 +60,9 @@ export default function HeroSection() {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '50px',
-            width: '1000px',
-            maxWidth: '100%',
-            height: '750px',
+            gap: 'clamp(32px, 6vw, 50px)',
+            width: '100%',
+            maxWidth: '1000px',
             borderRadius: '40px',
             padding: '8px',
             position: 'relative',
@@ -152,9 +150,9 @@ export default function HeroSection() {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <h1
                 style={{
-                  fontSize: '52px',
+                  fontSize: 'clamp(34px, 8vw, 52px)',
                   fontWeight: 500,
-                  lineHeight: '62px',
+                  lineHeight: '1.15',
                   color: 'rgb(1, 1, 1)',
                   textAlign: 'center',
                   fontFamily: 'Manrope, sans-serif',
@@ -260,9 +258,9 @@ export default function HeroSection() {
             className="reveal reveal-delay-2"
             style={{
               position: 'relative',
-              width: '800px',
-              maxWidth: '100%',
-              height: '400px',
+              width: '100%',
+              maxWidth: '800px',
+              aspectRatio: '2 / 1',
               overflow: 'visible',
             }}
           >
@@ -273,9 +271,8 @@ export default function HeroSection() {
               width={1923}
               height={876}
               style={{
-                width: '800px',
-                maxWidth: '100%',
-                height: '400px',
+                width: '100%',
+                height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center top',
                 display: 'block',
@@ -295,10 +292,11 @@ export default function HeroSection() {
               height={90}
               style={{
                 position: 'absolute',
-                top: '270px',
-                left: '80px',
-                width: '90px',
-                height: '90px',
+                top: '67.5%',
+                left: '10%',
+                width: '11.25%',
+                height: 'auto',
+                aspectRatio: '1 / 1',
                 objectFit: 'cover',
                 borderRadius: '999px',
               }}
@@ -312,10 +310,11 @@ export default function HeroSection() {
               height={70}
               style={{
                 position: 'absolute',
-                top: '20px',
-                left: '160px',
-                width: '70px',
-                height: '70px',
+                top: '5%',
+                left: '20%',
+                width: '8.75%',
+                height: 'auto',
+                aspectRatio: '1 / 1',
                 objectFit: 'cover',
                 borderRadius: '999px',
               }}
@@ -329,10 +328,11 @@ export default function HeroSection() {
               height={90}
               style={{
                 position: 'absolute',
-                top: '0px',
-                left: '630px',
-                width: '90px',
-                height: '90px',
+                top: '0%',
+                left: '78.75%',
+                width: '11.25%',
+                height: 'auto',
+                aspectRatio: '1 / 1',
                 objectFit: 'cover',
                 borderRadius: '999px',
               }}
@@ -346,10 +346,11 @@ export default function HeroSection() {
               height={45}
               style={{
                 position: 'absolute',
-                top: '8px',
-                left: '459px',
-                width: '45px',
-                height: '45px',
+                top: '2%',
+                left: '57.375%',
+                width: '5.625%',
+                height: 'auto',
+                aspectRatio: '1 / 1',
                 objectFit: 'cover',
                 borderRadius: '999px',
               }}
@@ -363,10 +364,11 @@ export default function HeroSection() {
               height={70}
               style={{
                 position: 'absolute',
-                top: '230px',
-                left: '530px',
-                width: '70px',
-                height: '70px',
+                top: '57.5%',
+                left: '66.25%',
+                width: '8.75%',
+                height: 'auto',
+                aspectRatio: '1 / 1',
                 objectFit: 'cover',
                 borderRadius: '999px',
               }}
