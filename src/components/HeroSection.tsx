@@ -255,30 +255,121 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Hero portrait — SabShots */}
+          {/* .hero-wrapper-image — SabShots portrait + floating thumbnails (Lightoory layout) */}
           <div
             className="reveal reveal-delay-2"
             style={{
               position: 'relative',
-              width: '940px',
+              width: '800px',
               maxWidth: '100%',
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'flex-end',
+              height: '400px',
+              overflow: 'visible',
             }}
           >
+            {/* Main hero portrait — bottom faded with a mask to remove the white cut */}
             <Image
               src="/assets/sabshots-hero.png"
               alt="Portrait of SabShots, professional photographer in Paris"
               width={1923}
               height={876}
               style={{
-                width: '100%',
-                height: 'auto',
-                objectFit: 'contain',
+                width: '800px',
+                maxWidth: '100%',
+                height: '400px',
+                objectFit: 'cover',
+                objectPosition: 'center top',
                 display: 'block',
+                WebkitMaskImage:
+                  'linear-gradient(to bottom, #000 78%, rgba(0,0,0,0.35) 92%, transparent 100%)',
+                maskImage:
+                  'linear-gradient(to bottom, #000 78%, rgba(0,0,0,0.35) 92%, transparent 100%)',
               }}
               priority
+            />
+
+            {/* Thumbnail 1 — base, bottom-left (90x90, top:270, left:80) */}
+            <Image
+              src="/assets/portrait-1.avif"
+              alt="Private photo session in Paris"
+              width={90}
+              height={90}
+              style={{
+                position: 'absolute',
+                top: '270px',
+                left: '80px',
+                width: '90px',
+                height: '90px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 2 — _4, top-left (70x70, top:20, left:160) */}
+            <Image
+              src="/assets/portrait-2.avif"
+              alt="Paris portrait photography"
+              width={70}
+              height={70}
+              style={{
+                position: 'absolute',
+                top: '20px',
+                left: '160px',
+                width: '70px',
+                height: '70px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 3 — _1, top-right (90x90, top:0, left:630) */}
+            <Image
+              src="/assets/portrait-2.avif"
+              alt="Paris photoshoot session"
+              width={90}
+              height={90}
+              style={{
+                position: 'absolute',
+                top: '0px',
+                left: '630px',
+                width: '90px',
+                height: '90px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 4 — _4 _6, small center-top (45x45, top:8, left:459) */}
+            <Image
+              src="/assets/portrait-3.avif"
+              alt="Photographer in Paris"
+              width={45}
+              height={45}
+              style={{
+                position: 'absolute',
+                top: '8px',
+                left: '459px',
+                width: '45px',
+                height: '45px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
+            />
+
+            {/* Thumbnail 5 — _4 _5, mid-right (70x70, top:230, left:530) */}
+            <Image
+              src="/assets/portrait-4.avif"
+              alt="Paris photo session"
+              width={70}
+              height={70}
+              style={{
+                position: 'absolute',
+                top: '230px',
+                left: '530px',
+                width: '70px',
+                height: '70px',
+                objectFit: 'cover',
+                borderRadius: '999px',
+              }}
             />
           </div>
         </div>
