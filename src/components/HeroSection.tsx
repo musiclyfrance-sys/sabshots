@@ -89,8 +89,8 @@ export default function HeroSection() {
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             <svg
-              width="28"
-              height="28"
+              width="30"
+              height="30"
               viewBox="0 0 24 24"
               fill="none"
               stroke="rgb(1, 1, 1)"
@@ -99,8 +99,8 @@ export default function HeroSection() {
               strokeLinejoin="round"
               aria-hidden="true"
               style={{
-                animation: 'heroIconSpin 4s linear infinite',
-                willChange: 'transform',
+                display: 'block',
+                animation: 'heroIconSpin 6s linear infinite',
               }}
             >
               <circle cx="12" cy="12" r="10" />
