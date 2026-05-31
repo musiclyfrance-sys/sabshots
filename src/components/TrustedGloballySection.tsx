@@ -18,13 +18,16 @@ const BRANDS = ['Jacquemus', 'Ashlynn Park', 'Ricardo Alverèz', 'C.C.O. budah']
 
 function StarIcon() {
   return (
-    <Image
-      src="/assets/icon-star-filled.png"
-      alt="star"
-      width={24}
-      height={24}
-      style={{ objectFit: 'cover', position: 'relative', zIndex: 1 }}
-    />
+    <svg
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="rgb(1, 1, 1)"
+      aria-hidden="true"
+      style={{ display: 'block', position: 'relative', zIndex: 1 }}
+    >
+      <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+    </svg>
   )
 }
 
@@ -195,7 +198,7 @@ export default function TrustedGloballySection() {
             style={{
               width: '100%',
               maxWidth: '700px',
-              height: '316px',
+              height: 'clamp(210px, 56vw, 316px)',
               overflow: 'hidden',
               borderRadius: '34px',
               backgroundColor: 'rgb(245, 245, 245)',
@@ -214,7 +217,7 @@ export default function TrustedGloballySection() {
                   key={i}
                   style={{
                     width: '700px',
-                    height: '316px',
+                    height: 'clamp(210px, 56vw, 316px)',
                     flexShrink: 0,
                     position: 'relative',
                     overflow: 'hidden',
