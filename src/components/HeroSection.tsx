@@ -88,22 +88,29 @@ export default function HeroSection() {
             className="reveal"
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
-            <Image
-              src="/assets/icon-camera-hero.png"
-              alt="Camera aperture"
-              width={24}
-              height={24}
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="rgb(1, 1, 1)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
               style={{
-                position: 'relative',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                overflow: 'clip',
                 animation: 'heroIconSpin 4s linear infinite',
-                transformStyle: 'preserve-3d',
                 willChange: 'transform',
               }}
-            />
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M14.31 8l5.74 9.94" />
+              <path d="M9.69 8h11.48" />
+              <path d="M7.38 12l5.74-9.94" />
+              <path d="M9.69 16L3.95 6.06" />
+              <path d="M14.31 16H2.83" />
+              <path d="M16.62 12l-5.74 9.94" />
+            </svg>
           </div>
 
           {/* .section-tittle.center */}
@@ -255,12 +262,11 @@ export default function HeroSection() {
 
           {/* .hero-wrapper-image — SabShots portrait + floating thumbnails (Lightoory layout) */}
           <div
-            className="reveal reveal-delay-2"
+            className="reveal reveal-delay-2 hero-portrait"
             style={{
               position: 'relative',
               width: '100%',
               maxWidth: '800px',
-              aspectRatio: '2 / 1',
               overflow: 'visible',
             }}
           >

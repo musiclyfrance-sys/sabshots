@@ -196,3 +196,12 @@ img {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
 }
+/* Hero portrait: wide on desktop, taller on mobile so the face stays prominent like the reference */
+.hero-portrait {
+  aspect-ratio: 2 / 1;
+}
+@media (max-width: 600px) {
+  .hero-portrait {
+    aspect-ratio: 4 / 5;
+  }
+}
