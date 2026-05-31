@@ -121,13 +121,22 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
                 flexShrink: 0,
               }}
             >
-              <Image
-                src="/assets/icon-camera.png"
-                alt="camera icon"
-                width={22}
-                height={22}
-                className="object-cover"
-              />
+              <svg
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="rgb(1, 1, 1)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                style={{ display: 'block' }}
+              >
+                <rect x="2" y="8" width="20" height="13" rx="2.5" ry="2.5" />
+                <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                <circle cx="12" cy="14.5" r="3" />
+              </svg>
             </div>
           </div>
 
