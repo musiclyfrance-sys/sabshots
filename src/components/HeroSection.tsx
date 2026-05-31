@@ -34,7 +34,7 @@ export default function HeroSection() {
       ref={sectionRef}
       style={{
         position: 'relative',
-        margin: 'clamp(56px, 12vw, 100px) 0',
+        margin: 'clamp(112px, 22vw, 124px) 0 clamp(56px, 12vw, 100px)',
         padding: '12px',
         fontFamily: 'Manrope, sans-serif',
         color: 'rgb(1, 1, 1)',
@@ -294,6 +294,7 @@ export default function HeroSection() {
             <Image
               src="/assets/portrait-1.avif"
               alt="Private photo session in Paris"
+              className="htn htn-2"
               width={90}
               height={90}
               style={{
@@ -312,6 +313,7 @@ export default function HeroSection() {
             <Image
               src="/assets/portrait-2.avif"
               alt="Paris portrait photography"
+              className="htn-sm htn-1"
               width={70}
               height={70}
               style={{
@@ -330,6 +332,7 @@ export default function HeroSection() {
             <Image
               src="/assets/portrait-2.avif"
               alt="Paris photoshoot session"
+              className="htn htn-3"
               width={90}
               height={90}
               style={{
@@ -348,6 +351,7 @@ export default function HeroSection() {
             <Image
               src="/assets/portrait-3.avif"
               alt="Photographer in Paris"
+              className="htn-sm htn-4"
               width={45}
               height={45}
               style={{
@@ -366,6 +370,7 @@ export default function HeroSection() {
             <Image
               src="/assets/portrait-4.avif"
               alt="Paris photo session"
+              className="htn htn-5"
               width={70}
               height={70}
               style={{
