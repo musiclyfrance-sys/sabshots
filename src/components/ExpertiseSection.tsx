@@ -250,35 +250,15 @@ export default function ExpertiseSection() {
                         flexShrink: 0,
                         position: 'relative',
                         overflow: 'hidden',
-                        borderRadius: '34px',
                       }}
                     >
                       <Image
                         src={slide.src}
                         alt={slide.alt}
                         fill
-                        style={{ objectFit: 'cover', borderRadius: '34px' }}
+                        style={{ objectFit: 'cover' }}
                         sizes="299px"
                       />
-                      {/* "Photo Shoot" label at bottom */}
-                      <span
-                        style={{
-                          display: 'block',
-                          position: 'absolute',
-                          bottom: '17.8125px',
-                          left: 0,
-                          right: 0,
-                          fontFamily: 'Manrope, sans-serif',
-                          fontSize: '16px',
-                          fontWeight: 400,
-                          lineHeight: '22px',
-                          color: 'rgb(255, 255, 255)',
-                          textAlign: 'center',
-                          zIndex: 2,
-                        }}
-                      >
-                        Photo Shoot
-                      </span>
                     </div>
                   ))}
                 </div>
@@ -481,11 +461,15 @@ export default function ExpertiseSection() {
                 }}
                 className="hover:scale-105"
               >
-                {/* Icon — shopping bag (E-Commerce Shoots) */}
+                {/* Icon — Eiffel Tower (Photo Session in Paris) */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
-                  <line x1="3" y1="6" x2="21" y2="6"/>
-                  <path d="M16 10a4 4 0 0 1-8 0"/>
+                  <path d="M12 2v3" />
+                  <path d="M9.5 5h5" />
+                  <path d="M10 5C9 11 6 17 4 22" />
+                  <path d="M14 5C15 11 18 17 20 22" />
+                  <path d="M8 11h8" />
+                  <path d="M6.2 16h11.6" />
+                  <path d="M12 5v17" />
                 </svg>
                 <div
                   style={{
@@ -608,11 +592,10 @@ export default function ExpertiseSection() {
                 }}
                 className="hover:scale-105"
               >
-                {/* Icon — camera outline (Portrait Photography) */}
+                {/* Icon — location pin (Custom Sessions) */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <rect x="2" y="8" width="20" height="13" rx="2.5" ry="2.5"/>
-                  <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-                  <circle cx="12" cy="14.5" r="3"/>
+                  <path d="M12 21s-6-5.3-6-10a6 6 0 0 1 12 0c0 4.7-6 10-6 10z" />
+                  <circle cx="12" cy="11" r="2.5" />
                 </svg>
                 <div
                   style={{

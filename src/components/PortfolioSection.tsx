@@ -52,9 +52,9 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
       className="relative cursor-pointer"
       style={{
         width: '100%',
-        maxWidth: '314.664px',
+        maxWidth: '480px',
         marginInline: 'auto',
-        height: '416px',
+        aspectRatio: '3 / 2',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}

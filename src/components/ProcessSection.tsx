@@ -10,20 +10,18 @@ interface ProcessCard {
 
 // Inline SVG icons — one per process card, matching lightoory.webflow.io exactly
 const PROCESS_SVG_ICONS = [
-  // Card 1 — Capture the Vision: camera outline
+  // Card 1 — Plan Your Session: notebook
+  <svg key="plan" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+    <path d="M9 7h7"/>
+    <path d="M9 11h5"/>
+  </svg>,
+  // Card 2 — Shoot Across Paris: camera
   <svg key="cam" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="2" y="8" width="20" height="13" rx="2.5" ry="2.5"/>
     <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
     <circle cx="12" cy="14.5" r="3"/>
-  </svg>,
-  // Card 2 — Enhance the Details: color wheel / aperture
-  <svg key="wheel" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="10"/>
-    <circle cx="12" cy="12" r="3"/>
-    <line x1="12" y1="2" x2="12" y2="9"/>
-    <line x1="12" y1="15" x2="12" y2="22"/>
-    <line x1="2" y1="12" x2="9" y2="12"/>
-    <line x1="15" y1="12" x2="22" y2="12"/>
   </svg>,
   // Card 3 — Deliver with Impact: file with send arrow
   <svg key="file" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
