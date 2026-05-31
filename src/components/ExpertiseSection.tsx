@@ -188,12 +188,14 @@ export default function ExpertiseSection() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 314.664px))',
               gap: '20px',
               width: '100%',
               maxWidth: '984px',
               justifyContent: 'center',
-              alignItems: 'center',
+              justifyItems: 'center',
+              alignItems: 'stretch',
+              marginInline: 'auto',
               overflow: 'visible',
             }}
             className={cn(
