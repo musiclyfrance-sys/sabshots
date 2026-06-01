@@ -293,7 +293,8 @@ export default function PortfolioSection() {
               className="grid mx-auto"
               style={{
                 gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
-                gap: '16px',
+                rowGap: '10px',
+                columnGap: '20px',
                 alignItems: 'start',
                 width: '100%',
                 maxWidth: '984px',
