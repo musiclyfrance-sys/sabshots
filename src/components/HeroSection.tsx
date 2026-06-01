@@ -60,7 +60,7 @@ export default function HeroSection() {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: 'clamp(22px, 5vw, 44px)',
+            gap: 'clamp(20px, 5vw, 50px)',
             width: '100%',
             maxWidth: '1000px',
             borderRadius: '40px',
@@ -156,10 +156,9 @@ export default function HeroSection() {
             {/* Heading + Paragraph */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <h1
+                className="hero-h1"
                 style={{
-                  fontSize: 'clamp(34px, 8vw, 52px)',
                   fontWeight: 500,
-                  lineHeight: '1.15',
                   color: 'rgb(1, 1, 1)',
                   textAlign: 'center',
                   fontFamily: 'Manrope, sans-serif',
