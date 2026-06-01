@@ -213,7 +213,7 @@ export default function ExpertiseSection() {
                 gap: '10px',
                 width: '100%',
                 maxWidth: '314.664px',
-                height: '610px',
+                height: '464px',
                 padding: '8px',
                 backgroundColor: 'rgb(255, 255, 255)',
                 borderRadius: '34px',
@@ -226,7 +226,7 @@ export default function ExpertiseSection() {
                 style={{
                   width: '100%',
                   maxWidth: '298.664px',
-                  height: '594px',
+                  height: '448px',
                   overflow: 'hidden',
                   position: 'relative',
                   borderRadius: '34px',
@@ -246,7 +246,7 @@ export default function ExpertiseSection() {
                       key={i}
                       style={{
                         width: '100%',
-                        height: '594px',
+                        height: '448px',
                         flexShrink: 0,
                         position: 'relative',
                         overflow: 'hidden',
@@ -463,13 +463,12 @@ export default function ExpertiseSection() {
               >
                 {/* Icon — Eiffel Tower (Photo Session in Paris) */}
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M12 2v3" />
-                  <path d="M9.5 5h5" />
-                  <path d="M10 5C9 11 6 17 4 22" />
-                  <path d="M14 5C15 11 18 17 20 22" />
-                  <path d="M8 11h8" />
-                  <path d="M6.2 16h11.6" />
-                  <path d="M12 5v17" />
+                  <line x1="12" y1="2" x2="12" y2="22" />
+                  <path d="M12 2c0 5-3 12-8 20" />
+                  <path d="M12 2c0 5 3 12 8 20" />
+                  <line x1="9" y1="8" x2="15" y2="8" />
+                  <line x1="7" y1="14" x2="17" y2="14" />
+                  <line x1="4" y1="22" x2="20" y2="22" />
                 </svg>
                 <div
                   style={{

@@ -358,9 +358,9 @@ export default function Footer() {
                   <Image
                     src="/assets/getyourguide.svg"
                     alt="GetYourGuide"
-                    width={17}
-                    height={17}
-                    style={{ width: '17px', height: '17px' }}
+                    width={14}
+                    height={14}
+                    style={{ width: '14px', height: '14px' }}
                   />
                 </a>
                 {/* Instagram */}

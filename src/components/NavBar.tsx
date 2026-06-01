@@ -22,8 +22,8 @@ export default function NavBar() {
     <nav
       className="fixed top-0 left-0 right-0 z-[3] flex flex-row justify-center items-center w-full"
       style={{
-        height: '104px',
-        padding: '24px',
+        height: 'clamp(72px, 13vw, 104px)',
+        padding: 'clamp(16px, 3.5vw, 24px)',
         backgroundImage: 'linear-gradient(rgb(255, 255, 255), rgba(255, 255, 255, 0))',
         backgroundColor: 'transparent',
         backdropFilter: 'blur(2px)',
@@ -40,7 +40,7 @@ export default function NavBar() {
         className="relative flex flex-row justify-center items-center w-full"
         style={{
           zIndex: 10,
-          height: '56px',
+          height: 'clamp(40px, 8vw, 56px)',
           backgroundColor: 'transparent',
           marginLeft: 'auto',
           marginRight: 'auto',

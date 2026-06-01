@@ -34,7 +34,7 @@ export default function HeroSection() {
       ref={sectionRef}
       style={{
         position: 'relative',
-        margin: 'clamp(112px, 22vw, 124px) 0 clamp(56px, 12vw, 100px)',
+        margin: 'clamp(84px, 14vw, 116px) 0 clamp(48px, 9vw, 90px)',
         padding: '12px',
         fontFamily: 'Manrope, sans-serif',
         color: 'rgb(1, 1, 1)',
@@ -60,7 +60,7 @@ export default function HeroSection() {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: 'clamp(32px, 6vw, 50px)',
+            gap: 'clamp(22px, 5vw, 44px)',
             width: '100%',
             maxWidth: '1000px',
             borderRadius: '40px',
@@ -89,8 +89,8 @@ export default function HeroSection() {
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             <svg
-              width="30"
-              height="30"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="rgb(1, 1, 1)"

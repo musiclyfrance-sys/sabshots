@@ -72,8 +72,8 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
         <div
           className="relative flex items-center justify-center rounded-[32px] overflow-hidden"
           style={{
-            width: '298.664px',
-            height: '400px',
+            width: '100%',
+            height: '100%',
           }}
         >
           {/* tumbnail-portfolio */}
