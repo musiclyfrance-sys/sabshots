@@ -283,6 +283,7 @@ export default function HeroSection() {
                 height: '100%',
                 objectFit: 'cover',
                 objectPosition: 'center top',
+                transform: 'translateX(2.5%)',
                 display: 'block',
                 WebkitMaskImage:
                   'linear-gradient(to bottom, #000 78%, rgba(0,0,0,0.35) 92%, transparent 100%)',
