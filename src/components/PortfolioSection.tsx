@@ -61,7 +61,7 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
     >
       {/* card-cms.portfolio.w-inline-block */}
       <div
-        className="flex flex-col items-center justify-center gap-2.5 p-2 w-full h-full rounded-[32px]"
+        className="flex flex-col items-center justify-center p-2 w-full h-full rounded-[28px]"
         style={{
           backgroundColor: 'rgba(252, 253, 255, 0.97)',
           transform: isHovered ? 'translateY(-8px)' : 'translateY(0px)',
@@ -70,7 +70,7 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
       >
         {/* tumbnail-wrapper */}
         <div
-          className="relative flex items-center justify-center rounded-[32px] overflow-hidden"
+          className="relative flex items-center justify-center rounded-[20px] overflow-hidden"
           style={{
             width: '100%',
             height: '100%',
@@ -292,11 +292,11 @@ export default function PortfolioSection() {
             <div
               className="grid mx-auto"
               style={{
-                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))',
-                gridTemplateRows: 'repeat(2, 416px)',
-                gap: '20px',
-                width: '984px',
-                maxWidth: '100%',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))',
+                gap: '16px',
+                alignItems: 'start',
+                width: '100%',
+                maxWidth: '984px',
               }}
             >
               {projects.map((project, i) => (
