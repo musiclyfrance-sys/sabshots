@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
 
 export default function CtaSection() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -189,6 +189,37 @@ export default function CtaSection() {
                     Reach out and let&apos;s plan your private photo session in Paris.
                   </p>
                 </div>
+
+                {/* Primary CTA — "Book a Session" → WhatsApp */}
+                <a
+                  href={WHATSAPP_BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontSize: '14px',
+                    fontWeight: 300,
+                    color: 'rgb(1, 1, 1)',
+                    backgroundColor: 'rgb(255, 255, 255)',
+                    padding: '9px 22px',
+                    height: '42px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: '99px',
+                    textDecoration: 'none',
+                    fontFamily: 'Manrope, sans-serif',
+                    whiteSpace: 'nowrap',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(240, 240, 240)'
+                  }}
+                  onMouseLeave={(e) => {
+                    ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(255, 255, 255)'
+                  }}
+                >
+                  Book a Session
+                </a>
               </div>
 
               {/* No pause button — video plays continuously */}

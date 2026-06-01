@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -192,9 +193,11 @@ export default function HeroSection() {
                 gap: '10px',
               }}
             >
-              {/* Primary button — "Get In Touch" */}
+              {/* Primary button — "Book a Session" → WhatsApp */}
               <a
-                href="#contact"
+                href={WHATSAPP_BOOKING_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 style={{
                   fontSize: '14px',
                   fontWeight: 300,
@@ -223,9 +226,9 @@ export default function HeroSection() {
                 Book a Session
               </a>
 
-              {/* Secondary button — "View Portfolio" */}
+              {/* Secondary button — "View Portfolio" → full portfolio page */}
               <a
-                href="#portfolio"
+                href="/portfolio"
                 style={{
                   fontSize: '14px',
                   fontWeight: 300,

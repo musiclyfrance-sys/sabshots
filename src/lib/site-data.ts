@@ -1,6 +1,12 @@
 // Shared data for blog posts and portfolio items
 // Used by both list pages and detail pages
 
+// Primary conversion CTA — opens WhatsApp with a pre-filled booking message so
+// Yassir knows the lead came from the website. Single source of truth for every
+// "Book a Session" button across the site.
+export const WHATSAPP_BOOKING_URL =
+  'https://wa.me/33652077909?text=Hey%2C%20I%20just%20saw%20your%20website%20and%20I%20want%20to%20book%20a%20photo%20session%20in%20Paris.'
+
 export interface BlogPost {
   slug: string
   title: string

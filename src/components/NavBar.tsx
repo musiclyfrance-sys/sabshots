@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
+import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
 import type { NavItem } from '@/types'
 
 const navItems: NavItem[] = [
@@ -130,9 +131,11 @@ export default function NavBar() {
             </ul>
           </nav>
 
-          {/* CTA Button — right side */}
-          <Link
-            href="/contact"
+          {/* CTA Button — right side — "Book a Session" → WhatsApp */}
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden md:flex flex-row justify-center items-center text-white no-underline"
             style={{
               fontFamily: 'Manrope, sans-serif',
@@ -157,8 +160,8 @@ export default function NavBar() {
               e.currentTarget.style.opacity = '1'
             }}
           >
-            Get In Touch
-          </Link>
+            Book a Session
+          </a>
 
           {/* Mobile hamburger button */}
           <button
@@ -217,8 +220,10 @@ export default function NavBar() {
               </Link>
             )
           })}
-          <Link
-            href="/contact"
+          <a
+            href={WHATSAPP_BOOKING_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-3"
             style={{
               display: 'flex',
@@ -238,8 +243,8 @@ export default function NavBar() {
             }}
             onClick={() => setMobileOpen(false)}
           >
-            Get In Touch
-          </Link>
+            Book a Session
+          </a>
         </div>
       )}
     </nav>
