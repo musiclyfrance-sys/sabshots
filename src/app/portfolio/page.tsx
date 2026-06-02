@@ -2,6 +2,7 @@ import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import CtaSection from '@/components/CtaSection'
+import PageHero from '@/components/PageHero'
 import Link from 'next/link'
 import Image from 'next/image'
 import { portfolioItems } from '@/lib/site-data'
@@ -12,73 +13,16 @@ export const metadata = {
     'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, families and Paris by night.',
 }
 
-function LensIcon() {
-  // Camera lens: round and 3-fold symmetric, so the continuous spin reads cleanly.
-  return (
-    <svg
-      width="28"
-      height="28"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="rgb(1,1,1)"
-      strokeWidth="1.5"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      aria-hidden="true"
-      className="spin-icon"
-      style={{ display: 'block', animation: 'iconSpin 7s linear infinite' }}
-    >
-      <circle cx="12" cy="12" r="10" />
-      <circle cx="12" cy="12" r="4.5" />
-      <line x1="12" y1="2" x2="12" y2="4.5" />
-      <line x1="20.66" y1="17" x2="18.5" y2="15.75" />
-      <line x1="3.34" y1="17" x2="5.5" y2="15.75" />
-    </svg>
-  )
-}
-
 export default function PortfolioPage() {
   return (
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />
 
-      {/* Hero with dot-grid — matches original exactly */}
-      <section
-        style={{
-          position: 'relative',
-          display: 'flex', flexDirection: 'column',
-          alignItems: 'center', justifyContent: 'center',
-          padding: '140px 28px 60px',
-          textAlign: 'center',
-        }}
-      >
-        {/* Dot-grid overlay */}
-        <div
-          aria-hidden="true"
-          style={{
-            position: 'absolute', inset: 0,
-            backgroundImage: 'radial-gradient(circle, rgba(1,1,1,0.09) 1px, transparent 1px)',
-            backgroundSize: '24px 24px', pointerEvents: 'none', zIndex: 0,
-          }}
-        />
-
-        <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
-          {/* Spinning camera lens */}
-          <LensIcon />
-
-          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)' }}>
-            Creative Photograpy
-          </div>
-
-          <h1 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0, maxWidth: '700px' }}>
-            A Glimpse into My Perspective
-          </h1>
-
-          <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '25px', color: 'rgb(124,124,124)', margin: 0, maxWidth: '420px' }}>
-            I capture your vision through creative photography.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        badge="Creative Photography"
+        title="A Glimpse into My Perspective"
+        subtitle="I capture your vision through creative photography."
+      />
 
       {/* Portfolio grid — horizontal album cards, all CLICKABLE */}
       <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 28px 80px' }}>

@@ -2,6 +2,7 @@
 
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
+import PageHero from '@/components/PageHero'
 import { useState } from 'react'
 
 export default function ContactPage() {
@@ -46,63 +47,20 @@ export default function ContactPage() {
     >
       <NavBar />
 
+      <PageHero
+        badge="Contact"
+        title="Let's talk !"
+        subtitle="Fill out the form below, and we'll respond soon!"
+      />
+
       <section
         style={{
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          padding: '160px 12px 80px',
-          gap: '50px',
+          padding: '0 12px 80px',
         }}
       >
-        {/* Header */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            gap: '14px',
-            textAlign: 'center',
-          }}
-        >
-          <div
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              backgroundColor: 'rgb(255, 255, 255)',
-              borderRadius: '26px',
-              padding: '4px 16px',
-              fontSize: '14px',
-              fontWeight: 300,
-              color: 'rgb(1, 1, 1)',
-            }}
-          >
-            Contact
-          </div>
-          <h1
-            style={{
-              fontSize: 'clamp(34px, 8vw, 52px)',
-              fontWeight: 500,
-              lineHeight: '1.15',
-              color: 'rgb(1, 1, 1)',
-              margin: 0,
-            }}
-          >
-            Let&apos;s talk !
-          </h1>
-          <p
-            style={{
-              fontSize: '18px',
-              fontWeight: 300,
-              lineHeight: '25px',
-              color: 'rgb(124, 124, 124)',
-              margin: 0,
-              maxWidth: '420px',
-            }}
-          >
-            Fill out the form below, and we&apos;ll respond soon!
-          </p>
-        </div>
 
         {/* Form card */}
         <div
