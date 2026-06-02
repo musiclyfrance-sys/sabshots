@@ -305,12 +305,12 @@ img {
   }
 }
 
-/* Album detail gallery: alternating landscape (3:2) and portrait (2:3) rows.
-   Desktop: 2 per row for both. Mobile: landscapes stay 2-up, portraits go
-   full-width (1 per row). */
+/* Album detail gallery: alternating rows of landscape (3:2) and portrait (2:3).
+   Desktop: 2 landscapes per row, 3 portraits per row (6-col grid).
+   Mobile: 1 landscape per row (full width), 2 portraits per row (2-col grid). */
 .album-gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   gap: 16px;
 }
 .album-shot {
@@ -321,12 +321,20 @@ img {
 }
 .album-shot-l {
   aspect-ratio: 3 / 2;
+  grid-column: span 3; /* 2 per row */
 }
 .album-shot-p {
   aspect-ratio: 2 / 3;
+  grid-column: span 2; /* 3 per row */
 }
 @media (max-width: 700px) {
+  .album-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .album-shot-l {
+    grid-column: span 2; /* full width, 1 per row */
+  }
   .album-shot-p {
-    grid-column: 1 / -1;
+    grid-column: span 1; /* 2 per row */
   }
 }

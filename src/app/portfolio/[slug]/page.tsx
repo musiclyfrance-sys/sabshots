@@ -66,7 +66,8 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
             Desktop: 2 per row. Mobile: landscapes 2-up, portraits full-width. */}
         <div className="album-gallery">
           {item.images.map((src, i) => {
-            const isPortrait = Math.floor(i / 2) % 2 === 1
+            // Blocks of 5: 2 landscapes then 3 portraits, repeating.
+            const isPortrait = i % 5 >= 2
             return (
               <div key={i} className={`album-shot ${isPortrait ? 'album-shot-p' : 'album-shot-l'}`}>
                 <Image
