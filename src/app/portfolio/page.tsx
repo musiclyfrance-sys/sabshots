@@ -7,8 +7,9 @@ import Image from 'next/image'
 import { portfolioItems } from '@/lib/site-data'
 
 export const metadata = {
-  title: 'Portfolio — Lightoory',
-  description: 'A glimpse into my perspective — creative photography capturing stories.',
+  title: 'Paris Photo Session Portfolio | SabShots Photographer',
+  description:
+    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, families and Paris by night.',
 }
 
 function ApertureIcon() {
