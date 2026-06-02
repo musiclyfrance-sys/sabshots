@@ -266,11 +266,11 @@ img {
 }
 .album-layer-1 {
   z-index: 1;
-  transform: translateY(6px) scale(0.972);
+  transform: translateY(9px) scale(0.972) rotate(-1.6deg);
 }
 .album-layer-2 {
   z-index: 0;
-  transform: translateY(11px) scale(0.945);
+  transform: translateY(17px) scale(0.94) rotate(1.8deg);
 }
 .album-cover {
   position: relative;

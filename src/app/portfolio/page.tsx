@@ -128,8 +128,8 @@ export default function PortfolioPage() {
                 </div>
 
                 {/* Auto photo count — reflects how many photos are in the album */}
-                <div style={{ position: 'absolute', top: '14px', right: '14px', backgroundColor: 'rgba(0,0,0,0.42)', backdropFilter: 'blur(6px)', borderRadius: '99px', padding: '4px 11px' }}>
-                  <span style={{ fontSize: '12px', fontWeight: 400, color: 'white' }}>{item.images.length} photos</span>
+                <div style={{ position: 'absolute', top: '14px', right: '14px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)', borderRadius: '99px', padding: '5px 12px', lineHeight: 1 }}>
+                  <span style={{ fontSize: '12px', fontWeight: 400, color: 'white', lineHeight: 1, display: 'block' }}>{item.images.length} photos</span>
                 </div>
               </div>
             </Link>

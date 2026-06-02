@@ -184,7 +184,7 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     slug: 'instagrammable-paris',
-    title: 'Instagrammable Paris',
+    title: 'Instagrammable',
     category: 'Instagram',
     year: '2025',
     image: '/assets/portfolio-5.png',
