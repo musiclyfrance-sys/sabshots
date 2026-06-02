@@ -28,6 +28,32 @@ On utilise ces skills selon le besoin au fil de l'avancement :
 - `/seo-audit` pour l'audit et l'optimisation SEO.
 - `/ui-ux-pro-max` pour le design UI et UX.
 - `/copywriting` pour la rédaction du contenu.
+
+## Principes design, copy et SEO (extraits des skills, à appliquer en continu)
+Tirés de la lecture complète des skills ui-ux-pro-max, copywriting et seo-review. À garder en tête pour chaque message et chaque action sur le site.
+
+### Design et UX
+- Une seule action principale par écran. Sur SabShots, c'est toujours "Book a Session" vers WhatsApp.
+- Ne jamais faire dépendre une information du survol seul, car le mobile n'a pas de survol.
+- Icônes en SVG, jamais d'emoji. Une seule famille d'icônes, épaisseur de trait cohérente.
+- Cibles tactiles d'au moins 44px, contraste du texte d'au moins 4.5:1.
+- Animer uniquement transform et opacity, durée 150 à 300ms, respecter prefers-reduced-motion.
+- Toujours déclarer les dimensions des images pour éviter les sauts de mise en page.
+- Rythme d'espacement par multiples de 4 et 8, marges latérales cohérentes sur tout le site.
+- La barre de navigation est fixe, donc le bouton de réservation reste toujours visible, pas besoin de bouton flottant.
+
+### Copywriting
+- La clarté prime sur l'esprit, le bénéfice et le résultat priment sur la fonctionnalité.
+- Parler la langue du client, une seule idée par section.
+- Jamais de chiffre, d'avis ou de garantie inventés.
+- Les boutons disent ce que l'utilisateur obtient. Enchaînement fonctionnalité, bénéfice, résultat.
+
+### SEO et GEO
+- Title de 50 à 60 caractères avec le mot-clé en premier, une seule balise H1 par page.
+- Meta description de 150 à 160 caractères commençant par un verbe d'action.
+- Mot-clé présent dans les 100 premiers mots et dans un H2.
+- Définitions de 40 à 60 mots pour viser les extraits optimisés de Google.
+- Slugs courts et riches en mots-clés, 3 à 5 liens internes avec ancres descriptives, aucune page orpheline.
 <!-- END:sabshots-rules -->
 
 # Website Reverse-Engineer Template
