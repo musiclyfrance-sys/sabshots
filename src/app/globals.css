@@ -222,28 +222,19 @@ img {
   .htn-5 { top: 75% !important; left: 86% !important; }    /* lower-right, big */
 }
 
-/* Hero title — replicate Lightoory's exact heading-1 breakpoint ladder so the
-   title never dominates the mobile hero and the portrait stays visible. */
-.hero-h1 {
-  font-size: 42px;
-  line-height: 54px;
-}
-@media (max-width: 991px) {
-  .hero-h1 {
-    font-size: 38px;
-    line-height: 51px;
+/* Shared continuous spin for round, symmetric page icons
+   (homepage hero aperture, portfolio camera lens). */
+@keyframes iconSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
-@media (max-width: 767px) {
-  .hero-h1 {
-    font-size: 28px;
-    line-height: 36px;
-  }
-}
-@media (max-width: 479px) {
-  .hero-h1 {
-    font-size: 23px;
-    line-height: 30px;
+@media (prefers-reduced-motion: reduce) {
+  .spin-icon {
+    animation: none !important;
   }
 }
 

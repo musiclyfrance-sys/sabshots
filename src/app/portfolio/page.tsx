@@ -12,15 +12,27 @@ export const metadata = {
     'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, families and Paris by night.',
 }
 
-function ApertureIcon() {
+function LensIcon() {
+  // Camera lens: round and 3-fold symmetric, so the continuous spin reads cleanly.
   return (
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10"/>
-      <circle cx="12" cy="12" r="3"/>
-      <line x1="12" y1="2" x2="12" y2="9"/>
-      <line x1="12" y1="15" x2="12" y2="22"/>
-      <line x1="2" y1="12" x2="9" y2="12"/>
-      <line x1="15" y1="12" x2="22" y2="12"/>
+    <svg
+      width="28"
+      height="28"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="rgb(1,1,1)"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+      className="spin-icon"
+      style={{ display: 'block', animation: 'iconSpin 7s linear infinite' }}
+    >
+      <circle cx="12" cy="12" r="10" />
+      <circle cx="12" cy="12" r="4.5" />
+      <line x1="12" y1="2" x2="12" y2="4.5" />
+      <line x1="20.66" y1="17" x2="18.5" y2="15.75" />
+      <line x1="3.34" y1="17" x2="5.5" y2="15.75" />
     </svg>
   )
 }
@@ -51,8 +63,8 @@ export default function PortfolioPage() {
         />
 
         <div style={{ position: 'relative', zIndex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
-          {/* Aperture icon */}
-          <ApertureIcon />
+          {/* Spinning camera lens */}
+          <LensIcon />
 
           <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)' }}>
             Creative Photograpy

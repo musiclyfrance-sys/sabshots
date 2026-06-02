@@ -91,8 +91,8 @@ export default function HeroSection() {
             style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}
           >
             <svg
-              width="24"
-              height="24"
+              width="28"
+              height="28"
               viewBox="0 0 24 24"
               fill="none"
               stroke="rgb(1, 1, 1)"
@@ -158,9 +158,10 @@ export default function HeroSection() {
             {/* Heading + Paragraph */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
               <h1
-                className="hero-h1"
                 style={{
+                  fontSize: 'clamp(34px, 8vw, 52px)',
                   fontWeight: 500,
+                  lineHeight: '1.15',
                   color: 'rgb(1, 1, 1)',
                   textAlign: 'center',
                   fontFamily: 'Manrope, sans-serif',
