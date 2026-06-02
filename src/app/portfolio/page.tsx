@@ -36,7 +36,7 @@ export default function PortfolioPage() {
           position: 'relative',
           display: 'flex', flexDirection: 'column',
           alignItems: 'center', justifyContent: 'center',
-          padding: '140px 12px 60px',
+          padding: '140px 28px 60px',
           textAlign: 'center',
         }}
       >
@@ -69,8 +69,8 @@ export default function PortfolioPage() {
       </section>
 
       {/* Portfolio grid — horizontal album cards, all CLICKABLE */}
-      <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 12px 80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 440px), 1fr))', gap: '28px' }}>
+      <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 28px 80px' }}>
+        <div className="album-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 440px), 1fr))' }}>
           {portfolioItems.map((item) => (
             <Link
               key={item.slug}

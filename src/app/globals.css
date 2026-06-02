@@ -300,3 +300,16 @@ img {
     transition: none;
   }
 }
+
+/* Portfolio album grid spacing.
+   Desktop (2 columns): 28px gap. Single-column (tablet/mobile): larger row gap
+   because the tilted stack leans ~17px below each card and would otherwise feel
+   condensed. */
+.album-grid {
+  gap: 28px;
+}
+@media (max-width: 960px) {
+  .album-grid {
+    row-gap: 46px;
+  }
+}
