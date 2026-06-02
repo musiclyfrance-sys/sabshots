@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import { cn } from '@/lib/utils'
 import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
+import { WhatsAppGlyph } from '@/components/icons'
 
 export default function CtaSection() {
   const wrapperRef = useRef<HTMLDivElement>(null)
@@ -218,6 +219,7 @@ export default function CtaSection() {
                     ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(255, 255, 255)'
                   }}
                 >
+                  <WhatsAppGlyph size={15} className="mr-2" />
                   Book a Session
                 </a>
               </div>

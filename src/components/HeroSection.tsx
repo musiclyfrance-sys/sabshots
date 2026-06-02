@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
+import { WhatsAppGlyph } from '@/components/icons'
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -223,6 +224,7 @@ export default function HeroSection() {
                   ;(e.currentTarget as HTMLAnchorElement).style.backgroundColor = 'rgb(1, 1, 1)'
                 }}
               >
+                <WhatsAppGlyph size={15} className="mr-2" />
                 Book a Session
               </a>
 

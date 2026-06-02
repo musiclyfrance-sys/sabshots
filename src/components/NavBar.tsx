@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
+import { WhatsAppGlyph } from '@/components/icons'
 import type { NavItem } from '@/types'
 
 const navItems: NavItem[] = [
@@ -160,6 +161,7 @@ export default function NavBar() {
               e.currentTarget.style.opacity = '1'
             }}
           >
+            <WhatsAppGlyph size={15} />
             Book a Session
           </a>
 
@@ -243,6 +245,7 @@ export default function NavBar() {
             }}
             onClick={() => setMobileOpen(false)}
           >
+            <WhatsAppGlyph size={15} className="mr-2" />
             Book a Session
           </a>
         </div>
