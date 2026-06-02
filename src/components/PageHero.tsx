@@ -124,7 +124,7 @@ export default function PageHero({
             </div>
 
             {/* Heading + Paragraph */}
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
               <h1
                 style={{
                   fontSize: 'clamp(34px, 8vw, 52px)',

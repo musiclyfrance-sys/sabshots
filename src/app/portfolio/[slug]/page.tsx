@@ -14,7 +14,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const item = portfolioItems.find((p) => p.slug === slug)
   if (!item) return { title: 'Not Found' }
-  return { title: `${item.title} — Lightoory Portfolio` }
+  return {
+    title: `${item.title} Photo Album | SabShots Paris Photographer`,
+    description: item.description,
+  }
 }
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,99 +32,61 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
       <NavBar />
 
-      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '120px 16px 80px' }}>
+      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '120px 28px 0' }}>
 
-        {/* Header card — matches original: back arrow + aperture icon + year + title + description */}
+        {/* Header card — back link + title + description (no date, no icon) */}
         <div
           style={{
             backgroundColor: 'rgb(255,255,255)', borderRadius: '34px',
-            padding: '28px 32px', marginBottom: '32px',
+            padding: '28px 32px', marginBottom: '40px',
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '24px' }}>
-            <Link
-              href="/portfolio"
-              style={{
-                display: 'inline-flex', alignItems: 'center', gap: '8px',
-                fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)',
-                textDecoration: 'none', transition: 'opacity 0.2s',
-              }}
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-              Back
-            </Link>
-            {/* Aperture icon */}
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <circle cx="12" cy="12" r="10"/>
-              <circle cx="12" cy="12" r="3"/>
-              <line x1="12" y1="2" x2="12" y2="9"/>
-              <line x1="12" y1="15" x2="12" y2="22"/>
-              <line x1="3" y1="12" x2="9" y2="12"/>
-              <line x1="15" y1="12" x2="22" y2="12"/>
+          <Link
+            href="/portfolio"
+            style={{
+              display: 'inline-flex', alignItems: 'center', gap: '8px',
+              fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)',
+              textDecoration: 'none', marginBottom: '20px',
+            }}
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-          </div>
-
-          <p style={{ fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', margin: '0 0 8px' }}>
-            {item.year}
-          </p>
-          <h1 style={{ fontSize: 'clamp(30px, 6.5vw, 40px)', fontWeight: 500, lineHeight: '48px', margin: '0 0 10px', color: 'rgb(1,1,1)' }}>
+            Back to portfolio
+          </Link>
+          <h1 style={{ fontSize: 'clamp(30px, 6.5vw, 40px)', fontWeight: 500, lineHeight: '1.2', margin: '0 0 10px', color: 'rgb(1,1,1)' }}>
             {item.title}
           </h1>
-          <p style={{ fontSize: '16px', fontWeight: 300, color: 'rgb(124,124,124)', margin: 0 }}>
+          <p style={{ fontSize: '16px', fontWeight: 300, color: 'rgb(124,124,124)', margin: 0, maxWidth: '600px' }}>
             {item.description}
           </p>
         </div>
 
-        {/* Hero image — full width */}
-        <div
-          style={{
-            width: '100%', height: '520px', position: 'relative',
-            borderRadius: '34px', overflow: 'hidden', marginBottom: '16px',
-            backgroundColor: 'rgb(200,202,208)',
-          }}
-        >
-          <Image
-            src={item.image}
-            alt={item.title}
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-            sizes="1000px"
-          />
-        </div>
-
-        {/* Section title */}
-        <div style={{ textAlign: 'center', padding: '48px 0 32px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, marginBottom: '16px' }}>
-            {item.category}
-          </div>
-          <h2 style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 500, lineHeight: '1.3', margin: 0, color: 'rgb(1,1,1)' }}>
-            An Insight into My Perspective
-          </h2>
-          <p style={{ fontSize: '16px', fontWeight: 300, color: 'rgb(124,124,124)', margin: '8px 0 0', maxWidth: '400px', marginLeft: 'auto', marginRight: 'auto' }}>
-            I capture your vision through creative photography.
-          </p>
-        </div>
-
-        {/* Additional images — 2-col grid */}
-        {item.images.length > 1 && (
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))', gap: '16px', marginBottom: '48px' }}>
-            {item.images.slice(1).map((src, i) => (
-              <div
-                key={i}
-                style={{ height: '320px', position: 'relative', borderRadius: '24px', overflow: 'hidden', backgroundColor: 'rgb(200,202,208)' }}
-              >
-                <Image src={src} alt={`${item.title} ${i + 2}`} fill style={{ objectFit: 'cover' }} sizes="500px" />
+        {/* Gallery — alternating landscape (3:2) and portrait (2:3) rows.
+            Desktop: 2 per row. Mobile: landscapes 2-up, portraits full-width. */}
+        <div className="album-gallery">
+          {item.images.map((src, i) => {
+            const isPortrait = Math.floor(i / 2) % 2 === 1
+            return (
+              <div key={i} className={`album-shot ${isPortrait ? 'album-shot-p' : 'album-shot-l'}`}>
+                <Image
+                  src={src}
+                  alt={`${item.title} photo ${i + 1}`}
+                  fill
+                  style={{ objectFit: 'cover' }}
+                  sizes="(max-width: 700px) 100vw, 480px"
+                  priority={i < 2}
+                />
               </div>
-            ))}
-          </div>
-        )}
+            )
+          })}
+        </div>
 
-        {/* More work */}
-        <div style={{ paddingTop: '48px', borderTop: '1px solid rgb(220,222,228)' }}>
-          <h3 style={{ fontSize: '24px', fontWeight: 500, marginBottom: '24px', color: 'rgb(1,1,1)' }}>More Work</h3>
+        {/* More Work — centered, at the bottom */}
+        <div style={{ paddingTop: '80px', paddingBottom: '8px' }}>
+          <h2 style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 500, lineHeight: '1.3', margin: '0 0 28px', color: 'rgb(1,1,1)', textAlign: 'center' }}>
+            More Work
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
             {others.map((other) => (
               <Link key={other.slug} href={`/portfolio/${other.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -133,14 +98,24 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                   }}
                 >
                   <Image src={other.image} alt={other.title} fill style={{ objectFit: 'cover' }} sizes="320px" />
-                  <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, padding: '12px 14px', background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%)' }}>
-                    <span style={{ color: 'white', fontSize: '13px', fontWeight: 400 }}>{other.title}</span>
+                  <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'flex-end', padding: '14px 16px', background: 'linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 70%)' }}>
+                    <span style={{ color: 'white', fontSize: '15px', fontWeight: 500 }}>{other.title}</span>
                   </div>
                 </div>
               </Link>
             ))}
           </div>
         </div>
+      </div>
+
+      {/* Pretty divider before the CTA (same as the portfolio list page) */}
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '16px', maxWidth: '900px', margin: '64px auto 0', padding: '0 28px' }}>
+        <span style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(1,1,1,0.16))' }} />
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(1,1,1,0.4)" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" />
+          <circle cx="12" cy="12" r="3" />
+        </svg>
+        <span style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(1,1,1,0.16))' }} />
       </div>
 
       <CtaSection />

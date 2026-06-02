@@ -171,7 +171,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2025',
     image: '/assets/portfolio-2.png',
     description: 'Candid, editorial moments captured in the streets and hidden corners of Paris.',
-    images: ['/assets/portfolio-2.png', '/assets/showcase-3.png', '/assets/showcase-4.png'],
+    images: ['/assets/portfolio-2.png', '/assets/showcase-3.png', '/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/showcase-4.png', '/assets/portfolio-5.png'],
   },
   {
     slug: 'eiffel-tower',
@@ -180,7 +180,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2025',
     image: '/assets/portfolio-1.png',
     description: 'Private sessions with the most iconic view in Paris, from golden hour to the evening sparkle.',
-    images: ['/assets/portfolio-1.png', '/assets/showcase-1.png', '/assets/showcase-2.png'],
+    images: ['/assets/portfolio-1.png', '/assets/showcase-1.png', '/assets/portrait-3.avif', '/assets/portrait-4.avif', '/assets/showcase-2.png', '/assets/portfolio-6.png'],
   },
   {
     slug: 'instagrammable-paris',
@@ -189,7 +189,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2025',
     image: '/assets/portfolio-5.png',
     description: 'The most photogenic spots across the whole city, ready for your feed.',
-    images: ['/assets/portfolio-5.png', '/assets/portrait-2.avif', '/assets/portrait-4.avif'],
+    images: ['/assets/portfolio-5.png', '/assets/showcase-4.png', '/assets/portrait-2.avif', '/assets/portrait-1.avif', '/assets/portfolio-3.png', '/assets/showcase-3.png'],
   },
   {
     slug: 'couples',
@@ -198,7 +198,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2024',
     image: '/assets/portfolio-3.png',
     description: 'Romantic shoots for two, anywhere your story feels at home in Paris.',
-    images: ['/assets/portfolio-3.png', '/assets/showcase-1.png', '/assets/portrait-3.avif'],
+    images: ['/assets/portfolio-3.png', '/assets/showcase-1.png', '/assets/portrait-3.avif', '/assets/portrait-1.avif', '/assets/portfolio-4.png', '/assets/showcase-2.png'],
   },
   {
     slug: 'proposals',
@@ -207,7 +207,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2025',
     image: '/assets/portfolio-4.png',
     description: 'Surprise marriage proposals captured discreetly as they happen.',
-    images: ['/assets/portfolio-4.png', '/assets/portrait-1.avif', '/assets/portrait-2.avif'],
+    images: ['/assets/portfolio-4.png', '/assets/showcase-2.png', '/assets/portrait-1.avif', '/assets/portrait-4.avif', '/assets/portfolio-2.png', '/assets/showcase-4.png'],
   },
   {
     slug: 'families',
@@ -216,7 +216,7 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2024',
     image: '/assets/portfolio-6.png',
     description: 'Warm family moments in the heart of Paris that you will keep for years.',
-    images: ['/assets/portfolio-6.png', '/assets/showcase-3.png', '/assets/portrait-3.avif'],
+    images: ['/assets/portfolio-6.png', '/assets/showcase-3.png', '/assets/portrait-3.avif', '/assets/portrait-2.avif', '/assets/portfolio-1.png', '/assets/showcase-1.png'],
   },
   {
     slug: 'nightclubs',
@@ -225,6 +225,6 @@ export const portfolioItems: PortfolioItem[] = [
     year: '2025',
     image: '/assets/showcase-2.png',
     description: 'The energy and atmosphere of Paris nightlife, captured inside the clubs.',
-    images: ['/assets/showcase-2.png', '/assets/portfolio-4.png', '/assets/showcase-4.png'],
+    images: ['/assets/showcase-2.png', '/assets/portfolio-4.png', '/assets/portrait-4.avif', '/assets/portrait-3.avif', '/assets/showcase-4.png', '/assets/portfolio-2.png'],
   },
 ]
