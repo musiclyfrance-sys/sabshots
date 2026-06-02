@@ -68,9 +68,12 @@ export default function PortfolioPage() {
         </div>
       </section>
 
-      {/* Portfolio grid — 3 cols, all portrait cards, all CLICKABLE */}
+      {/* Portfolio grid — horizontal album cards, all CLICKABLE */}
       <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 12px 80px' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '16px' }}>
+        <p style={{ textAlign: 'center', color: 'rgb(124,124,124)', fontSize: '16px', fontWeight: 300, lineHeight: '24px', maxWidth: '600px', margin: '0 auto 32px' }}>
+          Each cover is a full album. Open any collection to see all the photos inside.
+        </p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 320px), 1fr))', gap: '16px' }}>
           {portfolioItems.map((item) => (
             <Link
               key={item.slug}
@@ -81,9 +84,9 @@ export default function PortfolioPage() {
                 className="group hover:scale-105 transition-transform duration-400"
                 style={{
                   position: 'relative',
-                  borderRadius: '28px',
+                  borderRadius: '24px',
                   overflow: 'hidden',
-                  aspectRatio: '3 / 4',
+                  aspectRatio: '3 / 2',
                   backgroundColor: 'rgb(200,202,208)',
                   cursor: 'pointer',
                 }}
@@ -96,28 +99,28 @@ export default function PortfolioPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
 
-                {/* Always-visible label so categories are readable on mobile (no hover); image still zooms on hover */}
+                {/* Left black fade so the album title stays readable on any photo */}
                 <div
-                  className="absolute inset-0 transition-opacity duration-400 flex flex-col justify-end p-5"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 52%)' }}
+                  className="absolute inset-0 flex flex-col justify-end p-5"
+                  style={{ background: 'linear-gradient(to right, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.30) 42%, transparent 72%)' }}
                 >
-                  <span style={{ color: 'white', fontSize: '17px', fontWeight: 500 }}>{item.title}</span>
-                </div>
-
-                {/* Camera icon + year chip (always visible at top) */}
-                <div
-                  style={{
-                    position: 'absolute', top: '14px', left: '14px',
-                    backgroundColor: 'rgba(255,255,255,0.9)', borderRadius: '99px',
-                    padding: '4px 10px', display: 'flex', alignItems: 'center', gap: '6px',
-                    backdropFilter: 'blur(6px)',
-                  }}
-                >
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
-                    <circle cx="12" cy="13" r="4"/>
-                  </svg>
-                  <span style={{ fontSize: '11px', fontWeight: 300, color: 'rgb(1,1,1)' }}>{item.year}</span>
+                  <span style={{ color: 'white', fontSize: '22px', fontWeight: 600, lineHeight: 1.15 }}>{item.title}</span>
+                  <span style={{ display: 'flex', alignItems: 'center', gap: '6px', marginTop: '5px', color: 'rgba(255,255,255,0.9)', fontSize: '13px', fontWeight: 300 }}>
+                    View album
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="transition-transform duration-300 group-hover:translate-x-1"
+                    >
+                      <path d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </span>
                 </div>
               </div>
             </Link>
