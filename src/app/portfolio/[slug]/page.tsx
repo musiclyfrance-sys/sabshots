@@ -68,8 +68,9 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
           {item.images.map((src, i) => {
             // Blocks of 5: 2 landscapes then 3 portraits, repeating.
             const isPortrait = i % 5 >= 2
+            const isLonePortrait = i % 5 === 4 // the 3rd portrait, alone on mobile (2 per row)
             return (
-              <div key={i} className={`album-shot ${isPortrait ? 'album-shot-p' : 'album-shot-l'}`}>
+              <div key={i} className={`album-shot ${isPortrait ? 'album-shot-p' : 'album-shot-l'}${isLonePortrait ? ' album-shot-p-lone' : ''}`}>
                 <Image
                   src={src}
                   alt={`${item.title} photo ${i + 1}`}

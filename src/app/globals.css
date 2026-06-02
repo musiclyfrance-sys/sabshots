@@ -337,4 +337,10 @@ img {
   .album-shot-p {
     grid-column: span 1; /* 2 per row */
   }
+  /* A trailing odd portrait sits alone: keep its size but center it in the row. */
+  .album-shot-p-lone {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: calc(50% - 8px);
+  }
 }
