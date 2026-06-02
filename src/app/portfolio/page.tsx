@@ -96,13 +96,12 @@ export default function PortfolioPage() {
                   sizes="(max-width: 768px) 100vw, 33vw"
                 />
 
-                {/* Hover overlay — CSS group-hover */}
+                {/* Always-visible label so categories are readable on mobile (no hover); image still zooms on hover */}
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 flex flex-col justify-end p-5"
-                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 55%)' }}
+                  className="absolute inset-0 transition-opacity duration-400 flex flex-col justify-end p-5"
+                  style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 52%)' }}
                 >
-                  <span style={{ color: 'white', fontSize: '16px', fontWeight: 500 }}>{item.title}</span>
-                  <span style={{ color: 'rgba(255,255,255,0.7)', fontSize: '13px', fontWeight: 300 }}>{item.category} · {item.year}</span>
+                  <span style={{ color: 'white', fontSize: '17px', fontWeight: 500 }}>{item.title}</span>
                 </div>
 
                 {/* Camera icon + year chip (always visible at top) */}

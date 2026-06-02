@@ -166,8 +166,8 @@ We may walk between a few locations, so choose shoes and clothes that let you mo
 export const portfolioItems: PortfolioItem[] = [
   {
     slug: 'street-photography',
-    title: 'Street Photography',
-    category: 'Street',
+    title: 'Street & Lifestyle',
+    category: 'Lifestyle',
     year: '2025',
     image: '/assets/portfolio-2.png',
     description: 'Candid, editorial moments captured in the streets and hidden corners of Paris.',
@@ -219,12 +219,12 @@ export const portfolioItems: PortfolioItem[] = [
     images: ['/assets/portfolio-6.png', '/assets/showcase-3.png', '/assets/portrait-3.avif'],
   },
   {
-    slug: 'paris-by-night',
-    title: 'Paris by Night',
-    category: 'Night',
+    slug: 'nightclubs',
+    title: 'Nightclubs',
+    category: 'Nightlife',
     year: '2025',
     image: '/assets/showcase-2.png',
-    description: 'The city after dark, with glowing landmarks and cinematic night portraits.',
+    description: 'The energy and atmosphere of Paris nightlife, captured inside the clubs.',
     images: ['/assets/showcase-2.png', '/assets/portfolio-4.png', '/assets/showcase-4.png'],
   },
 ]
