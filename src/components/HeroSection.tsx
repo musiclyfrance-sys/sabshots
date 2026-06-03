@@ -299,8 +299,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 1 — base, bottom-left (90x90, top:270, left:80) */}
             <Image
-              src="/assets/portrait-1.avif"
-              alt="Private photo session at the Eiffel Tower in Paris"
+              src="/assets/paris-portrait-photoshoot.jpg"
+              alt="Portrait photo session in Paris by SabShots"
               className="htn htn-2"
               width={90}
               height={90}
@@ -318,8 +318,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 2 — _4, top-left (70x70, top:20, left:160) */}
             <Image
-              src="/assets/portrait-2.avif"
-              alt="Couple portrait photography in Paris by SabShots"
+              src="/assets/paris-lifestyle-photoshoot.jpg"
+              alt="Lifestyle photo session in a Paris street by SabShots"
               className="htn-sm htn-1"
               width={70}
               height={70}
@@ -337,8 +337,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 3 — _1, top-right (90x90, top:0, left:630) */}
             <Image
-              src="/assets/portrait-2.avif"
-              alt="Surprise proposal photography in Paris by SabShots"
+              src="/assets/paris-street-style-photoshoot.jpg"
+              alt="Street style photo session in a Paris street by SabShots"
               className="htn htn-3"
               width={90}
               height={90}
@@ -356,8 +356,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 4 — _4 _6, small center-top (45x45, top:8, left:459) */}
             <Image
-              src="/assets/portrait-3.avif"
-              alt="Family photo session in Paris"
+              src="/assets/paris-editorial-portrait-photoshoot.jpg"
+              alt="Editorial portrait photo session in Paris by SabShots"
               className="htn-sm htn-4"
               width={45}
               height={45}
@@ -375,8 +375,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 5 — _4 _5, mid-right (70x70, top:230, left:530) */}
             <Image
-              src="/assets/portrait-4.avif"
-              alt="Instagrammable photo spots in Paris by SabShots"
+              src="/assets/paris-candid-photoshoot-sunglasses.jpg"
+              alt="Candid photo session in a Paris street by SabShots"
               className="htn htn-5"
               width={70}
               height={70}
