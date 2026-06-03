@@ -61,7 +61,7 @@ export const metadata = {
     title: 'SabShots | About Yassir, Paris Photographer',
     description:
       'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
-    images: ['/assets/portrait-1.avif'],
+    images: ['/assets/yassir-paris-photographer-eiffel-tower.jpg'],
   },
 }
 
@@ -74,7 +74,7 @@ const personJsonLd = {
   description:
     'Paris photographer with 8 years of experience in private photo sessions, from the Eiffel Tower to the streets of the city.',
   url: 'https://www.sabshots.com/about',
-  image: 'https://www.sabshots.com/assets/portrait-1.avif',
+  image: 'https://www.sabshots.com/assets/yassir-paris-photographer-eiffel-tower.jpg',
   worksFor: { '@type': 'Organization', name: 'SabShots', '@id': 'https://www.sabshots.com/#business' },
   knowsLanguage: ['English', 'French', 'Arabic', 'Spanish'],
   sameAs: [
@@ -113,8 +113,8 @@ export default function AboutPage() {
             }}
           >
             <Image
-              src="/assets/portrait-1.avif"
-              alt="Portrait of Yassir, photographer in Paris"
+              src="/assets/yassir-paris-photographer-eiffel-tower.jpg"
+              alt="Yassir, SabShots photographer, shooting in a Paris street with the Eiffel Tower behind"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
               priority
