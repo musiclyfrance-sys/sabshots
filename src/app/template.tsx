@@ -1,15 +1,21 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import { usePathname } from 'next/navigation'
 
-// Wraps every route and re-mounts on each navigation. Gives a subtle page-enter
-// fade plus a robust scroll reveal: everything from the top of the page down to
-// the current viewport fades in, the rest fades in as it scrolls into view.
-// It re-checks on mount, again as the browser settles the scroll after a
-// navigation (forward resets to top, back restores position), and on scroll, so
-// content can never get stuck hidden. Honors prefers-reduced-motion.
+// Wraps every route. Gives a subtle page-enter fade plus a robust scroll reveal.
+// Key points that keep content from ever looking "empty until you scroll":
+//  - it reveals everything from the top of the page down to a bit BELOW the
+//    current viewport (vh * 1.4), so the arrival screen and the content just
+//    under the fold are already shown, and items fade in just before they reach
+//    the viewport rather than after;
+//  - it re-checks on mount, as the scroll settles after a navigation, and on
+//    scroll/resize;
+//  - it depends on the pathname, so it re-runs on every client-side navigation.
+// Honors prefers-reduced-motion.
 export default function Template({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
+  const pathname = usePathname()
 
   useEffect(() => {
     const root = ref.current
@@ -26,8 +32,9 @@ export default function Template({ children }: { children: React.ReactNode }) {
 
     const check = () => {
       const vh = window.innerHeight || document.documentElement.clientHeight
+      const limit = vh * 1.4
       pending().forEach((el) => {
-        if (el.getBoundingClientRect().top < vh - 60) reveal(el)
+        if (el.getBoundingClientRect().top < limit) reveal(el)
       })
     }
 
@@ -42,11 +49,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
     }
 
     check()
-    const timers = [
-      window.setTimeout(check, 90),
-      window.setTimeout(check, 300),
-      window.setTimeout(check, 700),
-    ]
+    const timers = [60, 200, 500, 1000].map((ms) => window.setTimeout(check, ms))
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll, { passive: true })
 
@@ -55,7 +58,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
     }
-  }, [])
+  }, [pathname])
 
   return (
     <div ref={ref} className="page-enter">
