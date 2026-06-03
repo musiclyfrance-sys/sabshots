@@ -2,11 +2,12 @@
 
 import { useEffect, useRef } from 'react'
 
-// Wraps every route and re-mounts on each navigation, so it gives both:
-// 1) a subtle page-enter fade (the .page-enter class), and
-// 2) a scroll-reveal pass: elements already in view fade in immediately, and
-//    elements below the fold fade in as they scroll into view. Same gentle feel
-//    on every page and device. Honors prefers-reduced-motion.
+// Wraps every route and re-mounts on each navigation. Gives a subtle page-enter
+// fade plus a robust scroll reveal: everything from the top of the page down to
+// the current viewport fades in, the rest fades in as it scrolls into view.
+// It re-checks on mount, again as the browser settles the scroll after a
+// navigation (forward resets to top, back restores position), and on scroll, so
+// content can never get stuck hidden. Honors prefers-reduced-motion.
 export default function Template({ children }: { children: React.ReactNode }) {
   const ref = useRef<HTMLDivElement>(null)
 
@@ -14,41 +15,46 @@ export default function Template({ children }: { children: React.ReactNode }) {
     const root = ref.current
     if (!root) return
 
-    const els = Array.from(root.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)'))
-    if (els.length === 0) return
-
     const reveal = (el: Element) => el.classList.add('is-visible')
+    const pending = () =>
+      Array.from(root.querySelectorAll<HTMLElement>('.reveal:not(.is-visible)'))
 
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      els.forEach(reveal)
+      pending().forEach(reveal)
       return
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            reveal(entry.target)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-    )
+    const check = () => {
+      const vh = window.innerHeight || document.documentElement.clientHeight
+      pending().forEach((el) => {
+        if (el.getBoundingClientRect().top < vh - 60) reveal(el)
+      })
+    }
 
-    const viewportH = window.innerHeight || document.documentElement.clientHeight
-    els.forEach((el) => {
-      const rect = el.getBoundingClientRect()
-      // Already in view on load: fade it in now (no reliance on the observer,
-      // which is paused while a tab is backgrounded). Below the fold: on scroll.
-      if (rect.top < viewportH && rect.bottom > 0) {
-        reveal(el)
-      } else {
-        observer.observe(el)
-      }
-    })
+    let ticking = false
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(() => {
+        check()
+        ticking = false
+      })
+    }
 
-    return () => observer.disconnect()
+    check()
+    const timers = [
+      window.setTimeout(check, 90),
+      window.setTimeout(check, 300),
+      window.setTimeout(check, 700),
+    ]
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+
+    return () => {
+      timers.forEach((t) => window.clearTimeout(t))
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+    }
   }, [])
 
   return (

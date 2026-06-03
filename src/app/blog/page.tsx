@@ -21,7 +21,7 @@ export default function BlogPage() {
       <PageHero
         badge="Our Blog"
         title="Paris Photography Tips & Guides"
-        subtitle="Honest tips, local guides, and the best spots to plan your photo session in Paris."
+        subtitle="Local guides and practical tips for photo sessions in Paris."
       />
 
       {/* Blog grid — cards are clickable */}

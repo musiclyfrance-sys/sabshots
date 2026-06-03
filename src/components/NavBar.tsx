@@ -12,7 +12,7 @@ import type { NavItem } from '@/types'
 const navItems: NavItem[] = [
   { label: 'Home', href: '/' },
   { label: 'Portfolio', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Tips & Guides', href: '/blog' },
   { label: 'About', href: '/about' },
 ]
 

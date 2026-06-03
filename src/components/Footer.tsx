@@ -72,7 +72,7 @@ export default function Footer() {
                       alt="SabShots, professional photographer in Paris"
                       width={1500}
                       height={293}
-                      style={{ width: '134px', height: 'auto', display: 'block' }}
+                      style={{ width: '124px', height: 'auto', display: 'block' }}
                       priority
                     />
                   </Link>
@@ -228,7 +228,7 @@ export default function Footer() {
                         e.currentTarget.style.color = 'rgb(124, 124, 124)'
                       }}
                     >
-                      Blog
+                      Tips &amp; Guides
                     </Link>
                   </div>
                 </div>
@@ -305,9 +305,9 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* column-footer: bottom bar — socials sit above the copyright line */}
+            {/* column-footer: bottom bar — socials above the copyright, left-aligned */}
             <div
-              className="flex flex-col justify-center items-center w-full"
+              className="flex flex-col justify-center items-start w-full"
               style={{ gap: '18px' }}
             >
               {/* Social links — GetYourGuide, Instagram, WhatsApp */}
@@ -421,10 +421,10 @@ export default function Footer() {
                   color: 'rgb(124, 124, 124)',
                   margin: 0,
                   padding: 0,
-                  textAlign: 'center',
+                  textAlign: 'left',
                 }}
               >
-                © 2026 SabShots. All rights reserved.
+                © 2021 SabShots. All rights reserved.
               </p>
             </div>
           </div>
