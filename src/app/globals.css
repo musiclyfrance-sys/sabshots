@@ -343,16 +343,22 @@ img {
   }
 }
 
-/* About page: PageHero on top (dot panel, like every other page), then a
-   photo + gear row of equal height (the gear card fills to match the photo,
-   its items share the height evenly). Mobile: photo then gear, stacked. */
+/* About page: PageHero on top, then a centered portrait with the compact gear
+   list stacked below it (same width), so nothing looks oversized or imbalanced. */
 .about-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
 }
 .about-portrait {
+  width: 100%;
+  max-width: 480px;
   height: 420px;
+}
+.about-gear {
+  width: 100%;
+  max-width: 480px;
 }
 /* Stats: 2 x 2 on mobile (80+ and Satisfaction below the first two). */
 .about-stats {
@@ -363,22 +369,8 @@ img {
   margin: 40px auto 0;
 }
 @media (min-width: 701px) {
-  .about-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: stretch;
-  }
   .about-portrait {
-    height: 460px;
-  }
-  .about-gear-card {
-    height: 100%;
-  }
-  .about-gear-list {
-    flex: 1;
-  }
-  .about-gear-item {
-    flex: 1;
+    height: 540px;
   }
   .about-stats {
     grid-template-columns: repeat(4, auto);
