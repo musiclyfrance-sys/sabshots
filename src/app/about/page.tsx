@@ -50,7 +50,7 @@ const stats = [
 ]
 
 export const metadata = {
-  title: 'About Yassir | Private Paris Photographer | SabShots',
+  title: 'SabShots | About Yassir, Paris Photographer',
   description:
     'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
   alternates: { canonical: '/about' },
@@ -58,7 +58,7 @@ export const metadata = {
     type: 'profile',
     siteName: 'SabShots',
     url: 'https://www.sabshots.com/about',
-    title: 'About Yassir | Private Paris Photographer | SabShots',
+    title: 'SabShots | About Yassir, Paris Photographer',
     description:
       'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
     images: ['/assets/portrait-1.avif'],

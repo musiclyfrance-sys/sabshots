@@ -109,12 +109,12 @@ The best images come when you feel at ease, so trust the process and enjoy your 
   },
   {
     slug: 'instagrammable-paris-guide',
-    title: 'A Local Guide to Instagrammable Paris',
+    title: 'A Local Guide to Instagrammable Shots in Paris',
     tag: 'Guide',
     readTime: '6 min read',
     author: 'Yassir Sabounji',
     image: '/assets/showcase-4.png',
-    excerpt: 'The most photogenic and shareable spots across Paris for your feed.',
+    excerpt: 'Discover the most Instagram-worthy and aesthetic photo spots in Paris, from pastel streets to rooftop views, for a feed that turns heads.',
     body: `If you want photos that stand out on your feed, Paris has endless backdrops. These are the spots I return to again and again.
 
 ## Colorful Streets

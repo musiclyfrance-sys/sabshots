@@ -8,17 +8,17 @@ import Image from 'next/image'
 import { portfolioItems } from '@/lib/site-data'
 
 export const metadata = {
-  title: 'Paris Photo Session Portfolio | SabShots Photographer',
+  title: 'SabShots | Paris Photo Session Portfolio',
   description:
-    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals and families.',
+    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
   alternates: { canonical: '/portfolio' },
   openGraph: {
     type: 'website',
     siteName: 'SabShots',
     url: 'https://www.sabshots.com/portfolio',
-    title: 'Paris Photo Session Portfolio | SabShots Photographer',
+    title: 'SabShots | Paris Photo Session Portfolio',
     description:
-      'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals and families.',
+      'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
     images: ['/assets/portfolio-1.png'],
   },
 }

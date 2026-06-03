@@ -14,14 +14,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) return { title: 'Not Found' }
   return {
-    title: `${post.title} | SabShots`,
+    title: `SabShots | ${post.title}`,
     description: post.excerpt,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: 'article',
       siteName: 'SabShots',
       url: `https://www.sabshots.com/blog/${slug}`,
-      title: `${post.title} | SabShots`,
+      title: `SabShots | ${post.title}`,
       description: post.excerpt,
       images: [post.image],
     },

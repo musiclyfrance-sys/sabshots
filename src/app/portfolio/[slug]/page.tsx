@@ -15,14 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const item = portfolioItems.find((p) => p.slug === slug)
   if (!item) return { title: 'Not Found' }
   return {
-    title: `${item.title} Photo Album | SabShots Paris Photographer`,
+    title: `SabShots | ${item.title} Photo Album in Paris`,
     description: item.description,
     alternates: { canonical: `/portfolio/${slug}` },
     openGraph: {
       type: 'article',
       siteName: 'SabShots',
       url: `https://www.sabshots.com/portfolio/${slug}`,
-      title: `${item.title} Photo Album | SabShots Paris Photographer`,
+      title: `SabShots | ${item.title} Photo Album in Paris`,
       description: item.description,
       images: [item.image],
     },
