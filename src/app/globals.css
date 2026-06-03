@@ -342,3 +342,48 @@ img {
     grid-column: span 2;
   }
 }
+
+/* About page. Mobile-first: hero (spinning icon + name + subtitle) on top,
+   then portrait, then gear, centered. Desktop: portrait left (spanning),
+   hero top-right, gear bottom-right, left-aligned. */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+}
+.about-hero-text {
+  text-align: center;
+  align-items: center;
+}
+.about-hero-icon {
+  display: flex;
+  justify-content: center;
+}
+.about-portrait {
+  height: 460px;
+}
+@media (min-width: 701px) {
+  .about-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  .about-portrait {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    height: auto;
+  }
+  .about-hero-text {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    align-items: flex-start;
+  }
+  .about-gear {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .about-hero-icon {
+    display: none;
+  }
+}

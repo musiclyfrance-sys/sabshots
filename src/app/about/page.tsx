@@ -7,19 +7,18 @@ import Image from 'next/image'
 
 const gear = [
   {
-    name: 'Nanon EOS R9',
-    description: 'Fast, precise, and built for any moment.',
+    name: 'Fujifilm XT50',
+    description: 'My everyday camera for crisp, vivid shots.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
         <circle cx="12" cy="13" r="4"/>
-        <circle cx="18.5" cy="9.5" r="0.5" fill="rgb(1,1,1)"/>
       </svg>
     ),
   },
   {
-    name: '50mm f/1.2',
-    description: 'Stunning portraits with rich depth and smooth blur.',
+    name: 'XC15-45mm',
+    description: 'A versatile wide zoom for streets and scenes.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="12" r="9"/>
@@ -32,21 +31,20 @@ const gear = [
     ),
   },
   {
-    name: 'Mensa Tripod',
-    description: 'Rock-steady for long shots and creative frames.',
+    name: 'Sony A7 IV',
+    description: 'Built for night scenes and low light photography.',
     icon: (
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="8" width="20" height="13" rx="2.5" ry="2.5"/>
-        <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
-        <circle cx="12" cy="14.5" r="3"/>
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
       </svg>
     ),
   },
 ]
 
 export const metadata = {
-  title: 'About Me — Lightoory',
-  description: 'I capture moments with creativity and natural light, making each photo tell a unique story.',
+  title: 'About Yassir Sabounji | Paris Photographer | SabShots',
+  description:
+    'Meet Yassir Sabounji, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
 }
 
 export default function AboutPage() {
@@ -54,33 +52,74 @@ export default function AboutPage() {
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />
 
-      {/* Hero — full-width with dot-grid, matching original layout */}
-      <section style={{ position: 'relative', padding: '110px 12px 0' }}>
-        {/* Dot-grid background overlay */}
+      <section style={{ position: 'relative', padding: '110px 28px 0' }}>
+        {/* Dot-grid background overlay (matches the other pages) */}
         <div
           aria-hidden="true"
           style={{
             position: 'absolute', inset: 0,
-            backgroundImage: 'radial-gradient(circle, rgba(1,1,1,0.08) 1px, transparent 1px)',
-            backgroundSize: '28px 28px', pointerEvents: 'none', zIndex: 0,
+            backgroundImage: 'radial-gradient(circle, rgba(1,1,1,0.12) 1px, transparent 1px)',
+            backgroundSize: '24px 24px', pointerEvents: 'none', zIndex: 0,
           }}
         />
 
-        {/* Two-column hero — max-width container */}
-        <div
-          style={{
-            position: 'relative', zIndex: 1,
-            maxWidth: '1000px', margin: '0 auto',
-            display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 240px), 1fr))',
-            gap: '40px', alignItems: 'start',
-            paddingBottom: '60px',
-          }}
-        >
-          {/* Left: tall portrait photo */}
+        {/* Three blocks: hero text, portrait, gear.
+            Desktop: portrait left (spans), hero top-right, gear bottom-right.
+            Mobile: hero (with spinning icon) first, then portrait, then gear. */}
+        <div className="about-grid" style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto', paddingBottom: '60px' }}>
+          {/* Hero text */}
+          <div className="about-hero-text" style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '24px' }}>
+            {/* Spinning aperture icon — shown on mobile only */}
+            <div className="about-hero-icon">
+              <svg
+                width="28"
+                height="28"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="rgb(1,1,1)"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                aria-hidden="true"
+                className="spin-icon"
+                style={{ display: 'block', animation: 'iconSpin 6s linear infinite' }}
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M14.31 8l5.74 9.94" />
+                <path d="M9.69 8h11.48" />
+                <path d="M7.38 12l5.74-9.94" />
+                <path d="M9.69 16L3.95 6.06" />
+                <path d="M14.31 16H2.83" />
+                <path d="M16.62 12l-5.74 9.94" />
+              </svg>
+            </div>
+
+            <div
+              className="about-badge"
+              style={{
+                display: 'inline-flex', alignItems: 'center',
+                backgroundColor: 'rgb(255,255,255)', borderRadius: '26px',
+                padding: '4px 16px', fontSize: '14px', fontWeight: 300,
+                color: 'rgb(1,1,1)',
+              }}
+            >
+              About Me
+            </div>
+
+            <h1 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0 }}>
+              Hey, I&apos;m Yassir Sabounji.
+            </h1>
+
+            <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '25px', color: 'rgb(124,124,124)', margin: 0, maxWidth: '460px' }}>
+              I capture moments across Paris with creativity and natural light, making each photo tell a unique story.
+            </p>
+          </div>
+
+          {/* Portrait */}
           <div
+            className="about-portrait"
             style={{
               width: '100%',
-              height: '580px',
               borderRadius: '40px',
               overflow: 'hidden',
               position: 'relative',
@@ -89,7 +128,7 @@ export default function AboutPage() {
           >
             <Image
               src="/assets/portrait-1.avif"
-              alt="Portrait of photographer"
+              alt="Portrait of Yassir Sabounji, photographer in Paris"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
               priority
@@ -97,38 +136,12 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Right: bio + gear list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', paddingTop: '24px' }}>
-            {/* About Me badge */}
-            <div
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                backgroundColor: 'rgb(255,255,255)', borderRadius: '26px',
-                padding: '4px 16px', fontSize: '14px', fontWeight: 300,
-                color: 'rgb(1,1,1)', alignSelf: 'flex-start',
-              }}
-            >
-              About Me
-            </div>
-
-            {/* Heading */}
-            <h1 style={{ fontSize: 'clamp(32px, 7vw, 44px)', fontWeight: 500, lineHeight: '1.2', color: 'rgb(1,1,1)', margin: 0 }}>
-              Hey Im Keylis,&thinsp;wue.
-            </h1>
-
-            {/* Bio */}
-            <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '27px', color: 'rgb(124,124,124)', margin: 0 }}>
-              I capture moments with creativity and natural light, making each photo tell a unique story.
-            </p>
-
-            {/* Gear list card */}
+          {/* Gear list card */}
+          <div className="about-gear">
             <div style={{ backgroundColor: 'rgb(255,255,255)', borderRadius: '28px', overflow: 'hidden' }}>
-              {/* Header */}
               <div style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', borderBottom: '1px solid rgb(240,242,248)' }}>
                 Gear and tools I use
               </div>
-
-              {/* Gear items */}
               {gear.map((item, i) => (
                 <div
                   key={i}
@@ -138,7 +151,6 @@ export default function AboutPage() {
                     borderBottom: i < gear.length - 1 ? '1px solid rgb(240,242,248)' : 'none',
                   }}
                 >
-                  {/* Icon in small rounded bg */}
                   <div
                     style={{
                       width: '40px', height: '40px', flexShrink: 0,
@@ -163,7 +175,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Reused sections */}
       <ProcessSection />
       <CtaSection />
       <TestimonialsSection />
