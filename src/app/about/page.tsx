@@ -91,38 +91,41 @@ export default function AboutPage() {
           </div>
 
           <div className="about-gear">
-            <div style={{ backgroundColor: 'rgb(255,255,255)', borderRadius: '28px', overflow: 'hidden' }}>
+            <div className="about-gear-card" style={{ backgroundColor: 'rgb(255,255,255)', borderRadius: '28px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', borderBottom: '1px solid rgb(240,242,248)' }}>
                 Gear and tools I use
               </div>
-              {gear.map((item, i) => (
-                <div
-                  key={i}
-                  style={{
-                    display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px',
-                    padding: '18px 20px',
-                    borderBottom: i < gear.length - 1 ? '1px solid rgb(240,242,248)' : 'none',
-                  }}
-                >
+              <div className="about-gear-list" style={{ display: 'flex', flexDirection: 'column' }}>
+                {gear.map((item, i) => (
                   <div
+                    key={i}
+                    className="about-gear-item"
                     style={{
-                      width: '40px', height: '40px', flexShrink: 0,
-                      backgroundColor: 'rgb(240,242,248)', borderRadius: '12px',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '16px',
+                      padding: '18px 20px',
+                      borderBottom: i < gear.length - 1 ? '1px solid rgb(240,242,248)' : 'none',
                     }}
                   >
-                    {item.icon}
+                    <div
+                      style={{
+                        width: '40px', height: '40px', flexShrink: 0,
+                        backgroundColor: 'rgb(240,242,248)', borderRadius: '12px',
+                        display: 'flex', alignItems: 'center', justifyContent: 'center',
+                      }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+                      <span style={{ fontSize: '15px', fontWeight: 500, color: 'rgb(1,1,1)' }}>
+                        {item.name}
+                      </span>
+                      <span style={{ fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)' }}>
+                        {item.description}
+                      </span>
+                    </div>
                   </div>
-                  <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
-                    <span style={{ fontSize: '15px', fontWeight: 500, color: 'rgb(1,1,1)' }}>
-                      {item.name}
-                    </span>
-                    <span style={{ fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)' }}>
-                      {item.description}
-                    </span>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
         </div>
@@ -152,10 +155,10 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(28px, 7vw, 64px)', marginTop: '44px' }}>
+          <div className="about-stats">
             {stats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
-                <div style={{ fontSize: 'clamp(30px, 6vw, 40px)', fontWeight: 500, color: 'rgb(1,1,1)', lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: 'clamp(22px, 4.5vw, 28px)', fontWeight: 500, color: 'rgb(1,1,1)', lineHeight: 1 }}>{s.value}</div>
                 <div style={{ fontSize: '14px', fontWeight: 300, color: 'rgb(124,124,124)', marginTop: '8px' }}>{s.label}</div>
               </div>
             ))}

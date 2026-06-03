@@ -344,23 +344,46 @@ img {
 }
 
 /* About page: PageHero on top (dot panel, like every other page), then a
-   photo + gear row. Desktop: photo left, gear right (vertically centered).
-   Mobile: photo then gear, stacked. */
+   photo + gear row of equal height (the gear card fills to match the photo,
+   its items share the height evenly). Mobile: photo then gear, stacked. */
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
 }
 .about-portrait {
-  height: 440px;
+  height: 420px;
+}
+/* Stats: 2 x 2 on mobile (80+ and Satisfaction below the first two). */
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 26px 16px;
+  max-width: 300px;
+  margin: 40px auto 0;
 }
 @media (min-width: 701px) {
   .about-grid {
-    grid-template-columns: 1.1fr 0.9fr;
+    grid-template-columns: 1fr 1fr;
     gap: 40px;
-    align-items: center;
+    align-items: stretch;
   }
   .about-portrait {
-    height: 520px;
+    height: 460px;
+  }
+  .about-gear-card {
+    height: 100%;
+  }
+  .about-gear-list {
+    flex: 1;
+  }
+  .about-gear-item {
+    flex: 1;
+  }
+  .about-stats {
+    grid-template-columns: repeat(4, auto);
+    gap: clamp(28px, 7vw, 64px);
+    max-width: none;
+    justify-content: center;
   }
 }
