@@ -4,10 +4,10 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const SLIDES = [
-  { src: '/assets/showcase-1.png', alt: 'Serene Tree Landscape' },
-  { src: '/assets/showcase-2.png', alt: 'Sun / Red Field' },
-  { src: '/assets/showcase-3.png', alt: 'Majestic Mountain Peak' },
-  { src: '/assets/showcase-4.png', alt: 'Ethereal Landscape' },
+  { src: '/assets/showcase-1.png', alt: 'Private photo session at the Eiffel Tower in Paris' },
+  { src: '/assets/showcase-2.png', alt: 'Paris nightlife and atmosphere photography by SabShots' },
+  { src: '/assets/showcase-3.png', alt: 'Street and lifestyle photography session in Paris' },
+  { src: '/assets/showcase-4.png', alt: 'Instagrammable photo spots in Paris captured by SabShots' },
 ]
 
 // Doubled for seamless CSS loop

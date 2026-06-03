@@ -113,7 +113,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} priority />
         </div>
 
-        {/* Article body */}
+        {/* Article body — renders ## headings, paragraphs, and [text](url) links */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {sections.map((section, i) => {
             if (section.startsWith('## ')) {
@@ -123,9 +123,21 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 </h2>
               )
             }
+            // Parse inline [text](url) markdown links
+            const parts = section.split(/(\[[^\]]+\]\([^)]+\))/g)
             return (
               <p key={i} style={{ fontSize: '16px', fontWeight: 300, lineHeight: '26px', color: 'rgb(60,60,60)', margin: 0 }}>
-                {section}
+                {parts.map((part, j) => {
+                  const match = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/)
+                  if (match) {
+                    return (
+                      <a key={j} href={match[2]} style={{ color: 'rgb(1,1,1)', textDecoration: 'underline', textUnderlineOffset: '3px' }}>
+                        {match[1]}
+                      </a>
+                    )
+                  }
+                  return part
+                })}
               </p>
             )
           })}

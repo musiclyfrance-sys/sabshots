@@ -5,10 +5,10 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const SLIDES = [
-  { src: '/assets/showcase-1.png', alt: 'Majestic Mountain Peak' },
-  { src: '/assets/portrait-1.avif', alt: 'Dreamlike Portrait' },
-  { src: '/assets/showcase-2.png', alt: 'Serene Tree Landscape' },
-  { src: '/assets/portrait-2.avif', alt: 'Serene Floral Embrace' },
+  { src: '/assets/showcase-1.png', alt: 'Eiffel Tower photo session in Paris by SabShots' },
+  { src: '/assets/portrait-1.avif', alt: 'Portrait photography session in Paris' },
+  { src: '/assets/showcase-2.png', alt: 'Paris photography by SabShots, private sessions' },
+  { src: '/assets/portrait-2.avif', alt: 'Creative portrait photography in Paris' },
 ]
 
 function TagBadge({ label }: { label: string }) {
