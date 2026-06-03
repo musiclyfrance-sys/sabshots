@@ -11,6 +11,7 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.sabshots.com"),
+  verification: { google: "CvCCu1Gz0bN5_sdtVEwm3wVAVYHmqIWMkVxm-vNBIB8" },
   title: "SabShots | Paris Photographer for Private Photo Sessions",
   description:
     "Book a private photo session in Paris with SabShots. With 8 years of experience, turn your moments at the Eiffel Tower and beyond into timeless photos.",
