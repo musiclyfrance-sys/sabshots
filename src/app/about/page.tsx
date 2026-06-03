@@ -3,6 +3,7 @@ import Footer from '@/components/Footer'
 import ProcessSection from '@/components/ProcessSection'
 import CtaSection from '@/components/CtaSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
+import PageHero from '@/components/PageHero'
 import Image from 'next/image'
 
 const gear = [
@@ -52,9 +53,20 @@ export default function AboutPage() {
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />
 
-      <section style={{ position: 'relative', padding: '110px 28px 0' }}>
-        {/* Dot-grid background overlay (matches the other pages) */}
+      {/* Mobile hero — identical to the other pages (spinning icon + title + subtitle + dot panel) */}
+      <div className="about-mobile-hero">
+        <PageHero
+          badge="About Me"
+          title="Hey, I'm Yassir Sabounji."
+          subtitle="I capture moments across Paris with creativity and natural light, making each photo tell a unique story."
+        />
+      </div>
+
+      {/* Bio */}
+      <section className="about-bio-section" style={{ position: 'relative', paddingLeft: '28px', paddingRight: '28px' }}>
+        {/* Dot-grid (desktop only; on mobile the PageHero above provides the dots) */}
         <div
+          className="about-section-dots"
           aria-hidden="true"
           style={{
             position: 'absolute', inset: 0,
@@ -63,53 +75,22 @@ export default function AboutPage() {
           }}
         />
 
-        {/* Three blocks: hero text, portrait, gear.
-            Desktop: portrait left (spans), hero top-right, gear bottom-right.
-            Mobile: hero (with spinning icon) first, then portrait, then gear. */}
         <div className="about-grid" style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto', paddingBottom: '60px' }}>
-          {/* Hero text */}
-          <div className="about-hero-text" style={{ display: 'flex', flexDirection: 'column', gap: '20px', paddingTop: '24px' }}>
-            {/* Spinning aperture icon — shown on mobile only */}
-            <div className="about-hero-icon">
-              <svg
-                width="28"
-                height="28"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="rgb(1,1,1)"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                className="spin-icon"
-                style={{ display: 'block', animation: 'iconSpin 6s linear infinite' }}
-              >
-                <circle cx="12" cy="12" r="10" />
-                <path d="M14.31 8l5.74 9.94" />
-                <path d="M9.69 8h11.48" />
-                <path d="M7.38 12l5.74-9.94" />
-                <path d="M9.69 16L3.95 6.06" />
-                <path d="M14.31 16H2.83" />
-                <path d="M16.62 12l-5.74 9.94" />
-              </svg>
-            </div>
-
+          {/* Hero text — desktop only (mobile uses the PageHero above) */}
+          <div className="about-hero-text" style={{ flexDirection: 'column', gap: '20px', paddingTop: '24px' }}>
             <div
-              className="about-badge"
               style={{
                 display: 'inline-flex', alignItems: 'center',
                 backgroundColor: 'rgb(255,255,255)', borderRadius: '26px',
                 padding: '4px 16px', fontSize: '14px', fontWeight: 300,
-                color: 'rgb(1,1,1)',
+                color: 'rgb(1,1,1)', alignSelf: 'flex-start',
               }}
             >
               About Me
             </div>
-
-            <h1 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0 }}>
+            <h2 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0 }}>
               Hey, I&apos;m Yassir Sabounji.
-            </h1>
-
+            </h2>
             <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '25px', color: 'rgb(124,124,124)', margin: 0, maxWidth: '460px' }}>
               I capture moments across Paris with creativity and natural light, making each photo tell a unique story.
             </p>

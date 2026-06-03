@@ -343,47 +343,56 @@ img {
   }
 }
 
-/* About page. Mobile-first: hero (spinning icon + name + subtitle) on top,
-   then portrait, then gear, centered. Desktop: portrait left (spanning),
-   hero top-right, gear bottom-right, left-aligned. */
+/* About page. Mobile: a PageHero (.about-mobile-hero) gives a hero identical to
+   the other pages; the bio below shows portrait then gear. Desktop: hide that
+   hero and show the two-column bio (portrait left, text top-right, gear bottom-right). */
+.about-mobile-hero {
+  display: block;
+}
+.about-bio-section {
+  padding-top: 0;
+}
+.about-section-dots {
+  display: none;
+}
 .about-grid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 28px;
 }
 .about-hero-text {
-  text-align: center;
-  align-items: center;
-}
-.about-hero-icon {
-  display: flex;
-  justify-content: center;
+  display: none;
 }
 .about-portrait {
   height: 460px;
 }
 @media (min-width: 701px) {
+  .about-mobile-hero {
+    display: none;
+  }
+  .about-bio-section {
+    padding-top: 110px;
+  }
+  .about-section-dots {
+    display: block;
+  }
   .about-grid {
     grid-template-columns: 1fr 1fr;
     gap: 40px;
     align-items: stretch;
+  }
+  .about-hero-text {
+    display: flex;
+    grid-column: 2;
+    grid-row: 1;
   }
   .about-portrait {
     grid-column: 1;
     grid-row: 1 / span 2;
     height: auto;
   }
-  .about-hero-text {
-    grid-column: 2;
-    grid-row: 1;
-    text-align: left;
-    align-items: flex-start;
-  }
   .about-gear {
     grid-column: 2;
     grid-row: 2;
-  }
-  .about-hero-icon {
-    display: none;
   }
 }
