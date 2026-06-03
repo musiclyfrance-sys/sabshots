@@ -42,10 +42,17 @@ const gear = [
   },
 ]
 
+const stats = [
+  { value: '8', label: 'Years of experience' },
+  { value: '500+', label: 'Clients photographed' },
+  { value: '80+', label: 'Nationalities' },
+  { value: '∞', label: 'Satisfaction' },
+]
+
 export const metadata = {
-  title: 'About Yassir Sabounji | Paris Photographer | SabShots',
+  title: 'About Yassir | Private Paris Photographer | SabShots',
   description:
-    'Meet Yassir Sabounji, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
+    'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
 }
 
 export default function AboutPage() {
@@ -53,50 +60,16 @@ export default function AboutPage() {
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />
 
-      {/* Mobile hero — identical to the other pages (spinning icon + title + subtitle + dot panel) */}
-      <div className="about-mobile-hero">
-        <PageHero
-          badge="About Me"
-          title="Hey, I'm Yassir Sabounji."
-          subtitle="I capture moments across Paris with creativity and natural light, making each photo tell a unique story."
-        />
-      </div>
+      {/* Hero — identical to the other pages (dot panel + spinning icon + title + subtitle) */}
+      <PageHero
+        badge="About Me"
+        title="Hey, I'm Yassir."
+        subtitle="I capture moments across Paris with creativity and natural light, making each photo tell a unique story."
+      />
 
-      {/* Bio */}
-      <section className="about-bio-section" style={{ position: 'relative', paddingLeft: '28px', paddingRight: '28px' }}>
-        {/* Dot-grid (desktop only; on mobile the PageHero above provides the dots) */}
-        <div
-          className="about-section-dots"
-          aria-hidden="true"
-          style={{
-            position: 'absolute', inset: 0,
-            backgroundImage: 'radial-gradient(circle, rgba(1,1,1,0.12) 1px, transparent 1px)',
-            backgroundSize: '24px 24px', pointerEvents: 'none', zIndex: 0,
-          }}
-        />
-
-        <div className="about-grid" style={{ position: 'relative', zIndex: 1, maxWidth: '1000px', margin: '0 auto', paddingBottom: '60px' }}>
-          {/* Hero text — desktop only (mobile uses the PageHero above) */}
-          <div className="about-hero-text" style={{ flexDirection: 'column', gap: '20px', paddingTop: '24px' }}>
-            <div
-              style={{
-                display: 'inline-flex', alignItems: 'center',
-                backgroundColor: 'rgb(255,255,255)', borderRadius: '26px',
-                padding: '4px 16px', fontSize: '14px', fontWeight: 300,
-                color: 'rgb(1,1,1)', alignSelf: 'flex-start',
-              }}
-            >
-              About Me
-            </div>
-            <h2 style={{ fontSize: 'clamp(34px, 8vw, 52px)', fontWeight: 500, lineHeight: '1.15', color: 'rgb(1,1,1)', margin: 0 }}>
-              Hey, I&apos;m Yassir Sabounji.
-            </h2>
-            <p style={{ fontSize: '18px', fontWeight: 300, lineHeight: '25px', color: 'rgb(124,124,124)', margin: 0, maxWidth: '460px' }}>
-              I capture moments across Paris with creativity and natural light, making each photo tell a unique story.
-            </p>
-          </div>
-
-          {/* Portrait */}
+      {/* Photo + gear */}
+      <section style={{ padding: '0 28px', fontFamily: 'Manrope, sans-serif' }}>
+        <div className="about-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div
             className="about-portrait"
             style={{
@@ -109,7 +82,7 @@ export default function AboutPage() {
           >
             <Image
               src="/assets/portrait-1.avif"
-              alt="Portrait of Yassir Sabounji, photographer in Paris"
+              alt="Portrait of Yassir, photographer in Paris"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
               priority
@@ -117,7 +90,6 @@ export default function AboutPage() {
             />
           </div>
 
-          {/* Gear list card */}
           <div className="about-gear">
             <div style={{ backgroundColor: 'rgb(255,255,255)', borderRadius: '28px', overflow: 'hidden' }}>
               <div style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', borderBottom: '1px solid rgb(240,242,248)' }}>
@@ -181,18 +153,12 @@ export default function AboutPage() {
           </div>
 
           <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 'clamp(28px, 7vw, 64px)', marginTop: '44px' }}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(30px, 6vw, 40px)', fontWeight: 600, color: 'rgb(1,1,1)', lineHeight: 1 }}>8</div>
-              <div style={{ fontSize: '14px', fontWeight: 300, color: 'rgb(124,124,124)', marginTop: '8px' }}>Years of experience</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(30px, 6vw, 40px)', fontWeight: 600, color: 'rgb(1,1,1)', lineHeight: 1 }}>500+</div>
-              <div style={{ fontSize: '14px', fontWeight: 300, color: 'rgb(124,124,124)', marginTop: '8px' }}>Clients photographed</div>
-            </div>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: 'clamp(30px, 6vw, 40px)', fontWeight: 600, color: 'rgb(1,1,1)', lineHeight: 1 }}>80+</div>
-              <div style={{ fontSize: '14px', fontWeight: 300, color: 'rgb(124,124,124)', marginTop: '8px' }}>Nationalities</div>
-            </div>
+            {stats.map((s, i) => (
+              <div key={i} style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: 'clamp(30px, 6vw, 40px)', fontWeight: 500, color: 'rgb(1,1,1)', lineHeight: 1 }}>{s.value}</div>
+                <div style={{ fontSize: '14px', fontWeight: 300, color: 'rgb(124,124,124)', marginTop: '8px' }}>{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
