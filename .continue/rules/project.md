@@ -52,8 +52,14 @@ Tirés de la lecture complète des skills ui-ux-pro-max, copywriting et seo-revi
 - Jamais de chiffre, d'avis ou de garantie inventés.
 - Les boutons disent ce que l'utilisateur obtient. Enchaînement fonctionnalité, bénéfice, résultat.
 
+### Photos et images (IMPÉRATIF pour le SEO, demande explicite de Yassir)
+- Yassir envoie ses vraies photos petit à petit, par album. Les intégrer à la place des images d'exemple, dans le bon album.
+- TOUJOURS renommer chaque fichier photo avec un nom descriptif, en minuscules, mots séparés par des tirets, riche en mots-clés et localisé Paris. Exemple : seance-photo-tour-eiffel-couple-paris.jpg. Jamais de nom générique type IMG_1234.jpg.
+- TOUJOURS écrire un texte alternatif (alt) descriptif et riche en mots-clés pour chaque image (sujet, lieu, le mot Paris, et la marque SabShots quand c'est pertinent). Jamais d'alt vide ou générique.
+- Toujours déclarer les dimensions (width et height) et servir en format web optimisé (webp ou avif) pour la vitesse.
+
 ### SEO et GEO
-- Title de 50 à 60 caractères avec le mot-clé en premier, une seule balise H1 par page.
+- Title de 50 à 60 caractères commençant toujours par "SabShots |" suivi des mots-clés, une seule balise H1 par page.
 - Meta description de 150 à 160 caractères commençant par un verbe d'action.
 - Mot-clé présent dans les 100 premiers mots et dans un H2.
 - Définitions de 40 à 60 mots pour viser les extraits optimisés de Google.
