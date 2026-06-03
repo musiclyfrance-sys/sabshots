@@ -177,28 +177,66 @@
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
-/* Booking buttons. Default colour stays as set inline; on hover they turn the
-   WhatsApp green gradient. Used on every "Book a Session" button. */
+/* Booking buttons ("Book a Session"). Default colour stays as set inline; on
+   hover they pop: a small lift and scale with a soft bounce, the WhatsApp-green
+   gradient, a green glow, and a light sweep across the surface. The prominent
+   CTAs also breathe gently to draw the eye. All disabled under reduced-motion. */
+.btn-book,
+.btn-book-wa {
+  position: relative;
+  overflow: hidden;
+}
 .btn-book {
-  transition: background-color 0.25s ease, background-image 0.25s ease,
-    color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+  transition: background-color 0.3s ease, background-image 0.3s ease,
+    color 0.3s ease, box-shadow 0.35s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 }
 .btn-book:hover {
   background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
   color: #fff !important;
   opacity: 1 !important;
-  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.45);
 }
-/* WhatsApp-green booking button (green by default, used in the article CTA card). */
 .btn-book-wa {
   background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
   color: #fff;
-  transition: background-image 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+  transition: background-image 0.3s ease, box-shadow 0.35s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 .btn-book-wa:hover {
   background: linear-gradient(135deg, #2ee06f 0%, #0f7a6e 100%);
-  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.42);
-  transform: translateY(-1px);
+  transform: translateY(-2px) scale(1.04);
+  box-shadow: 0 14px 30px rgba(37, 211, 102, 0.5);
+}
+/* Light sweep that crosses the button on hover */
+.btn-book::after,
+.btn-book-wa::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -160%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent 0%, rgba(255, 255, 255, 0.5) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+  pointer-events: none;
+}
+.btn-book:hover::after,
+.btn-book-wa:hover::after {
+  left: 160%;
+}
+/* Gentle idle "breathing" glow to draw the eye on the main CTAs */
+@keyframes ctaBreathe {
+  0%, 100% { box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1); }
+  50% { box-shadow: 0 6px 26px rgba(37, 211, 102, 0.5); }
+}
+.btn-pulse {
+  animation: ctaBreathe 2.6s ease-in-out infinite;
+}
+.btn-pulse:hover {
+  animation: none;
 }
 /* Back buttons on articles: subtle grey hover, like the rest of the site. */
 .btn-back {
@@ -206,6 +244,13 @@
 }
 .btn-back:hover {
   background-color: rgb(240, 240, 240) !important;
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-pulse { animation: none; }
+  .btn-book::after,
+  .btn-book-wa::after { display: none; }
+  .btn-book:hover,
+  .btn-book-wa:hover { transform: none; }
 }
 
 /* Page-enter transition — subtle whole-page fade on every route change.

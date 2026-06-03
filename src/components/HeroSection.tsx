@@ -200,7 +200,7 @@ export default function HeroSection() {
                 href={WHATSAPP_BOOKING_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn-book"
+                className="btn-book btn-pulse"
                 style={{
                   fontSize: '14px',
                   fontWeight: 300,

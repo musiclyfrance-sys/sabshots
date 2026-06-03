@@ -152,7 +152,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             href={WHATSAPP_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-book-wa"
+            className="btn-book-wa btn-pulse"
             style={{
               display: 'inline-flex', alignItems: 'center', gap: '10px',
               borderRadius: '99px', padding: '12px 28px',
