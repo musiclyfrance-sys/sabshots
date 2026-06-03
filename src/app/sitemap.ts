@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { blogPosts, portfolioItems } from '@/lib/site-data'
 
-const BASE = 'https://sabshots.com'
+const BASE = 'https://www.sabshots.com'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

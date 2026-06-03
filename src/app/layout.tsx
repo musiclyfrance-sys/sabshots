@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sabshots.com"),
+  metadataBase: new URL("https://www.sabshots.com"),
   title: "Paris Photographer for Private Photo Sessions | SabShots",
   description:
     "Book a private photo session in Paris with SabShots, a photographer with 8 years of experience capturing the Eiffel Tower, couples, proposals and more.",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "SabShots",
     locale: "en_US",
-    url: "https://sabshots.com",
+    url: "https://www.sabshots.com",
     title: "Paris Photographer for Private Photo Sessions | SabShots",
     description:
       "Private photo sessions in Paris with SabShots: Eiffel Tower shoots, Instagrammable spots, couples and proposals.",

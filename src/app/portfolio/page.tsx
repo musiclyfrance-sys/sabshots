@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'SabShots',
-    url: 'https://sabshots.com/portfolio',
+    url: 'https://www.sabshots.com/portfolio',
     title: 'Paris Photo Session Portfolio | SabShots Photographer',
     description:
       'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals and families.',

@@ -15,7 +15,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     siteName: 'SabShots',
-    url: 'https://sabshots.com/blog',
+    url: 'https://www.sabshots.com/blog',
     title: 'Paris Photography Tips & Guides | SabShots Photographer',
     description:
       'Discover tips and guides from a Paris photographer: the best photo spots, when to shoot the Eiffel Tower, what to wear, and how to prepare for your session.',

@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       type: 'article',
       siteName: 'SabShots',
-      url: `https://sabshots.com/blog/${slug}`,
+      url: `https://www.sabshots.com/blog/${slug}`,
       title: `${post.title} | SabShots`,
       description: post.excerpt,
       images: [post.image],

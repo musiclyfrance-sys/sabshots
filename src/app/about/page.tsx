@@ -57,7 +57,7 @@ export const metadata = {
   openGraph: {
     type: 'profile',
     siteName: 'SabShots',
-    url: 'https://sabshots.com/about',
+    url: 'https://www.sabshots.com/about',
     title: 'About Yassir | Private Paris Photographer | SabShots',
     description:
       'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',

@@ -6,7 +6,7 @@ export default function robots(): MetadataRoute.Robots {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: 'https://sabshots.com/sitemap.xml',
-    host: 'https://sabshots.com',
+    sitemap: 'https://www.sabshots.com/sitemap.xml',
+    host: 'https://www.sabshots.com',
   }
 }
