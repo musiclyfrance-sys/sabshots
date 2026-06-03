@@ -305,26 +305,11 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* column-footer: bottom bar */}
+            {/* column-footer: bottom bar — socials sit above the copyright line */}
             <div
-              className="flex flex-row flex-wrap justify-between items-center w-full"
-              style={{ gap: '16px', minHeight: '28px' }}
+              className="flex flex-col justify-center items-center w-full"
+              style={{ gap: '18px' }}
             >
-              {/* Copyright */}
-              <p
-                style={{
-                  fontSize: '14px',
-                  fontWeight: 300,
-                  fontFamily: 'Manrope, sans-serif',
-                  lineHeight: '20px',
-                  color: 'rgb(124, 124, 124)',
-                  margin: 0,
-                  padding: 0,
-                }}
-              >
-                © 2019 website SabShots made with 🖤. All rights reserved.
-              </p>
-
               {/* Social links — GetYourGuide, Instagram, WhatsApp */}
               <div
                 className="flex flex-row justify-center items-center"
@@ -425,6 +410,22 @@ export default function Footer() {
                   </svg>
                 </a>
               </div>
+
+              {/* Copyright — below the social buttons */}
+              <p
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 300,
+                  fontFamily: 'Manrope, sans-serif',
+                  lineHeight: '20px',
+                  color: 'rgb(124, 124, 124)',
+                  margin: 0,
+                  padding: 0,
+                  textAlign: 'center',
+                }}
+              >
+                © 2026 SabShots. All rights reserved.
+              </p>
             </div>
           </div>
         </div>

@@ -64,6 +64,7 @@ export default function ContactPage() {
 
         {/* Form card */}
         <div
+          className="reveal"
           style={{
             backgroundColor: 'rgb(255, 255, 255)',
             borderRadius: '40px',

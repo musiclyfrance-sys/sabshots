@@ -27,11 +27,11 @@ export default function PortfolioPage() {
       {/* Portfolio grid — horizontal album cards, all CLICKABLE */}
       <section style={{ maxWidth: '1024px', margin: '0 auto', padding: '20px 28px 80px' }}>
         <div className="album-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(min(100%, 440px), 1fr))' }}>
-          {portfolioItems.map((item) => (
+          {portfolioItems.map((item, i) => (
             <Link
               key={item.slug}
               href={`/portfolio/${item.slug}`}
-              className="album-stack group"
+              className={`album-stack group reveal ${['', 'reveal-delay-1', 'reveal-delay-2'][i % 3]}`}
               style={{ textDecoration: 'none', color: 'inherit', cursor: 'pointer' }}
             >
               {/* Stacked album photos peeking behind the cover */}

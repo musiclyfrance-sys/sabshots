@@ -27,10 +27,11 @@ export default function BlogPage() {
       {/* Blog grid — cards are clickable */}
       <section style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 12px 80px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px' }}>
-          {blogPosts.map((post) => (
+          {blogPosts.map((post, i) => (
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
+              className={`reveal ${['', 'reveal-delay-1', 'reveal-delay-2'][i % 3]}`}
               style={{ textDecoration: 'none', color: 'inherit' }}
             >
               <article

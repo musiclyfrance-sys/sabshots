@@ -36,6 +36,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
 
         {/* Header card — back link + title + description (no date, no icon) */}
         <div
+          className="reveal"
           style={{
             backgroundColor: 'rgb(255,255,255)', borderRadius: '34px',
             padding: '28px 32px', marginBottom: '40px',
@@ -64,7 +65,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
 
         {/* Gallery — alternating landscape (3:2) and portrait (2:3) rows.
             Desktop: 2 per row. Mobile: landscapes 2-up, portraits full-width. */}
-        <div className="album-gallery">
+        <div className="album-gallery reveal">
           {item.images.map((src, i) => {
             // Blocks of 8: 2 landscapes then 6 portraits, repeating.
             const isPortrait = i % 8 >= 2
@@ -85,7 +86,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         </div>
 
         {/* More Work — centered, at the bottom */}
-        <div style={{ paddingTop: '80px', paddingBottom: '8px' }}>
+        <div className="reveal" style={{ paddingTop: '80px', paddingBottom: '8px' }}>
           <h2 style={{ fontSize: 'clamp(26px, 5vw, 32px)', fontWeight: 500, lineHeight: '1.3', margin: '0 0 28px', color: 'rgb(1,1,1)', textAlign: 'center' }}>
             More Work
           </h2>

@@ -71,7 +71,7 @@ export default function AboutPage() {
       <section style={{ padding: '0 28px', fontFamily: 'Manrope, sans-serif' }}>
         <div className="about-grid" style={{ maxWidth: '1000px', margin: '0 auto' }}>
           <div
-            className="about-portrait"
+            className="about-portrait reveal"
             style={{
               width: '100%',
               borderRadius: '40px',
@@ -90,7 +90,7 @@ export default function AboutPage() {
             />
           </div>
 
-          <div className="about-gear">
+          <div className="about-gear reveal reveal-delay-1">
             <div className="about-gear-card" style={{ backgroundColor: 'rgb(255,255,255)', borderRadius: '28px', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
               <div style={{ padding: '14px 20px', fontSize: '13px', fontWeight: 300, color: 'rgb(124,124,124)', borderBottom: '1px solid rgb(240,242,248)' }}>
                 Gear and tools I use
@@ -134,7 +134,7 @@ export default function AboutPage() {
       {/* My Story — storytelling + stats (before "How a Session Works") */}
       <section style={{ padding: 'clamp(48px, 9vw, 88px) 28px 0', fontFamily: 'Manrope, sans-serif' }}>
         <div style={{ maxWidth: '760px', margin: '0 auto' }}>
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '14px' }}>
+          <div className="reveal" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: '14px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', backgroundColor: 'rgb(255,255,255)', borderRadius: '26px', padding: '4px 16px', fontSize: '14px', fontWeight: 300, color: 'rgb(1,1,1)' }}>
               My Story
             </div>
@@ -143,7 +143,7 @@ export default function AboutPage() {
             </h2>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginTop: '28px', fontSize: '18px', fontWeight: 300, lineHeight: '29px', color: 'rgb(95,95,100)' }}>
+          <div className="reveal reveal-delay-1" style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginTop: '28px', fontSize: '18px', fontWeight: 300, lineHeight: '29px', color: 'rgb(95,95,100)' }}>
             <p style={{ margin: 0 }}>
               It all started with a phone and a lot of curiosity. As a teenager, I was the one who could never stop capturing the moment, first on my phone, then on the small cameras I saved up for one by one. I taught myself frame after frame, and what began as a hobby slowly became an obsession, and then a craft I chose to study seriously.
             </p>
@@ -155,7 +155,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="about-stats">
+          <div className="about-stats reveal reveal-delay-2">
             {stats.map((s, i) => (
               <div key={i} style={{ textAlign: 'center' }}>
                 <div style={{ fontSize: 'clamp(22px, 4.5vw, 28px)', fontWeight: 500, color: 'rgb(1,1,1)', lineHeight: 1 }}>{s.value}</div>

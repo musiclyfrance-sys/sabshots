@@ -70,7 +70,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </p>
 
         {/* Hero image */}
-        <div style={{ width: '100%', height: '420px', position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '48px', backgroundColor: 'rgb(220,222,228)' }}>
+        <div className="reveal" style={{ width: '100%', height: '420px', position: 'relative', borderRadius: '24px', overflow: 'hidden', marginBottom: '48px', backgroundColor: 'rgb(220,222,228)' }}>
           <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} priority />
         </div>
 
