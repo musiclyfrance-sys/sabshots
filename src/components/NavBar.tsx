@@ -137,7 +137,7 @@ export default function NavBar() {
             href={WHATSAPP_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden md:flex flex-row justify-center items-center text-white no-underline"
+            className="btn-book hidden md:flex flex-row justify-center items-center text-white no-underline"
             style={{
               fontFamily: 'Manrope, sans-serif',
               fontSize: '14px',
@@ -226,7 +226,7 @@ export default function NavBar() {
             href={WHATSAPP_BOOKING_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-3"
+            className="btn-book mt-3"
             style={{
               display: 'flex',
               flexDirection: 'row',

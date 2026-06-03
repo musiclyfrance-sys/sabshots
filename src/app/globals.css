@@ -177,6 +177,37 @@
 .reveal-delay-4 { transition-delay: 0.4s; }
 .reveal-delay-5 { transition-delay: 0.5s; }
 
+/* Booking buttons. Default colour stays as set inline; on hover they turn the
+   WhatsApp green gradient. Used on every "Book a Session" button. */
+.btn-book {
+  transition: background-color 0.25s ease, background-image 0.25s ease,
+    color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+}
+.btn-book:hover {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%) !important;
+  color: #fff !important;
+  opacity: 1 !important;
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+}
+/* WhatsApp-green booking button (green by default, used in the article CTA card). */
+.btn-book-wa {
+  background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+  color: #fff;
+  transition: background-image 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.btn-book-wa:hover {
+  background: linear-gradient(135deg, #2ee06f 0%, #0f7a6e 100%);
+  box-shadow: 0 8px 22px rgba(37, 211, 102, 0.42);
+  transform: translateY(-1px);
+}
+/* Back buttons on articles: subtle grey hover, like the rest of the site. */
+.btn-back {
+  transition: background-color 0.2s ease;
+}
+.btn-back:hover {
+  background-color: rgb(240, 240, 240) !important;
+}
+
 /* Page-enter transition — subtle whole-page fade on every route change.
    Opacity only (no transform) so the fixed navbar keeps its viewport anchor. */
 @keyframes pageEnter {

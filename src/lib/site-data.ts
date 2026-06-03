@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     title: 'The Best Photo Spots in Paris',
     tag: 'Guide',
     readTime: '6 min read',
-    author: 'Yassir Sabounji',
+    author: 'Yassir',
     image: '/assets/blog-1.png',
     excerpt: 'A guide to the most beautiful places to shoot in Paris, from the icons to the hidden corners.',
     body: `Paris is consistently ranked among the most photogenic cities in the world, and the difference between a good photo and a stunning one often comes down to location. Knowing where to go, at what time, and how to frame each spot is what separates a tourist snapshot from a professional photo session. Here is a complete guide to the best photo spots in Paris for your next session.
@@ -68,7 +68,7 @@ The Palais Royal gardens are a quiet, refined alternative to the more crowded to
     title: 'When to Shoot at the Eiffel Tower',
     tag: 'Tips',
     readTime: '5 min read',
-    author: 'Yassir Sabounji',
+    author: 'Yassir',
     image: '/assets/blog-2.png',
     excerpt: 'The best times of day to photograph the Eiffel Tower, and how to avoid the crowds.',
     body: `The Eiffel Tower is the most photographed monument in the world, and yet most visitors end up with the same crowded, flat, overexposed shots that look nothing like what they imagined. Timing is everything. Here is a detailed breakdown of when to shoot at the Eiffel Tower in Paris to get photos that actually stand out.
@@ -102,7 +102,7 @@ The Bir-Hakeim bridge, recognizable from the film Inception, offers a dramatic f
     title: 'How to Prepare for Your Paris Session',
     tag: 'Guide',
     readTime: '5 min read',
-    author: 'Yassir Sabounji',
+    author: 'Yassir',
     image: '/assets/blog-3.png',
     excerpt: 'Simple steps to get the most out of your photo session in Paris.',
     body: `A private photo session in Paris is one of the most memorable experiences you can have as a traveler or visitor. But a little preparation makes the difference between photos you love and photos that end up forgotten on your phone. Here is a complete guide to getting the most out of your Paris photo session.
@@ -140,7 +140,7 @@ The best photos from any session are the ones taken when people forget the camer
     title: 'A Local Guide to Instagrammable Shots in Paris',
     tag: 'Guide',
     readTime: '6 min read',
-    author: 'Yassir Sabounji',
+    author: 'Yassir',
     image: '/assets/showcase-4.png',
     excerpt: 'Discover the most Instagram-worthy and aesthetic photo spots in Paris, from pastel streets to rooftop views, for a feed that turns heads.',
     body: `Paris is probably the most Instagram-friendly city in the world, and yet most visitors leave with photos that look the same as everyone else's. The difference between a generic tourist shot and an aesthetic, editorial-quality photo that performs on Instagram comes down to three things: location, timing, and composition. Here is a local guide to the most photogenic and shareable photo spots in Paris.
@@ -178,7 +178,7 @@ Beyond location, what makes a Paris photo perform well on Instagram is the consi
     title: 'What to Wear for Your Paris Photoshoot',
     tag: 'Tips',
     readTime: '5 min read',
-    author: 'Yassir Sabounji',
+    author: 'Yassir',
     image: '/assets/showcase-3.png',
     excerpt: 'Outfit tips to look your best and feel comfortable during your Paris session.',
     body: `What you wear to a photo session in Paris matters more than most people think. The wrong outfit can make even the best location and lighting feel flat, while the right one makes every single frame look intentional. Here is a complete guide to choosing outfits for your Paris photoshoot, whether you are shooting solo, as a couple, or as a family.

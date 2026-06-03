@@ -196,6 +196,7 @@ export default function CtaSection() {
                   href={WHATSAPP_BOOKING_URL}
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="btn-book"
                   style={{
                     fontSize: '14px',
                     fontWeight: 300,

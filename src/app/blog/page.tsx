@@ -59,11 +59,8 @@ export default function BlogPage() {
                   <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 {/* Card footer */}
-                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', padding: '16px 20px' }}>
-                  <span style={{ fontSize: '14px', fontWeight: 400, color: 'rgb(1,1,1)' }}>{post.title}</span>
-                  <span style={{ fontSize: '12px', fontWeight: 300, color: 'rgb(124,124,124)', backgroundColor: 'rgb(240,242,248)', padding: '3px 12px', borderRadius: '20px', whiteSpace: 'nowrap' }}>
-                    {post.tag}
-                  </span>
+                <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', padding: '16px 20px' }}>
+                  <span style={{ fontSize: '15px', fontWeight: 400, color: 'rgb(1,1,1)' }}>{post.title}</span>
                 </div>
               </article>
             </Link>

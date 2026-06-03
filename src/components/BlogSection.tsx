@@ -288,7 +288,7 @@ function BlogCard({ post, revealDelay }: BlogCardProps) {
         style={{
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-between',
+          justifyContent: 'flex-start',
           alignItems: 'center',
           gap: '24px',
           width: '100%',
@@ -308,35 +308,9 @@ function BlogCard({ post, revealDelay }: BlogCardProps) {
             fontFamily: 'Manrope, sans-serif',
             lineHeight: '22px',
             color: 'rgb(1, 1, 1)',
-            maxWidth: '300px',
           }}
         >
           {post.title}
-        </div>
-
-        {/* category badge pill */}
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'row',
-            justifyContent: 'center',
-            alignItems: 'center',
-            gap: '8px',
-            backgroundColor: 'rgb(245, 245, 245)',
-            color: 'rgb(1, 1, 1)',
-            fontSize: '16px',
-            fontWeight: 400,
-            fontFamily: 'Manrope, sans-serif',
-            lineHeight: '22px',
-            textAlign: 'center',
-            padding: '4px 12px',
-            borderRadius: '26px',
-            height: '30px',
-            cursor: 'pointer',
-            flexShrink: 0,
-          }}
-        >
-          {post.category}
         </div>
       </div>
     </a>
