@@ -10,7 +10,17 @@ import { portfolioItems } from '@/lib/site-data'
 export const metadata = {
   title: 'Paris Photo Session Portfolio | SabShots Photographer',
   description:
-    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, families and Paris by night.',
+    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals and families.',
+  alternates: { canonical: '/portfolio' },
+  openGraph: {
+    type: 'website',
+    siteName: 'SabShots',
+    url: 'https://sabshots.com/portfolio',
+    title: 'Paris Photo Session Portfolio | SabShots Photographer',
+    description:
+      'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals and families.',
+    images: ['/assets/portfolio-1.png'],
+  },
 }
 
 export default function PortfolioPage() {

@@ -10,10 +10,35 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sabshots.vercel.app"),
-  title: "SabShots — Paris Photographer | Private Photo Sessions",
+  metadataBase: new URL("https://sabshots.com"),
+  title: "Paris Photographer for Private Photo Sessions | SabShots",
   description:
-    "Private photo sessions in Paris with SabShots, a professional photographer with 8 years of experience. Eiffel Tower shoots, Instagrammable spots, and custom sessions for over 500 clients worldwide.",
+    "Book a private photo session in Paris with SabShots, a photographer with 8 years of experience capturing the Eiffel Tower, couples, proposals and more.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: "SabShots",
+    locale: "en_US",
+    url: "https://sabshots.com",
+    title: "Paris Photographer for Private Photo Sessions | SabShots",
+    description:
+      "Private photo sessions in Paris with SabShots: Eiffel Tower shoots, Instagrammable spots, couples and proposals.",
+    images: [
+      {
+        url: "/assets/sabshots-hero.png",
+        width: 1923,
+        height: 876,
+        alt: "SabShots, professional photographer in Paris",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paris Photographer for Private Photo Sessions | SabShots",
+    description:
+      "Private photo sessions in Paris with SabShots: Eiffel Tower shoots, Instagrammable spots, couples and proposals.",
+    images: ["/assets/sabshots-hero.png"],
+  },
 };
 
 export default function RootLayout({

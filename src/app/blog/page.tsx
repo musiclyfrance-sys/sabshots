@@ -8,9 +8,19 @@ import Image from 'next/image'
 import { blogPosts } from '@/lib/site-data'
 
 export const metadata = {
-  title: 'Paris Photography Blog & Guides | SabShots Photographer',
+  title: 'Paris Photography Tips & Guides | SabShots Photographer',
   description:
     'Discover tips and guides from a Paris photographer: the best photo spots, when to shoot the Eiffel Tower, what to wear, and how to prepare for your session.',
+  alternates: { canonical: '/blog' },
+  openGraph: {
+    type: 'website',
+    siteName: 'SabShots',
+    url: 'https://sabshots.com/blog',
+    title: 'Paris Photography Tips & Guides | SabShots Photographer',
+    description:
+      'Discover tips and guides from a Paris photographer: the best photo spots, when to shoot the Eiffel Tower, what to wear, and how to prepare for your session.',
+    images: ['/assets/blog-1.png'],
+  },
 }
 
 export default function BlogPage() {

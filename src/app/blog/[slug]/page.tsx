@@ -13,7 +13,19 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const post = blogPosts.find((p) => p.slug === slug)
   if (!post) return { title: 'Not Found' }
-  return { title: `${post.title} | SabShots` }
+  return {
+    title: `${post.title} | SabShots`,
+    description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
+    openGraph: {
+      type: 'article',
+      siteName: 'SabShots',
+      url: `https://sabshots.com/blog/${slug}`,
+      title: `${post.title} | SabShots`,
+      description: post.excerpt,
+      images: [post.image],
+    },
+  }
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {

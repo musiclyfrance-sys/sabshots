@@ -17,6 +17,15 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return {
     title: `${item.title} Photo Album | SabShots Paris Photographer`,
     description: item.description,
+    alternates: { canonical: `/portfolio/${slug}` },
+    openGraph: {
+      type: 'article',
+      siteName: 'SabShots',
+      url: `https://sabshots.com/portfolio/${slug}`,
+      title: `${item.title} Photo Album | SabShots Paris Photographer`,
+      description: item.description,
+      images: [item.image],
+    },
   }
 }
 

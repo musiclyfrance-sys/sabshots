@@ -53,6 +53,16 @@ export const metadata = {
   title: 'About Yassir | Private Paris Photographer | SabShots',
   description:
     'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
+  alternates: { canonical: '/about' },
+  openGraph: {
+    type: 'profile',
+    siteName: 'SabShots',
+    url: 'https://sabshots.com/about',
+    title: 'About Yassir | Private Paris Photographer | SabShots',
+    description:
+      'Meet Yassir, a Paris photographer who captures your moments with creativity and natural light, from the Eiffel Tower to the streets of the city.',
+    images: ['/assets/portrait-1.avif'],
+  },
 }
 
 export default function AboutPage() {
