@@ -65,9 +65,31 @@ export const metadata = {
   },
 }
 
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  '@id': 'https://www.sabshots.com/#yassir',
+  name: 'Yassir',
+  jobTitle: 'Photographer',
+  description:
+    'Paris photographer with 8 years of experience in private photo sessions, from the Eiffel Tower to the streets of the city.',
+  url: 'https://www.sabshots.com/about',
+  image: 'https://www.sabshots.com/assets/portrait-1.avif',
+  worksFor: { '@type': 'Organization', name: 'SabShots', '@id': 'https://www.sabshots.com/#business' },
+  knowsLanguage: ['English', 'French', 'Arabic', 'Spanish'],
+  sameAs: [
+    'https://www.getyourguide.com/yassir-sabounji-s514149/',
+    'https://www.instagram.com/sab.shots/',
+  ],
+}
+
 export default function AboutPage() {
   return (
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <NavBar />
 
       {/* Hero — identical to the other pages (dot panel + spinning icon + title + subtitle) */}

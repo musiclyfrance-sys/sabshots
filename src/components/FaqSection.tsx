@@ -32,6 +32,17 @@ const faqItems: FAQItem[] = [
   },
 ]
 
+// Structured data so Google and AI assistants can read the questions and answers.
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map((item) => ({
+    '@type': 'Question',
+    name: item.question,
+    acceptedAnswer: { '@type': 'Answer', text: item.answer },
+  })),
+}
+
 export default function FaqSection() {
   const [open, setOpen] = useState<number | null>(null)
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -62,6 +73,10 @@ export default function FaqSection() {
       className="relative w-full"
       style={{ padding: '12px', margin: 'clamp(56px, 12vw, 100px) 0' }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       {/* padding-global */}
       <div
         className="flex flex-col items-center justify-center"

@@ -37,8 +37,28 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
   // Other projects for "more work" section
   const others = portfolioItems.filter((p) => p.slug !== slug).slice(0, 3)
 
+  const galleryJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ImageGallery',
+    name: `${item.title} Photo Album in Paris`,
+    description: item.description,
+    url: `https://www.sabshots.com/portfolio/${slug}`,
+    image: item.images.map((src) => `https://www.sabshots.com${src}`),
+  }
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sabshots.com' },
+      { '@type': 'ListItem', position: 2, name: 'Portfolio', item: 'https://www.sabshots.com/portfolio' },
+      { '@type': 'ListItem', position: 3, name: item.title, item: `https://www.sabshots.com/portfolio/${slug}` },
+    ],
+  }
+
   return (
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(galleryJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <NavBar />
 
       <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '120px 28px 0' }}>

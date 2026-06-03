@@ -36,8 +36,35 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   // Split body into paragraphs/sections
   const sections = post.body.split('\n\n').filter(Boolean)
 
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.excerpt,
+    image: `https://www.sabshots.com${post.image}`,
+    author: { '@type': 'Person', name: post.author },
+    publisher: {
+      '@type': 'Organization',
+      name: 'SabShots',
+      logo: { '@type': 'ImageObject', url: 'https://www.sabshots.com/assets/logo-dark.svg' },
+    },
+    mainEntityOfPage: `https://www.sabshots.com/blog/${slug}`,
+    inLanguage: 'en',
+  }
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.sabshots.com' },
+      { '@type': 'ListItem', position: 2, name: 'Tips & Guides', item: 'https://www.sabshots.com/blog' },
+      { '@type': 'ListItem', position: 3, name: post.title, item: `https://www.sabshots.com/blog/${slug}` },
+    ],
+  }
+
   return (
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', minHeight: '100vh' }}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <NavBar />
 
       <article style={{ maxWidth: '800px', margin: '0 auto', padding: '120px 16px 80px' }}>
