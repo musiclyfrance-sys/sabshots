@@ -69,7 +69,7 @@ export default function Footer() {
                   >
                     <Image
                       src="/assets/logo-dark.svg"
-                      alt="SabShots — photographe professionnel à Paris"
+                      alt="SabShots, professional photographer in Paris"
                       width={1500}
                       height={293}
                       style={{ width: '134px', height: 'auto', display: 'block' }}

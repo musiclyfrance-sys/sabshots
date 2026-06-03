@@ -2,59 +2,27 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { PortfolioCard } from '@/types'
+import { portfolioItems, type PortfolioItem } from '@/lib/site-data'
 
-const projects: PortfolioCard[] = [
-  {
-    title: 'Nature',
-    category: 'Nature',
-    year: '2026',
-    image: '/assets/portfolio-1.png',
-  },
-  {
-    title: 'Travel',
-    category: 'Photography',
-    year: '2022',
-    image: '/assets/portfolio-2.png',
-  },
-  {
-    title: 'Urban',
-    category: 'Photography',
-    year: '2023',
-    image: '/assets/portfolio-3.png',
-  },
-  {
-    title: 'Emotion',
-    category: 'Photography',
-    year: '2021',
-    image: '/assets/portfolio-4.png',
-  },
-  {
-    title: 'Wonders',
-    category: 'Photography',
-    year: '2022',
-    image: '/assets/portfolio-5.png',
-  },
-  {
-    title: 'Event',
-    category: 'Photography',
-    year: '2023',
-    image: '/assets/portfolio-6.png',
-  },
-]
+// First six real categories (nightclubs lives only on the full portfolio page).
+// Each card links straight to its album.
+const projects: PortfolioItem[] = portfolioItems.slice(0, 6)
 
-function PortfolioCardItem({ project }: { project: PortfolioCard }) {
+function PortfolioCardItem({ project }: { project: PortfolioItem }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
-    <div
-      className="relative cursor-pointer"
+    <Link
+      href={`/portfolio/${project.slug}`}
+      className="relative cursor-pointer block"
       style={{
         width: '100%',
         maxWidth: '480px',
         marginInline: 'auto',
         aspectRatio: '3 / 2',
+        textDecoration: 'none',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -79,7 +47,7 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
           {/* tumbnail-portfolio */}
           <Image
             src={project.image}
-            alt={project.title}
+            alt={`${project.title} photo session in Paris`}
             fill
             className="object-cover"
             style={{
@@ -94,7 +62,7 @@ function PortfolioCardItem({ project }: { project: PortfolioCard }) {
           {/* Hover keeps only the image zoom and blur, no text or icon overlay */}
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 
@@ -223,9 +191,8 @@ export default function PortfolioSection() {
                 maxWidth: '984px',
               }}
             >
-              {projects.map((project, i) => (
-                /* .item.w-dyn-item */
-                <div key={i} className="block">
+              {projects.map((project) => (
+                <div key={project.slug} className="block">
                   <PortfolioCardItem project={project} />
                 </div>
               ))}

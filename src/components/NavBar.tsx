@@ -73,7 +73,7 @@ export default function NavBar() {
           >
             <Image
               src="/assets/logo-dark.svg"
-              alt="SabShots — photographe professionnel à Paris"
+              alt="SabShots, professional photographer in Paris"
               width={1500}
               height={293}
               style={{ width: '124px', height: 'auto' }}

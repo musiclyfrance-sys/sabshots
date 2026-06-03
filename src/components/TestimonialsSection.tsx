@@ -382,21 +382,6 @@ export default function TestimonialsSection() {
           </div>
         </div>
       </div>
-
-      {/* Responsive styles via a style tag approach using Tailwind's arbitrary breakpoints */}
-      <style>{`
-        @media (max-width: 991px) {
-          .testimonials-grid {
-            grid-template-columns: 1fr 1fr !important;
-          }
-        }
-        @media (max-width: 767px) {
-          .testimonials-grid {
-            grid-template-columns: 1fr !important;
-            gap: 10px !important;
-          }
-        }
-      `}</style>
     </section>
   )
 }

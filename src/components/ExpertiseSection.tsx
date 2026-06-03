@@ -123,7 +123,7 @@ export default function ExpertiseSection() {
               overflow: 'visible',
             }}
           >
-            {/* Badge — "Expertise" */}
+            {/* Services badge */}
             <div
               style={{
                 display: 'flex',
@@ -376,7 +376,7 @@ export default function ExpertiseSection() {
                 >
                   <TagBadge label="Lighting" />
                   <TagBadge label="Direction" />
-                  <TagBadge label="Edting" />
+                  <TagBadge label="Editing" />
                 </div>
               </div>
 
@@ -443,7 +443,7 @@ export default function ExpertiseSection() {
                 maxWidth: '314.664px',
               }}
             >
-              {/* Medium card — "E-Commerce Shoots" */}
+              {/* Photo Session in Paris card */}
               <div
                 style={{
                   display: 'flex',

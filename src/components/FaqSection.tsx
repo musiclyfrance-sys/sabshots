@@ -20,7 +20,7 @@ const faqItems: FAQItem[] = [
   },
   {
     question: 'When will I receive my photos?',
-    answer: 'Your edited photos are delivered 5 to 7 days after the first delivery of your RAW photos.',
+    answer: 'Your edited photos are delivered within 24 to 72 hours after your session.',
   },
   {
     question: 'Do you photograph couples and proposals?',
@@ -156,7 +156,7 @@ export default function FaqSection() {
               return (
                 <div
                   key={i}
-                  className="flex flex-col items-center justify-start cursor-pointer"
+                  className="flex flex-col items-center justify-start"
                   style={{
                     backgroundColor: 'rgba(252, 253, 255, 0.97)',
                     borderRadius: '24px',
@@ -164,17 +164,23 @@ export default function FaqSection() {
                     overflow: 'hidden',
                     maxWidth: '100%',
                   }}
-                  onClick={() => setOpen(isOpen ? null : i)}
                 >
-                  {/* faq-question */}
-                  <div
-                    className="flex flex-row items-center justify-between w-full"
+                  {/* faq-question — button so it is focusable and toggles with the keyboard */}
+                  <button
+                    type="button"
+                    onClick={() => setOpen(isOpen ? null : i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
+                    className="flex flex-row items-center justify-between w-full cursor-pointer"
                     style={{
                       backgroundColor: 'rgba(252, 253, 255, 0.97)',
                       padding: '18px',
                       gap: '5px',
                       height: '68px',
                       overflow: 'hidden',
+                      border: 'none',
+                      textAlign: 'left',
+                      fontFamily: 'Manrope, sans-serif',
                     }}
                   >
                     {/* question text */}
@@ -210,10 +216,12 @@ export default function FaqSection() {
                     >
                       <PlusIcon className="w-5 h-5" />
                     </div>
-                  </div>
+                  </button>
 
                   {/* faq-answer */}
                   <div
+                    id={`faq-answer-${i}`}
+                    role="region"
                     style={{
                       maxHeight: isOpen ? '1000px' : '0px',
                       overflow: 'hidden',

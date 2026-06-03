@@ -32,7 +32,7 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <main
+    <section
       ref={sectionRef}
       style={{
         position: 'relative',
@@ -265,7 +265,7 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* .hero-wrapper-image — SabShots portrait + floating thumbnails (Lightoory layout) */}
+          {/* Hero image: SabShots portrait with floating thumbnails */}
           <div
             className="reveal reveal-delay-2 hero-portrait"
             style={{
@@ -401,6 +401,6 @@ export default function HeroSection() {
           to   { transform: rotateZ(360deg); }
         }
       `}</style>
-    </main>
+    </section>
   )
 }

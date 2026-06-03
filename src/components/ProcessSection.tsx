@@ -8,7 +8,7 @@ interface ProcessCard {
   description: string
 }
 
-// Inline SVG icons — one per process card, matching lightoory.webflow.io exactly
+// Inline SVG icons, one per process card.
 const PROCESS_SVG_ICONS = [
   // Card 1 — Plan Your Session: notebook
   <svg key="plan" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -43,7 +43,7 @@ const processCards: ProcessCard[] = [
   },
   {
     title: 'Receive Your Photos',
-    description: 'Your edited and retouched photos arrive within a few days.',
+    description: 'Your edited and retouched photos arrive within 24 to 72 hours.',
   },
 ]
 
@@ -174,7 +174,7 @@ export default function ProcessSection() {
               >
                 {/* .flex-column — icon row */}
                 <div className="flex flex-row items-center justify-between w-full">
-                  {/* Inline SVG icon — matches lightoory.webflow.io */}
+                  {/* Inline SVG icon */}
                   {PROCESS_SVG_ICONS[index]}
                   {/* three-dot separator */}
                   <svg width="24" height="6" viewBox="0 0 24 6" fill="rgb(200,200,200)" aria-hidden="true">

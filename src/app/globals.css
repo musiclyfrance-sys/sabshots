@@ -226,7 +226,7 @@ img {
   aspect-ratio: 2 / 1;
 }
 @media (max-width: 600px) {
-  /* Match Lightoory mobile: near-square hero image with thumbnails hugging the edges */
+  /* Mobile: near-square hero image with the thumbnails hugging the edges */
   .hero-portrait {
     aspect-ratio: 319 / 300;
   }
