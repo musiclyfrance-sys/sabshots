@@ -4,10 +4,12 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 
 const SLIDES = [
-  { src: '/assets/showcase-1.png', alt: 'Private photo session at the Eiffel Tower in Paris' },
-  { src: '/assets/showcase-2.png', alt: 'Paris nightlife and atmosphere photography by SabShots' },
-  { src: '/assets/showcase-3.png', alt: 'Street and lifestyle photography session in Paris' },
-  { src: '/assets/showcase-4.png', alt: 'Instagrammable photo spots in Paris captured by SabShots' },
+  { src: '/assets/paris-showcase-01.jpg', alt: 'Woman in a beret on Pont de Bir-Hakeim with the Eiffel Tower and the Seine in Paris by SabShots' },
+  { src: '/assets/paris-showcase-02.jpg', alt: 'Bride and groom wedding photo session on the grand staircase of Chateau de Fontainebleau near Paris by SabShots' },
+  { src: '/assets/paris-showcase-03.jpg', alt: 'Fashion portrait session among the columns of Palais de Tokyo at golden hour in Paris by SabShots' },
+  { src: '/assets/paris-showcase-04.jpg', alt: 'Woman laughing beside the glowing Louvre Pyramid at sunset in Paris by SabShots' },
+  { src: '/assets/paris-showcase-05.jpg', alt: 'Editorial photo session on the Debilly footbridge over the Seine in Paris by SabShots' },
+  { src: '/assets/paris-showcase-06.jpg', alt: 'Joyful street style portrait session at the Palais de Tokyo colonnade in Paris by SabShots' },
 ]
 
 // Doubled for seamless CSS loop
@@ -208,7 +210,7 @@ export default function TrustedGloballySection() {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
-                animation: 'imageScrollH 16s linear infinite',
+                animation: 'imageScrollH 26s linear infinite',
                 width: 'max-content',
               }}
             >

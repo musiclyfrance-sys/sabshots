@@ -43,7 +43,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
     name: `${item.title} Photo Album in Paris`,
     description: item.description,
     url: `https://www.sabshots.com/portfolio/${slug}`,
-    image: item.images.map((src) => `https://www.sabshots.com${src}`),
+    image: item.images.map((img) => `https://www.sabshots.com${img.src}`),
   }
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -95,23 +95,18 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
         {/* Gallery — alternating landscape (3:2) and portrait (2:3) rows.
             Desktop: 2 per row. Mobile: landscapes 2-up, portraits full-width. */}
         <div className="album-gallery reveal">
-          {item.images.map((src, i) => {
-            // Blocks of 8: 2 landscapes then 6 portraits, repeating.
-            const isPortrait = i % 8 >= 2
-            const isLonePortrait = i % 5 === 4 // the 3rd portrait, alone on mobile (2 per row)
-            return (
-              <div key={i} className={`album-shot ${isPortrait ? 'album-shot-p' : 'album-shot-l'}${isLonePortrait ? ' album-shot-p-lone' : ''}`}>
-                <Image
-                  src={src}
-                  alt={`${item.title} photo ${i + 1}`}
-                  fill
-                  style={{ objectFit: 'cover' }}
-                  sizes="(max-width: 700px) 100vw, 480px"
-                  priority={i < 2}
-                />
-              </div>
-            )
-          })}
+          {item.images.map((img, i) => (
+            <div key={i} className={`album-shot ${img.wide ? 'album-shot-l' : 'album-shot-p'}`}>
+              <Image
+                src={img.src}
+                alt={img.alt}
+                fill
+                style={{ objectFit: 'cover' }}
+                sizes="(max-width: 700px) 100vw, 480px"
+                priority={i < 2}
+              />
+            </div>
+          ))}
         </div>
 
         {/* More Work — centered, at the bottom */}

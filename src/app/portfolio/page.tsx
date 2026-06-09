@@ -19,7 +19,7 @@ export const metadata = {
     title: 'SabShots | Paris Photo Session Portfolio',
     description:
       'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
-    images: ['/assets/portfolio-1.png'],
+    images: ['/assets/paris-eiffel-tower-photoshoot-cover.jpg'],
   },
 }
 
@@ -46,10 +46,10 @@ export default function PortfolioPage() {
             >
               {/* Stacked album photos peeking behind the cover */}
               <div className="album-layer album-layer-2" aria-hidden="true">
-                <Image src={item.images[2] || item.image} alt="" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                <Image src={item.images[2]?.src || item.image} alt="" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
               <div className="album-layer album-layer-1" aria-hidden="true">
-                <Image src={item.images[1] || item.image} alt="" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+                <Image src={item.images[1]?.src || item.image} alt="" fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
               </div>
 
               {/* Cover */}
@@ -64,7 +64,7 @@ export default function PortfolioPage() {
               >
                 <Image
                   src={item.image}
-                  alt={item.title}
+                  alt={item.imageAlt}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"

@@ -47,7 +47,7 @@ function PortfolioCardItem({ project }: { project: PortfolioItem }) {
           {/* tumbnail-portfolio */}
           <Image
             src={project.image}
-            alt={`${project.title} photo session in Paris`}
+            alt={project.imageAlt}
             fill
             className="object-cover"
             style={{

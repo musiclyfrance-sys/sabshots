@@ -18,14 +18,21 @@ export interface BlogPost {
   body: string
 }
 
+export interface AlbumPhoto {
+  src: string
+  alt: string
+  wide: boolean
+}
+
 export interface PortfolioItem {
   slug: string
   title: string
   category: string
   year: string
   image: string
+  imageAlt: string
   description: string
-  images: string[]
+  images: AlbumPhoto[]
 }
 
 export const blogPosts: BlogPost[] = [
@@ -225,54 +232,119 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Street & Lifestyle',
     category: 'Lifestyle',
     year: '2025',
-    image: '/assets/portfolio-2.png',
+    image: '/assets/paris-street-lifestyle-photoshoot-cover.jpg',
+    imageAlt: 'Candid editorial street photography of a woman in a trench coat crossing a Paris street with the Eiffel Tower behind by SabShots',
     description: 'Candid, editorial moments captured in the streets and hidden corners of Paris.',
-    images: ['/assets/portfolio-2.png', '/assets/showcase-3.png', '/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/portrait-3.avif', '/assets/portrait-4.avif', '/assets/portrait-1.avif', '/assets/portrait-2.avif'],
+    images: [
+      { src: '/assets/paris-street-lifestyle-photoshoot-cover.jpg', alt: 'Candid editorial street photography of a woman in a trench coat crossing a Paris street with the Eiffel Tower behind by SabShots', wide: true },
+      { src: '/assets/paris-street-lifestyle-photoshoot-08.jpg', alt: 'Editorial photo session on the Debilly footbridge over the Seine under a blue sky in Paris by SabShots', wide: true },
+      { src: '/assets/paris-street-lifestyle-photoshoot-01.jpg', alt: 'Editorial fashion portrait of a woman in a black suit leaning on the Louvre pyramid glass in Paris by SabShots', wide: false },
+      { src: '/assets/paris-street-lifestyle-photoshoot-02.jpg', alt: 'Dark editorial street style portrait of a man in an all-black hooded coat and leather gloves against a golden Paris wall by SabShots', wide: false },
+      { src: '/assets/paris-street-lifestyle-photoshoot-03.jpg', alt: 'Editorial lifestyle photo of a woman in red velvet holding red heart balloons near the Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-street-lifestyle-photoshoot-04.jpg', alt: 'Warm editorial menswear portrait of a man in front of a Haussmann building in a Paris street by SabShots', wide: false },
+      { src: '/assets/paris-street-lifestyle-photoshoot-05.jpg', alt: 'Lifestyle street photography of a woman in a white corset top outside a Paris fruit stand by SabShots', wide: false },
+      { src: '/assets/paris-street-lifestyle-photoshoot-06.jpg', alt: 'Cinematic editorial portrait of a man in a tailored coat in a Paris doorway with warm light by SabShots', wide: false },
+    ],
   },
   {
     slug: 'eiffel-tower',
     title: 'Eiffel Tower',
     category: 'Eiffel Tower',
     year: '2025',
-    image: '/assets/portfolio-1.png',
+    image: '/assets/paris-eiffel-tower-photoshoot-cover.jpg',
+    imageAlt: 'Woman in a beret on the love-lock bridge with the Eiffel Tower and the Seine at golden hour in Paris by SabShots',
     description: 'Private sessions with the most iconic view in Paris, from golden hour to the evening sparkle.',
-    images: ['/assets/portfolio-1.png', '/assets/showcase-1.png', '/assets/portrait-3.avif', '/assets/portrait-4.avif', '/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/portrait-3.avif', '/assets/portrait-4.avif'],
+    images: [
+      { src: '/assets/paris-eiffel-tower-photoshoot-cover.jpg', alt: 'Woman in a beret on the love-lock bridge with the Eiffel Tower and the Seine at golden hour in Paris by SabShots', wide: true },
+      { src: '/assets/paris-eiffel-tower-photoshoot-03.jpg', alt: 'Woman in white fur at golden hour by the Seine and the Eiffel Tower in Paris by SabShots', wide: true },
+      { src: '/assets/paris-eiffel-tower-photoshoot-01.jpg', alt: 'Couple photo session seated before the full Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-eiffel-tower-photoshoot-02.jpg', alt: 'Romantic couple kissing under green trees with the Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-eiffel-tower-photoshoot-04.jpg', alt: 'Fashion portrait of a woman in a trench coat on an empty street facing the Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-eiffel-tower-photoshoot-05.jpg', alt: 'Elegant woman walking the Trocadero steps with the Eiffel Tower under a blue sky in Paris by SabShots', wide: false },
+      { src: '/assets/paris-eiffel-tower-photoshoot-06.jpg', alt: 'Stylish woman on the love-lock bridge with the Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-eiffel-tower-photoshoot-08.jpg', alt: 'Night glamour portrait of a woman in a black lace gown before the golden-lit Eiffel Tower in Paris by SabShots', wide: false },
+    ],
   },
   {
     slug: 'instagrammable-paris',
     title: 'Instagrammable',
     category: 'Instagram',
     year: '2025',
-    image: '/assets/portfolio-5.png',
+    image: '/assets/paris-instagrammable-photoshoot-cover.jpg',
+    imageAlt: 'Fashion model posing with the Eiffel Tower lit up at night, the most instagrammable Paris photo spot by SabShots',
     description: 'The most photogenic spots across the whole city, ready for your feed.',
-    images: ['/assets/portfolio-5.png', '/assets/showcase-4.png', '/assets/portrait-2.avif', '/assets/portrait-1.avif', '/assets/portrait-4.avif', '/assets/portrait-3.avif', '/assets/portrait-2.avif', '/assets/portrait-1.avif'],
+    images: [
+      { src: '/assets/paris-instagrammable-photoshoot-cover.jpg', alt: 'Fashion model posing with the Eiffel Tower lit up at night, the most instagrammable Paris photo spot by SabShots', wide: true },
+      { src: '/assets/paris-instagrammable-photoshoot-01.jpg', alt: 'Woman laughing beside the glowing glass Louvre Pyramid at golden hour, an iconic instagrammable Paris photo spot by SabShots', wide: true },
+      { src: '/assets/paris-instagrammable-photoshoot-03.jpg', alt: 'Stylish woman in a fur coat and headphones under a bright blue sky on a Paris street, aesthetic instagrammable photo spot by SabShots', wide: true },
+      { src: '/assets/paris-instagrammable-photoshoot-05.jpg', alt: 'Woman enjoying a champagne breakfast on a balcony overlooking the Eiffel Tower, luxury instagrammable Paris photo spot by SabShots', wide: true },
+      { src: '/assets/paris-instagrammable-photoshoot-02.jpg', alt: 'Moody portrait of a woman in a striped sweater with the Eiffel Tower behind, aesthetic Paris photo spot by SabShots', wide: false },
+      { src: '/assets/paris-instagrammable-photoshoot-04.jpg', alt: 'Fashion portrait in golden-hour light by an ornate wooden Parisian door, aesthetic instagrammable photo spot in Paris by SabShots', wide: false },
+      { src: '/assets/paris-instagrammable-photoshoot-06.jpg', alt: 'Smiling woman in front of the Sacre-Coeur basilica in Montmartre, charming instagrammable Paris photo spot by SabShots', wide: false },
+    ],
   },
   {
     slug: 'couples',
     title: 'Couples',
     category: 'Couples',
     year: '2024',
-    image: '/assets/portfolio-3.png',
+    image: '/assets/paris-couple-photoshoot-01.jpg',
+    imageAlt: 'Couple taking a selfie at a Parisian cafe terrace photo session in Paris by SabShots',
     description: 'Romantic shoots for two, anywhere your story feels at home in Paris.',
-    images: ['/assets/portfolio-3.png', '/assets/showcase-1.png', '/assets/portrait-3.avif', '/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/portrait-4.avif', '/assets/portrait-3.avif', '/assets/portrait-1.avif'],
+    images: [
+      { src: '/assets/paris-couple-photoshoot-01.jpg', alt: 'Couple taking a selfie at a Parisian cafe terrace photo session in Paris by SabShots', wide: true },
+      { src: '/assets/paris-couple-photoshoot-05.jpg', alt: 'Couple laughing in the gardens of the Palace of Versailles near Paris by SabShots', wide: true },
+      { src: '/assets/paris-couple-photoshoot-02.jpg', alt: 'Romantic couple kiss in front of the Eiffel Tower photoshoot in Paris by SabShots', wide: false },
+      { src: '/assets/paris-couple-photoshoot-03.jpg', alt: 'Playful couple on the Montmartre stairs couple photo session in Paris by SabShots', wide: false },
+      { src: '/assets/paris-couple-photoshoot-04.jpg', alt: 'Elegant couple walking on a Paris avenue with an Eiffel Tower view photoshoot by SabShots', wide: false },
+      { src: '/assets/paris-couple-photoshoot-06.jpg', alt: 'Intimate couple portrait near the Eiffel Tower engagement photoshoot in Paris by SabShots', wide: false },
+      { src: '/assets/paris-couple-photoshoot-07.jpg', alt: 'Couple twirling in a charming Paris street with the Eiffel Tower backdrop by SabShots', wide: false },
+      { src: '/assets/paris-couple-photoshoot-08.jpg', alt: 'Groom carrying his bride in a tutu dress near the Eiffel Tower couple photoshoot in Paris by SabShots', wide: false },
+    ],
   },
   {
     slug: 'proposals',
     title: 'Proposals',
     category: 'Proposals',
     year: '2025',
-    image: '/assets/portfolio-4.png',
+    image: '/assets/paris-proposal-photoshoot-02.jpg',
+    imageAlt: 'Newly engaged couple holding hands with a sparkling diamond ring in front of the Eiffel Tower after a surprise marriage proposal in Paris by SabShots',
     description: 'Surprise marriage proposals captured discreetly as they happen.',
-    images: ['/assets/portfolio-4.png', '/assets/showcase-2.png', '/assets/portrait-1.avif', '/assets/portrait-4.avif', '/assets/portrait-3.avif', '/assets/portrait-2.avif', '/assets/portrait-1.avif', '/assets/portrait-4.avif'],
+    images: [
+      { src: '/assets/paris-proposal-photoshoot-01.jpg', alt: 'Man kneeling with an open ring box as his overjoyed girlfriend reacts during a surprise marriage proposal at the Trocadero in Paris by SabShots', wide: false },
+      { src: '/assets/paris-proposal-photoshoot-03.jpg', alt: 'Boyfriend on one knee proposing as the couple lean together at the Trocadero overlooking the Eiffel Tower in Paris by SabShots', wide: false },
+      { src: '/assets/paris-proposal-photoshoot-04.jpg', alt: 'Romantic candlelit table with roses by the Seine to celebrate an engagement in front of the Eiffel Tower in Paris by SabShots', wide: false },
+    ],
   },
   {
     slug: 'families',
     title: 'Families',
     category: 'Family',
     year: '2024',
-    image: '/assets/portfolio-6.png',
+    image: '/assets/paris-family-photoshoot-cover.jpg',
+    imageAlt: 'Family of five photo session by the Seine with the Eiffel Tower in Paris by SabShots',
     description: 'Warm family moments in the heart of Paris that you will keep for years.',
-    images: ['/assets/portfolio-6.png', '/assets/showcase-3.png', '/assets/portrait-3.avif', '/assets/portrait-2.avif', '/assets/portrait-4.avif', '/assets/portrait-1.avif', '/assets/portrait-3.avif', '/assets/portrait-2.avif'],
+    images: [
+      { src: '/assets/paris-family-photoshoot-01.jpg', alt: 'Father lifting his laughing son in front of the Eiffel Tower during a Paris family photo session by SabShots', wide: false },
+      { src: '/assets/paris-family-photoshoot-02.jpg', alt: 'Mother and daughter walking together on a Paris street during a family lifestyle photo session by SabShots', wide: false },
+      { src: '/assets/paris-family-photoshoot-03.jpg', alt: 'Elegant family in pink gowns under a Paris colonnade during a family portrait session by SabShots', wide: false },
+    ],
+  },
+  {
+    slug: 'weddings',
+    title: 'Weddings',
+    category: 'Wedding',
+    year: '2025',
+    image: '/assets/paris-wedding-photoshoot-cover.jpg',
+    imageAlt: 'Intimate wedding ceremony on a rooftop terrace overlooking the Eiffel Tower in Paris by SabShots',
+    description: 'Elegant Paris weddings, from intimate ceremonies to celebrations across the city.',
+    images: [
+      { src: '/assets/paris-wedding-photoshoot-cover.jpg', alt: 'Intimate wedding ceremony on a rooftop terrace overlooking the Eiffel Tower in Paris by SabShots', wide: true },
+      { src: '/assets/paris-wedding-photoshoot-02.jpg', alt: 'Joyful newlyweds showered with flower petals outside a church at a Paris wedding by SabShots', wide: true },
+      { src: '/assets/paris-wedding-photoshoot-01.jpg', alt: 'Bride and groom kissing by a vintage car near the Eiffel Tower during a Paris wedding by SabShots', wide: false },
+      { src: '/assets/paris-wedding-photoshoot-03.jpg', alt: 'Elegant bride and groom at golden hour on a terrace during a romantic Paris wedding by SabShots', wide: false },
+      { src: '/assets/paris-wedding-photoshoot-05.jpg', alt: 'Intimate portrait of a bride holding a bouquet beside her groom at a Paris wedding by SabShots', wide: false },
+    ],
   },
   {
     slug: 'nightclubs',
@@ -280,7 +352,15 @@ export const portfolioItems: PortfolioItem[] = [
     category: 'Nightlife',
     year: '2025',
     image: '/assets/showcase-2.png',
+    imageAlt: 'Paris nightlife and nightclub photography by SabShots',
     description: 'The energy and atmosphere of Paris nightlife, captured inside the clubs.',
-    images: ['/assets/showcase-2.png', '/assets/portfolio-4.png', '/assets/portrait-4.avif', '/assets/portrait-3.avif', '/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/portrait-4.avif', '/assets/portrait-3.avif'],
+    images: [
+      { src: '/assets/showcase-2.png', alt: 'Paris nightlife atmosphere captured by SabShots', wide: true },
+      { src: '/assets/portfolio-4.png', alt: 'Night photography inside a Paris club by SabShots', wide: true },
+      { src: '/assets/portrait-1.avif', alt: 'Nightclub portrait photography in Paris by SabShots', wide: false },
+      { src: '/assets/portrait-2.avif', alt: 'Paris nightlife portrait by SabShots', wide: false },
+      { src: '/assets/portrait-3.avif', alt: 'Club photography session in Paris by SabShots', wide: false },
+      { src: '/assets/portrait-4.avif', alt: 'Paris nightlife photo session by SabShots', wide: false },
+    ],
   },
 ]
