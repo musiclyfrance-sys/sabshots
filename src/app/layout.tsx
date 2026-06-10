@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 import "./globals.css";
+import ImageProtection from "@/components/ImageProtection";
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -90,6 +91,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${manrope.className} h-full antialiased`}>
       <body className="min-h-full flex flex-col">
+        <ImageProtection />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}

@@ -200,7 +200,7 @@ export default function TrustedGloballySection() {
             style={{
               width: '100%',
               maxWidth: '700px',
-              height: 'clamp(210px, 56vw, 316px)',
+              aspectRatio: '3 / 2',
               overflow: 'hidden',
               borderRadius: '34px',
               backgroundColor: 'rgb(245, 245, 245)',
@@ -210,6 +210,7 @@ export default function TrustedGloballySection() {
               style={{
                 display: 'flex',
                 flexDirection: 'row',
+                height: '100%',
                 animation: 'imageScrollH 26s linear infinite',
                 width: 'max-content',
               }}
@@ -218,8 +219,8 @@ export default function TrustedGloballySection() {
                 <div
                   key={i}
                   style={{
-                    width: '700px',
-                    height: 'clamp(210px, 56vw, 316px)',
+                    height: '100%',
+                    aspectRatio: '3 / 2',
                     flexShrink: 0,
                     position: 'relative',
                     overflow: 'hidden',
