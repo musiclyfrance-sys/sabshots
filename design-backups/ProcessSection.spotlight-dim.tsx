@@ -1,3 +1,23 @@
+/**
+ * ============================================================================
+ * BACKUP — ProcessSection "Spotlight / Dim" design (saved 2026-06-10)
+ * ============================================================================
+ *
+ * This is the scroll-driven SPOTLIGHT version of the "How a Session Works"
+ * section: one card is fully lit (full opacity + slight lift + soft shadow)
+ * while the other two are dimmed to 0.42 opacity. The active card follows the
+ * scroll position and is reversible.
+ *
+ * It is kept here on purpose as a fallback. This folder is excluded from the
+ * TypeScript build (see tsconfig.json "exclude") so this file is NOT compiled
+ * and will never affect the live site.
+ *
+ * TO RESTORE THIS DESIGN:
+ *   Copy the component code below (everything under the divider) back into
+ *   src/components/ProcessSection.tsx, replacing the current version.
+ * ============================================================================
+ */
+
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
@@ -37,12 +57,10 @@ const processCards: ProcessCard[] = [
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
-  // How many steps have been reached (1, 2, or 3). The cards themselves never
-  // change colour; only a small numbered marker fills in, in order.
-  const [reached, setReached] = useState(1)
+  const [active, setActive] = useState(0)
   const [reduced, setReduced] = useState(false)
 
-  // Title entrance reveal.
+  // Title entrance reveal (unchanged).
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-visible') }),
@@ -52,11 +70,8 @@ export default function ProcessSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Scroll-driven step marker. The three steps fill in order as the row crosses
-  // the middle band of the screen. The whole sequence is centred on the
-  // comfortable viewing window, so step 3 is always reached while the cards are
-  // still clearly in view (never stranded at the very end). Fully reversible:
-  // scrolling back up empties the markers in reverse.
+  // Scroll-driven single "active" step: a spotlight that follows the scroll and
+  // is fully reversible (scroll up moves it back). Only one step is lit at a time.
   useEffect(() => {
     setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     const grid = gridRef.current
@@ -66,16 +81,10 @@ export default function ProcessSection() {
       raf = 0
       const rect = grid.getBoundingClientRect()
       const vh = window.innerHeight || document.documentElement.clientHeight
-      const center = rect.top + rect.height / 2
-      // Map the row's vertical centre to a 0..1 progress: 0 as it sits low in
-      // the viewport, 1 once it reaches the upper-middle. The band is tight and
-      // evenly split so the three steps light up at a steady pace.
-      const enter = vh * 0.8
-      const exit = vh * 0.32
-      const t = (enter - center) / (enter - exit)
-      const clamped = t < 0 ? 0 : t > 1 ? 1 : t
-      const next = clamped >= 1 ? 3 : 1 + Math.floor(clamped * 3) // 1, 2 or 3
-      setReached((prev) => (prev === next ? prev : next))
+      // 0 when the grid is just below the viewport, 1 when it has fully passed above.
+      const p = (vh - rect.top) / (vh + rect.height)
+      const idx = Math.min(2, Math.max(0, Math.floor(p * 3)))
+      setActive((prev) => (prev === idx ? prev : idx))
     }
     const onScroll = () => { if (!raf) raf = requestAnimationFrame(compute) }
     compute()
@@ -116,8 +125,7 @@ export default function ProcessSection() {
             className="justify-center items-stretch overflow-visible"
           >
             {processCards.map((card, index) => {
-              // The marker for this step is filled once the scroll has reached it.
-              const filled = reached >= index + 1
+              const on = reduced || active === index
               return (
                 <div
                   key={card.title}
@@ -128,36 +136,17 @@ export default function ProcessSection() {
                     backgroundColor: 'rgba(252, 253, 255, 0.97)',
                     borderRadius: '34px',
                     border: '1px solid rgb(240, 242, 246)',
+                    opacity: on ? 1 : 0.42,
+                    transform: reduced ? 'none' : on ? 'translateY(-4px)' : 'translateY(0)',
+                    boxShadow: on ? '0 26px 50px -28px rgba(16, 40, 55, 0.22)' : '0 1px 0 rgba(0,0,0,0)',
+                    transition: reduced ? 'none' : 'opacity 0.5s ease, transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.55s ease',
                   }}
                 >
                   <div className="flex flex-row items-center justify-between w-full">
                     {PROCESS_SVG_ICONS[index]}
-                    {/* Step marker: identical size and position in every card.
-                        The only thing that changes on scroll is this small disc
-                        filling with the step number, in order 1 → 2 → 3. */}
-                    <div
-                      aria-hidden="true"
-                      style={{
-                        width: '26px',
-                        height: '26px',
-                        borderRadius: '999px',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        fontSize: '12px',
-                        fontWeight: 500,
-                        fontFamily: 'Manrope, sans-serif',
-                        lineHeight: 1,
-                        border: filled ? '1.5px solid rgb(1, 1, 1)' : '1.5px solid rgb(226, 228, 233)',
-                        backgroundColor: filled ? 'rgb(1, 1, 1)' : 'transparent',
-                        color: filled ? 'rgb(255, 255, 255)' : 'rgb(176, 180, 187)',
-                        boxShadow: filled ? '0 6px 16px -7px rgba(1, 1, 1, 0.55)' : '0 0 0 rgba(0, 0, 0, 0)',
-                        transform: reduced ? 'none' : filled ? 'scale(1.06)' : 'scale(1)',
-                        transition: reduced ? 'none' : 'background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease, transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.45s ease',
-                      }}
-                    >
-                      {index + 1}
-                    </div>
+                    <svg width="24" height="6" viewBox="0 0 24 6" fill="rgb(200,200,200)" aria-hidden="true">
+                      <circle cx="3" cy="3" r="2" /><circle cx="12" cy="3" r="2" /><circle cx="21" cy="3" r="2" />
+                    </svg>
                   </div>
 
                   <div style={{ backgroundColor: 'rgb(245, 245, 245)', height: '1px', width: '100%' }} />
