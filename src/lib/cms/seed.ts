@@ -26,6 +26,7 @@ export function seedContent(): CmsContent {
       (img, i): CmsPhoto => ({
         id: `${item.slug}-${i + 1}`,
         src: img.src,
+        original: img.src,
         alt: img.alt,
         wide: img.wide,
         template: isTemplateSrc(img.src),

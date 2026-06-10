@@ -35,6 +35,30 @@ export interface UploadResult {
   wide: boolean
 }
 
+export interface CropPixels {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
+// Bakes a crop server-side (sharp), returning a new optimized image URL.
+export async function bakeCrop(
+  source: string,
+  pixels: CropPixels
+): Promise<{ url: string; path: string }> {
+  const r = await fetch('/api/admin/crop', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ source, crop: pixels }),
+  })
+  if (!r.ok) {
+    const d = await r.json().catch(() => ({}))
+    throw new Error(d.error || 'Recadrage impossible')
+  }
+  return (await r.json()) as { url: string; path: string }
+}
+
 export async function uploadImage(file: File, folder: string): Promise<UploadResult> {
   const blob = await resizeImage(file)
   const fd = new FormData()

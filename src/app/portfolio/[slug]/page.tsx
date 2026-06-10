@@ -5,7 +5,6 @@ import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import CtaSection from '@/components/CtaSection'
 import { getPortfolioItems, getPortfolioItem } from '@/lib/cms/public-data'
-import { focalPosition } from '@/lib/cms/images'
 
 export const revalidate = 300
 export const dynamicParams = true
@@ -108,7 +107,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                 src={img.src}
                 alt={img.alt}
                 fill
-                style={{ objectFit: 'cover', objectPosition: focalPosition(img.focusX, img.focusY) }}
+                style={{ objectFit: 'cover' }}
                 sizes="(max-width: 700px) 100vw, 480px"
                 priority={i < 2}
               />

@@ -10,10 +10,15 @@ export interface CmsPhoto {
   template?: boolean // true = placeholder image to be replaced by the photographer
   width?: number
   height?: number
-  // Normalized focal point (0..1). Drives object-position so the subject stays
-  // in frame when the photo is cropped to its 3:2 / 2:3 block. Lossless.
-  focusX?: number
-  focusY?: number
+  original?: string // uncropped source URL (for re-cropping); falls back to src
+  crop?: CropArea // react-easy-crop area in percent (for re-opening the cropper)
+}
+
+export interface CropArea {
+  x: number
+  y: number
+  width: number
+  height: number
 }
 
 export interface CmsAlbum {
@@ -21,11 +26,11 @@ export interface CmsAlbum {
   title: string
   category: string
   year: string
-  cover: string // cover delivery URL
+  cover: string // cover delivery URL (cropped to 3:2)
   coverAlt: string
   coverPath?: string
-  coverFocusX?: number
-  coverFocusY?: number
+  coverOriginal?: string // uncropped cover source (for re-cropping)
+  coverCrop?: CropArea
   description: string
   photos: CmsPhoto[] // ordered; 2-landscape + 6-portrait block structure enforced on save
 }

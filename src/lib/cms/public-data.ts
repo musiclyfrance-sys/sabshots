@@ -8,8 +8,6 @@ export interface PublicPhoto {
   src: string
   alt: string
   wide: boolean
-  focusX?: number
-  focusY?: number
 }
 
 export interface PublicAlbum {
@@ -19,8 +17,6 @@ export interface PublicAlbum {
   year: string
   image: string
   imageAlt: string
-  imageFocusX?: number
-  imageFocusY?: number
   description: string
   images: PublicPhoto[]
 }
@@ -34,15 +30,11 @@ export const getPortfolioItems = cache(async (): Promise<PublicAlbum[]> => {
     year: a.year,
     image: a.cover,
     imageAlt: a.coverAlt,
-    imageFocusX: a.coverFocusX,
-    imageFocusY: a.coverFocusY,
     description: a.description,
     images: a.photos.map((p) => ({
       src: p.src,
       alt: p.alt,
       wide: p.wide,
-      focusX: p.focusX,
-      focusY: p.focusY,
     })),
   }))
 })
