@@ -1,17 +1,19 @@
-// CMS data model. The admin edits these; public pages read them (from the KV
-// store, falling back to the seed built from site-data.ts).
+// CMS data model. The admin edits these; public pages read them (from the
+// Supabase-backed store, falling back to the seed built from site-data.ts).
 
 export interface CmsPhoto {
   id: string // stable unique id within an album
-  src: string // delivery URL: Cloudinary secure_url, or /assets/... for legacy/templates
-  publicId?: string // Cloudinary public_id (enables transforms/crop); absent for legacy & templates
+  src: string // delivery URL: Supabase public URL, or /assets/... for legacy & templates
+  path?: string // Supabase Storage object path (for delete/replace); absent for legacy & templates
   alt: string
   wide: boolean // true = landscape (fills a 3:2 slot), false = portrait (2:3 slot)
   template?: boolean // true = placeholder image to be replaced by the photographer
   width?: number
   height?: number
-  // Optional manual crop (normalized 0..1) applied on top of the smart crop.
-  crop?: { x: number; y: number; w: number; h: number }
+  // Normalized focal point (0..1). Drives object-position so the subject stays
+  // in frame when the photo is cropped to its 3:2 / 2:3 block. Lossless.
+  focusX?: number
+  focusY?: number
 }
 
 export interface CmsAlbum {
@@ -21,10 +23,11 @@ export interface CmsAlbum {
   year: string
   cover: string // cover delivery URL
   coverAlt: string
-  coverPublicId?: string
-  coverCrop?: { x: number; y: number; w: number; h: number }
+  coverPath?: string
+  coverFocusX?: number
+  coverFocusY?: number
   description: string
-  photos: CmsPhoto[] // ordered; the 2-landscape + 6-portrait block structure is enforced on save
+  photos: CmsPhoto[] // ordered; 2-landscape + 6-portrait block structure enforced on save
 }
 
 export interface CmsBlogPost {
@@ -34,7 +37,7 @@ export interface CmsBlogPost {
   readTime: string
   author: string
   image: string
-  imagePublicId?: string
+  imagePath?: string
   imageAlt?: string
   excerpt: string
   body: string // HTML produced by the editor (legacy seed posts are markdown)
