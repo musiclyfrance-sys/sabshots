@@ -83,7 +83,7 @@ export default function TiptapEditor({
 
   return (
     <div style={{ background: 'white', border: '1px solid rgb(232,234,239)', borderRadius: '14px', overflow: 'hidden' }}>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', padding: '10px', borderBottom: '1px solid rgb(236,238,242)', position: 'sticky', top: '60px', background: 'white', zIndex: 5 }}>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '5px', padding: '10px', borderBottom: '1px solid rgb(236,238,242)', background: 'white' }}>
         <Btn title="Gras" active={editor.isActive('bold')} onClick={() => editor.chain().focus().toggleBold().run()}><b>B</b></Btn>
         <Btn title="Italique" active={editor.isActive('italic')} onClick={() => editor.chain().focus().toggleItalic().run()}><i>I</i></Btn>
         <Btn title="Sous-titre" active={editor.isActive('heading', { level: 2 })} onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}>H2</Btn>
@@ -101,7 +101,9 @@ export default function TiptapEditor({
         <input ref={fileRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => onImageFile(e.target.files)} />
         <Btn title="Insérer une image" onClick={() => fileRef.current?.click()}>{uploading ? '…' : '🖼 Image'}</Btn>
       </div>
-      <EditorContent editor={editor} className="editor-content" />
+      <div style={{ maxHeight: '62vh', overflowY: 'auto' }}>
+        <EditorContent editor={editor} className="editor-content" />
+      </div>
     </div>
   )
 }

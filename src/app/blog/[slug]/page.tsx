@@ -5,6 +5,7 @@ import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
 import { getBlogPosts, getBlogPost } from '@/lib/cms/public-data'
+import { stripHtml, wordCount } from '@/components/admin/markdown'
 
 export const revalidate = 300
 export const dynamicParams = true
@@ -18,16 +19,18 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const post = await getBlogPost(slug)
   if (!post) return { title: 'Not Found' }
+  const description = post.metaDescription || post.excerpt
   return {
     title: `SabShots | ${post.title}`,
-    description: post.excerpt,
+    description,
+    keywords: post.keyword ? [post.keyword] : undefined,
     alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       type: 'article',
       siteName: 'SabShots',
       url: `https://www.sabshots.com/blog/${slug}`,
       title: `SabShots | ${post.title}`,
-      description: post.excerpt,
+      description,
       images: [post.image],
     },
   }
@@ -40,6 +43,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
   // Split body into paragraphs/sections
   const sections = post.body.split('\n\n').filter(Boolean)
+  const articleWords = wordCount(stripHtml(post.body))
 
   const articleJsonLd = {
     '@context': 'https://schema.org',
@@ -55,6 +59,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     },
     mainEntityOfPage: `https://www.sabshots.com/blog/${slug}`,
     inLanguage: 'en',
+    articleSection: post.tag,
+    wordCount: articleWords,
+    ...(post.keyword ? { keywords: post.keyword } : {}),
+    ...(post.updatedAt ? { datePublished: post.updatedAt, dateModified: post.updatedAt } : {}),
   }
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
