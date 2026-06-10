@@ -9,8 +9,12 @@ import CtaSection from '@/components/CtaSection'
 import FaqSection from '@/components/FaqSection'
 import { BlogSection } from '@/components/BlogSection'
 import Footer from '@/components/Footer'
+import { getPortfolioItems } from '@/lib/cms/public-data'
 
-export default function Home() {
+export const revalidate = 300
+
+export default async function Home() {
+  const projects = (await getPortfolioItems()).slice(0, 6)
   return (
     <main
       className="relative overflow-hidden"
@@ -19,7 +23,7 @@ export default function Home() {
       <NavBar />
       <HeroSection />
       <TrustedGloballySection />
-      <PortfolioSection />
+      <PortfolioSection projects={projects} />
       <ExpertiseSection />
       <ProcessSection />
       <TestimonialsSection />

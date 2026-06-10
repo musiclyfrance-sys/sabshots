@@ -4,13 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { cn } from '@/lib/utils'
-import { portfolioItems, type PortfolioItem } from '@/lib/site-data'
+type CardProject = { slug: string; image: string; imageAlt: string }
 
-// First six real categories (nightclubs lives only on the full portfolio page).
-// Each card links straight to its album.
-const projects: PortfolioItem[] = portfolioItems.slice(0, 6)
-
-function PortfolioCardItem({ project }: { project: PortfolioItem }) {
+function PortfolioCardItem({ project }: { project: CardProject }) {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -66,7 +62,7 @@ function PortfolioCardItem({ project }: { project: PortfolioItem }) {
   )
 }
 
-export default function PortfolioSection() {
+export default function PortfolioSection({ projects }: { projects: CardProject[] }) {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
