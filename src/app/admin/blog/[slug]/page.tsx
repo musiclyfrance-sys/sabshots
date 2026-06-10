@@ -7,7 +7,9 @@ import { useParams } from 'next/navigation'
 import AdminHeader from '@/components/admin/AdminHeader'
 import TiptapEditor from '@/components/admin/TiptapEditor'
 import { useContent } from '@/components/admin/useContent'
-import { uploadImage } from '@/components/admin/upload-image'
+import { uploadImage, bakeCrop } from '@/components/admin/upload-image'
+import CropModal from '@/components/admin/CropModal'
+import type { Area } from 'react-easy-crop'
 import { analyzeSeo, type SeoStatus } from '@/components/admin/seo'
 import { markdownToHtml, stripHtml, wordCount } from '@/components/admin/markdown'
 import type { CmsBlogPost, CmsContent } from '@/lib/cms/types'
@@ -28,6 +30,7 @@ export default function BlogEditor() {
   const [dirty, setDirty] = useState(false)
   const [msg, setMsg] = useState('')
   const [coverBusy, setCoverBusy] = useState(false)
+  const [coverCropOpen, setCoverCropOpen] = useState(false)
   const coverRef = useRef<HTMLInputElement>(null)
 
   useEffect(() => {
@@ -59,7 +62,7 @@ export default function BlogEditor() {
     setCoverBusy(true)
     try {
       const res = await uploadImage(files[0], 'blog')
-      update((p) => { p.image = res.url; p.imagePath = res.path })
+      update((p) => { p.image = res.url; p.imageOriginal = res.url; p.imagePath = res.path; p.imageCrop = undefined })
     } catch (e) {
       alert((e as Error).message)
     } finally {
@@ -128,7 +131,10 @@ export default function BlogEditor() {
                   </div>
                   <div>
                     <input ref={coverRef} type="file" accept="image/*" style={{ display: 'none' }} onChange={(e) => onCover(e.target.files)} />
-                    <button onClick={() => coverRef.current?.click()} disabled={coverBusy} style={{ padding: '9px 15px', borderRadius: '10px', border: '1px solid rgb(224,226,232)', background: 'white', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>{coverBusy ? 'Upload…' : 'Changer l’image de couverture'}</button>
+                    <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
+                      <button onClick={() => coverRef.current?.click()} disabled={coverBusy} style={{ padding: '9px 15px', borderRadius: '10px', border: '1px solid rgb(224,226,232)', background: 'white', fontSize: '13px', fontWeight: 600, cursor: 'pointer' }}>{coverBusy ? 'Upload…' : 'Changer l’image de couverture'}</button>
+                      <button onClick={() => setCoverCropOpen(true)} disabled={!post.image} style={{ padding: '9px 15px', borderRadius: '10px', border: '1px solid rgb(224,226,232)', background: 'white', fontSize: '13px', fontWeight: 600, cursor: post.image ? 'pointer' : 'default', color: post.image ? 'rgb(40,44,52)' : 'rgb(170,174,182)' }}>Recadrer (16:9)</button>
+                    </div>
                     <input value={post.imageAlt || ''} onChange={(e) => update((p) => { p.imageAlt = e.target.value })} placeholder="Alt de la cover (SEO)" style={{ ...fieldStyle, marginTop: '8px', fontSize: '12px', padding: '8px 10px' }} />
                   </div>
                 </div>
@@ -162,6 +168,20 @@ export default function BlogEditor() {
           </>
         )}
       </main>
+      {coverCropOpen && post && (
+        <CropModal
+          src={post.imageOriginal || post.image}
+          aspect={16 / 9}
+          initial={post.imageCrop as Area | undefined}
+          onCancel={() => setCoverCropOpen(false)}
+          onSave={async (percent, pixels) => {
+            const source = post.imageOriginal || post.image
+            const { url } = await bakeCrop(source, pixels)
+            update((p) => { p.image = url; p.imageCrop = percent; if (!p.imageOriginal) p.imageOriginal = source })
+            setCoverCropOpen(false)
+          }}
+        />
+      )}
     </>
   )
 }

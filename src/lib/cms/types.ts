@@ -43,6 +43,8 @@ export interface CmsBlogPost {
   author: string
   image: string
   imagePath?: string
+  imageOriginal?: string
+  imageCrop?: CropArea
   imageAlt?: string
   excerpt: string
   body: string // HTML produced by the editor (legacy seed posts are markdown)
