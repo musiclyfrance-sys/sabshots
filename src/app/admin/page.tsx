@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import AdminHeader from '@/components/admin/AdminHeader'
+import ChangePasswordCard from '@/components/admin/ChangePasswordCard'
 import { getContent } from '@/lib/cms/store'
 import { isSupabaseConfigured } from '@/lib/cms/supabase'
 
@@ -77,6 +78,8 @@ export default async function AdminDashboard() {
             <div style={{ marginTop: '18px', fontWeight: 600, fontSize: '14px' }}>Gérer les articles →</div>
           </Link>
         </div>
+
+        <ChangePasswordCard />
       </main>
     </>
   )

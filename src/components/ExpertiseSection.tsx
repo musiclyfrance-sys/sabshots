@@ -5,10 +5,13 @@ import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
 const SLIDES = [
-  { src: '/assets/showcase-1.png', alt: 'Eiffel Tower photo session in Paris by SabShots' },
-  { src: '/assets/portrait-1.avif', alt: 'Portrait photography session in Paris' },
-  { src: '/assets/showcase-2.png', alt: 'Paris photography by SabShots, private sessions' },
-  { src: '/assets/portrait-2.avif', alt: 'Creative portrait photography in Paris' },
+  { src: '/assets/paris-help-01.jpg', alt: 'Man on the Pont de Bir-Hakeim bridge during a Paris photo session by SabShots' },
+  { src: '/assets/paris-help-02.jpg', alt: 'Couple kissing by the Eiffel Tower during a Paris photo session by SabShots' },
+  { src: '/assets/paris-help-03.jpg', alt: 'Woman in a Parisian courtyard during a fashion photo session by SabShots' },
+  { src: '/assets/paris-help-04.jpg', alt: 'Man in a Haussmann street during a Paris street style session by SabShots' },
+  { src: '/assets/paris-help-05.jpg', alt: 'Surprise marriage proposal at Trocadero by the Eiffel Tower by SabShots' },
+  { src: '/assets/paris-help-06.jpg', alt: 'Editorial portrait against an ochre Paris wall by SabShots' },
+  { src: '/assets/paris-help-07.jpg', alt: 'Woman in a lace gown at night by the illuminated Eiffel Tower by SabShots' },
 ]
 
 function TagBadge({ label }: { label: string }) {

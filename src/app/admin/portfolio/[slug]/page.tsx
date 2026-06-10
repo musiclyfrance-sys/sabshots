@@ -26,6 +26,35 @@ function uid(): string {
   return 'p-' + Math.random().toString(36).slice(2) + Date.now().toString(36)
 }
 
+const TPL_LAND = ['/assets/showcase-1.png', '/assets/showcase-2.png', '/assets/showcase-3.png', '/assets/showcase-4.png', '/assets/portfolio-4.png']
+const TPL_PORT = ['/assets/portrait-1.avif', '/assets/portrait-2.avif', '/assets/portrait-3.avif', '/assets/portrait-4.avif']
+
+function makeTemplate(src: string, wide: boolean): CmsPhoto {
+  return { id: uid(), src, original: src, alt: wide ? 'Photo paysage à remplacer par SabShots' : 'Photo portrait à remplacer par SabShots', wide, template: true }
+}
+
+// Reorders photos into repeating [2 landscapes + 6 portraits] blocks, padding any
+// empty slot with a recognizable template. Real photos are preserved, in order.
+function arrangeBlocks(photos: CmsPhoto[]): CmsPhoto[] {
+  const land = photos.filter((p) => p.wide && !p.template)
+  const port = photos.filter((p) => !p.wide && !p.template)
+  if (!land.length && !port.length) return photos
+  const out: CmsPhoto[] = []
+  let li = 0, ti = 0, pi = 0, tpi = 0
+  const nextL = () => (li < land.length ? land[li++] : makeTemplate(TPL_LAND[ti++ % TPL_LAND.length], true))
+  const nextP = () => (pi < port.length ? port[pi++] : makeTemplate(TPL_PORT[tpi++ % TPL_PORT.length], false))
+  const blocks = port.length ? Math.ceil(port.length / 6) : 1
+  for (let b = 0; b < blocks; b++) {
+    out.push(nextL(), nextL())
+    for (let k = 0; k < 6; k++) out.push(nextP())
+  }
+  while (li < land.length) {
+    out.push(land[li++])
+    out.push(li < land.length ? land[li++] : makeTemplate(TPL_LAND[ti++ % TPL_LAND.length], true))
+  }
+  return out
+}
+
 const fieldStyle: React.CSSProperties = {
   width: '100%', padding: '11px 13px', borderRadius: '11px',
   border: '1px solid rgb(224,226,232)', fontSize: '14px', fontFamily: 'inherit', background: 'white',
@@ -218,6 +247,9 @@ export default function AlbumEditor() {
               <input ref={fileRef} type="file" accept="image/*" multiple onChange={(e) => onFiles(e.target.files)} style={{ display: 'none' }} />
               <button onClick={() => fileRef.current?.click()} disabled={uploading} style={{ padding: '12px 20px', borderRadius: '12px', border: 'none', background: 'rgb(17,17,19)', color: 'white', fontSize: '14px', fontWeight: 600, cursor: uploading ? 'default' : 'pointer' }}>
                 {uploading ? 'Compression + upload…' : '+ Ajouter des photos'}
+              </button>
+              <button onClick={() => { update((a) => { a.photos = arrangeBlocks(a.photos) }); setMsg('Photos rangées en blocs ✓'); setTimeout(() => setMsg(''), 2500) }} style={{ padding: '12px 18px', borderRadius: '12px', border: '1px solid rgb(224,226,232)', background: 'white', color: 'rgb(40,44,52)', fontSize: '14px', fontWeight: 600, cursor: 'pointer' }}>
+                Ranger en blocs (2 paysages + 6 portraits)
               </button>
               <span style={{ color: 'rgb(107,114,128)', fontSize: '13px' }}>Compression et SEO automatiques. Glisse les photos pour les réordonner.</span>
             </div>
