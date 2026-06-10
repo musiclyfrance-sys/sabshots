@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   /* config options here */
   output: "standalone",
+  serverExternalPackages: ["sharp"],
   images: {
     qualities: [75, 85, 90],
     remotePatterns: [
