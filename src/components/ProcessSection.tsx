@@ -7,24 +7,20 @@ interface ProcessCard {
   description: string
 }
 
-// Inline SVG icons, one per process card. Stroke uses currentColor so the icon
-// can tint to green when its step becomes active.
+// Inline SVG icons, one per process card.
 const PROCESS_SVG_ICONS = [
-  // Card 1 — Plan Your Session: notebook
-  <svg key="plan" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg key="plan" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
     <path d="M9 7h7" />
     <path d="M9 11h5" />
   </svg>,
-  // Card 2 — Shoot Across Paris: camera
-  <svg key="cam" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg key="cam" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="2" y="8" width="20" height="13" rx="2.5" ry="2.5" />
     <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
     <circle cx="12" cy="14.5" r="3" />
   </svg>,
-  // Card 3 — Receive Your Photos: file with send arrow
-  <svg key="file" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg key="file" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgb(1,1,1)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
     <polyline points="14 2 14 8 20 8" />
     <line x1="12" y1="18" x2="12" y2="12" />
@@ -41,9 +37,10 @@ const processCards: ProcessCard[] = [
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const gridRef = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState<boolean[]>([false, false, false])
+  const [active, setActive] = useState(0)
+  const [reduced, setReduced] = useState(false)
 
-  // Title reveal (entrance fade), unchanged.
+  // Title entrance reveal (unchanged).
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add('is-visible') }),
@@ -53,31 +50,24 @@ export default function ProcessSection() {
     return () => observer.disconnect()
   }, [])
 
-  // Scroll-driven step activation: a card lights up (and stays lit) once its
-  // centre rises above ~80% of the viewport. Works on desktop (cards cascade via
-  // the staggered transition-delay) and mobile (one by one as you scroll).
+  // Scroll-driven single "active" step: a spotlight that follows the scroll and
+  // is fully reversible (scroll up moves it back). Only one step is lit at a time.
   useEffect(() => {
+    setReduced(window.matchMedia('(prefers-reduced-motion: reduce)').matches)
     const grid = gridRef.current
     if (!grid) return
     let raf = 0
-    const check = () => {
+    const compute = () => {
       raf = 0
+      const rect = grid.getBoundingClientRect()
       const vh = window.innerHeight || document.documentElement.clientHeight
-      const cards = Array.from(grid.children) as HTMLElement[]
-      setActive((prev) => {
-        let changed = false
-        const next = [...prev]
-        cards.forEach((c, i) => {
-          if (!next[i]) {
-            const r = c.getBoundingClientRect()
-            if (r.top + r.height / 2 < vh * 0.8) { next[i] = true; changed = true }
-          }
-        })
-        return changed ? next : prev
-      })
+      // 0 when the grid is just below the viewport, 1 when it has fully passed above.
+      const p = (vh - rect.top) / (vh + rect.height)
+      const idx = Math.min(2, Math.max(0, Math.floor(p * 3)))
+      setActive((prev) => (prev === idx ? prev : idx))
     }
-    const onScroll = () => { if (!raf) raf = requestAnimationFrame(check) }
-    check()
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(compute) }
+    compute()
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll)
     return () => {
@@ -114,29 +104,44 @@ export default function ProcessSection() {
             style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 280px), 1fr))', gap: '20px', width: '100%', maxWidth: '984px' }}
             className="justify-center items-stretch overflow-visible"
           >
-            {processCards.map((card, index) => (
-              <div
-                key={card.title}
-                className={`process-step flex flex-col items-start justify-center ${active[index] ? 'is-active' : ''}`}
-                style={{ gap: '24px', padding: '24px', backgroundColor: 'rgba(252, 253, 255, 0.97)', borderRadius: '34px', ['--d' as string]: `${index * 0.14}s` } as React.CSSProperties}
-              >
-                <div className="flex flex-row items-center justify-between w-full">
-                  <span className="step-icon-wrap">{PROCESS_SVG_ICONS[index]}</span>
-                  <span className="step-num">{`0${index + 1}`}</span>
-                </div>
-
-                <div style={{ backgroundColor: 'rgb(245, 245, 245)', height: '1px', width: '100%' }} />
-
-                <div className="flex flex-col items-start justify-center w-full overflow-visible" style={{ gap: '6px' }}>
-                  <div style={{ fontSize: '16px', fontWeight: 400, fontFamily: 'Manrope, sans-serif', lineHeight: '22px', color: 'rgb(1, 1, 1)' }}>
-                    {card.title}
+            {processCards.map((card, index) => {
+              const on = reduced || active === index
+              return (
+                <div
+                  key={card.title}
+                  className="flex flex-col items-start justify-center overflow-visible"
+                  style={{
+                    gap: '24px',
+                    padding: '24px',
+                    backgroundColor: 'rgba(252, 253, 255, 0.97)',
+                    borderRadius: '34px',
+                    border: '1px solid rgb(240, 242, 246)',
+                    opacity: on ? 1 : 0.42,
+                    transform: reduced ? 'none' : on ? 'translateY(-4px)' : 'translateY(0)',
+                    boxShadow: on ? '0 26px 50px -28px rgba(16, 40, 55, 0.22)' : '0 1px 0 rgba(0,0,0,0)',
+                    transition: reduced ? 'none' : 'opacity 0.5s ease, transform 0.55s cubic-bezier(0.22,1,0.36,1), box-shadow 0.55s ease',
+                  }}
+                >
+                  <div className="flex flex-row items-center justify-between w-full">
+                    {PROCESS_SVG_ICONS[index]}
+                    <svg width="24" height="6" viewBox="0 0 24 6" fill="rgb(200,200,200)" aria-hidden="true">
+                      <circle cx="3" cy="3" r="2" /><circle cx="12" cy="3" r="2" /><circle cx="21" cy="3" r="2" />
+                    </svg>
                   </div>
-                  <p style={{ fontSize: '16px', fontWeight: 300, fontFamily: 'Manrope, sans-serif', lineHeight: '22px', color: 'rgb(124, 124, 124)' }}>
-                    {card.description}
-                  </p>
+
+                  <div style={{ backgroundColor: 'rgb(245, 245, 245)', height: '1px', width: '100%' }} />
+
+                  <div className="flex flex-col items-start justify-center w-full overflow-visible" style={{ gap: '6px' }}>
+                    <div style={{ fontSize: '16px', fontWeight: 400, fontFamily: 'Manrope, sans-serif', lineHeight: '22px', color: 'rgb(1, 1, 1)' }}>
+                      {card.title}
+                    </div>
+                    <p style={{ fontSize: '16px', fontWeight: 300, fontFamily: 'Manrope, sans-serif', lineHeight: '22px', color: 'rgb(124, 124, 124)' }}>
+                      {card.description}
+                    </p>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </div>
       </div>
