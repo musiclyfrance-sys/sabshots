@@ -5,7 +5,7 @@ import CtaSection from '@/components/CtaSection'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
 import Image from 'next/image'
-import { portfolioItems } from '@/lib/site-data'
+import { getPortfolioItems } from '@/lib/cms/public-data'
 
 export const metadata = {
   title: 'SabShots | Paris Photo Session Portfolio',
@@ -23,7 +23,10 @@ export const metadata = {
   },
 }
 
-export default function PortfolioPage() {
+export const revalidate = 300
+
+export default async function PortfolioPage() {
+  const portfolioItems = await getPortfolioItems()
   return (
     <main style={{ background: 'rgb(240,242,248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />

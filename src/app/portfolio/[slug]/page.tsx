@@ -4,15 +4,20 @@ import Image from 'next/image'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import CtaSection from '@/components/CtaSection'
-import { portfolioItems } from '@/lib/site-data'
+import { getPortfolioItems, getPortfolioItem } from '@/lib/cms/public-data'
+import { focalPosition } from '@/lib/cms/images'
 
-export function generateStaticParams() {
-  return portfolioItems.map((p) => ({ slug: p.slug }))
+export const revalidate = 300
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const items = await getPortfolioItems()
+  return items.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const item = portfolioItems.find((p) => p.slug === slug)
+  const item = await getPortfolioItem(slug)
   if (!item) return { title: 'Not Found' }
   return {
     title: `SabShots | ${item.title} Photo Album in Paris`,
@@ -31,11 +36,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function PortfolioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const item = portfolioItems.find((p) => p.slug === slug)
+  const item = await getPortfolioItem(slug)
   if (!item) notFound()
 
   // Other projects for "more work" section
-  const others = portfolioItems.filter((p) => p.slug !== slug).slice(0, 3)
+  const others = (await getPortfolioItems()).filter((p) => p.slug !== slug).slice(0, 3)
 
   const galleryJsonLd = {
     '@context': 'https://schema.org',
@@ -43,7 +48,9 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
     name: `${item.title} Photo Album in Paris`,
     description: item.description,
     url: `https://www.sabshots.com/portfolio/${slug}`,
-    image: item.images.map((img) => `https://www.sabshots.com${img.src}`),
+    image: item.images.map((img) =>
+      img.src.startsWith('http') ? img.src : `https://www.sabshots.com${img.src}`
+    ),
   }
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -101,7 +108,7 @@ export default async function PortfolioDetailPage({ params }: { params: Promise<
                 src={img.src}
                 alt={img.alt}
                 fill
-                style={{ objectFit: 'cover' }}
+                style={{ objectFit: 'cover', objectPosition: focalPosition(img.focusX, img.focusY) }}
                 sizes="(max-width: 700px) 100vw, 480px"
                 priority={i < 2}
               />

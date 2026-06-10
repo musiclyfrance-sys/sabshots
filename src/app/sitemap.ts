@@ -1,9 +1,13 @@
 import type { MetadataRoute } from 'next'
-import { blogPosts, portfolioItems } from '@/lib/site-data'
+import { getPortfolioItems, getBlogPosts } from '@/lib/cms/public-data'
 
 const BASE = 'https://www.sabshots.com'
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export const revalidate = 300
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [portfolioItems, posts] = await Promise.all([getPortfolioItems(), getBlogPosts()])
+
   const staticPages: MetadataRoute.Sitemap = [
     { url: `${BASE}/`, changeFrequency: 'monthly', priority: 1 },
     { url: `${BASE}/portfolio`, changeFrequency: 'monthly', priority: 0.9 },
@@ -17,11 +21,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  const posts: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${BASE}/blog/${post.slug}`,
-    changeFrequency: 'monthly',
-    priority: 0.6,
-  }))
+  const blog: MetadataRoute.Sitemap = posts
+    .filter((post) => !post.draft)
+    .map((post) => ({
+      url: `${BASE}/blog/${post.slug}`,
+      changeFrequency: 'monthly',
+      priority: 0.6,
+    }))
 
-  return [...staticPages, ...albums, ...posts]
+  return [...staticPages, ...albums, ...blog]
 }
