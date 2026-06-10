@@ -8,9 +8,21 @@ export const CONTENT_PATH = 'content.json'
 
 let client: SupabaseClient | null = null
 
+// Normalize the Supabase URL to just the origin (https://<ref>.supabase.co),
+// tolerating a pasted REST endpoint (".../rest/v1/") or trailing slashes.
+export function supabaseBaseUrl(): string {
+  const raw = (process.env.NEXT_PUBLIC_SUPABASE_URL || '').trim()
+  if (!raw) return ''
+  try {
+    return new URL(raw).origin
+  } catch {
+    return raw.replace(/\/+$/, '')
+  }
+}
+
 export function getSupabase(): SupabaseClient | null {
   if (client) return client
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const url = supabaseBaseUrl()
   // Accept either the new secret key (sb_secret_...) or the legacy service_role key.
   const key =
     process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -23,7 +35,7 @@ export function getSupabase(): SupabaseClient | null {
 
 export function isSupabaseConfigured(): boolean {
   return !!(
-    process.env.NEXT_PUBLIC_SUPABASE_URL &&
+    supabaseBaseUrl() &&
     (process.env.SUPABASE_SECRET_KEY || process.env.SUPABASE_SERVICE_ROLE_KEY)
   )
 }

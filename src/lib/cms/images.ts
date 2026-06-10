@@ -3,7 +3,16 @@
 // device. Cropping into a 3:2 / 2:3 block is lossless via object-position driven
 // by the stored focal point.
 
-const SUPA = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+function supaOrigin(): string {
+  const raw = (process.env.NEXT_PUBLIC_SUPABASE_URL || '').trim()
+  if (!raw) return ''
+  try {
+    return new URL(raw).origin
+  } catch {
+    return raw.replace(/\/+$/, '')
+  }
+}
+const SUPA = supaOrigin()
 const BUCKET = 'sabshots'
 
 // Build a public URL from a storage object path. `src` values are usually already
