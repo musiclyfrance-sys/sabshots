@@ -3,15 +3,20 @@ import Link from 'next/link'
 import Image from 'next/image'
 import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
-import { blogPosts, WHATSAPP_BOOKING_URL } from '@/lib/site-data'
+import { WHATSAPP_BOOKING_URL } from '@/lib/site-data'
+import { getBlogPosts, getBlogPost } from '@/lib/cms/public-data'
 
-export function generateStaticParams() {
-  return blogPosts.map((p) => ({ slug: p.slug }))
+export const revalidate = 300
+export const dynamicParams = true
+
+export async function generateStaticParams() {
+  const posts = await getBlogPosts()
+  return posts.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
+  const post = await getBlogPost(slug)
   if (!post) return { title: 'Not Found' }
   return {
     title: `SabShots | ${post.title}`,
@@ -30,7 +35,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const post = blogPosts.find((p) => p.slug === slug)
+  const post = await getBlogPost(slug)
   if (!post) notFound()
 
   // Split body into paragraphs/sections
@@ -41,7 +46,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    image: `https://www.sabshots.com${post.image}`,
+    image: post.image.startsWith('http') ? post.image : `https://www.sabshots.com${post.image}`,
     author: { '@type': 'Person', name: post.author },
     publisher: {
       '@type': 'Organization',
@@ -107,7 +112,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} priority />
         </div>
 
-        {/* Article body — renders ## headings, paragraphs, and [text](url) links */}
+        {/* Article body — HTML (editor) or legacy markdown subset */}
+        {post.bodyFormat === 'html' ? (
+          <div className="article-body" dangerouslySetInnerHTML={{ __html: post.body }} />
+        ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
           {sections.map((section, i) => {
             if (section.startsWith('## ')) {
@@ -136,6 +144,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
             )
           })}
         </div>
+        )}
 
         {/* Book a session CTA */}
         <div style={{ marginTop: '56px', backgroundColor: 'rgb(255,255,255)', borderRadius: '32px', padding: '36px', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px', textAlign: 'center' }}>

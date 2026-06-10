@@ -146,6 +146,30 @@ img {
   -webkit-touch-callout: none;
 }
 
+/* Article body (rich text from the editor) */
+.article-body { display: flex; flex-direction: column; gap: 18px; }
+.article-body h2 { font-size: 22px; font-weight: 500; line-height: 32px; color: rgb(1, 1, 1); margin: 18px 0 2px; }
+.article-body h3 { font-size: 18px; font-weight: 500; line-height: 28px; color: rgb(1, 1, 1); margin: 12px 0 0; }
+.article-body p { font-size: 16px; font-weight: 300; line-height: 26px; color: rgb(60, 60, 60); margin: 0; }
+.article-body a { color: rgb(1, 1, 1); text-decoration: underline; text-underline-offset: 3px; }
+.article-body strong { font-weight: 600; color: rgb(20, 20, 20); }
+.article-body em { font-style: italic; }
+.article-body ul, .article-body ol { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 7px; color: rgb(60, 60, 60); font-weight: 300; font-size: 16px; line-height: 26px; }
+.article-body img { width: 100%; border-radius: 18px; margin: 6px 0; }
+.article-body blockquote { border-left: 3px solid rgb(37, 211, 102); padding-left: 16px; margin: 0; color: rgb(85, 85, 85); font-style: italic; }
+
+/* Rich-text editor surface */
+.editor-content .ProseMirror { min-height: 340px; padding: 18px; outline: none; display: flex; flex-direction: column; gap: 13px; }
+.editor-content .ProseMirror:focus { outline: none; }
+.editor-content .ProseMirror h2 { font-size: 21px; font-weight: 600; margin: 10px 0 0; color: rgb(20, 20, 22); }
+.editor-content .ProseMirror h3 { font-size: 17px; font-weight: 600; margin: 6px 0 0; color: rgb(20, 20, 22); }
+.editor-content .ProseMirror p { font-size: 15px; line-height: 25px; color: rgb(40, 42, 48); margin: 0; }
+.editor-content .ProseMirror a { color: rgb(37, 99, 235); text-decoration: underline; }
+.editor-content .ProseMirror ul, .editor-content .ProseMirror ol { padding-left: 22px; display: flex; flex-direction: column; gap: 5px; margin: 0; }
+.editor-content .ProseMirror img { max-width: 100%; border-radius: 14px; }
+.editor-content .ProseMirror blockquote { border-left: 3px solid rgb(37, 211, 102); padding-left: 14px; color: rgb(85, 85, 85); font-style: italic; }
+.editor-content .ProseMirror p.is-editor-empty:first-child::before { content: attr(data-placeholder); float: left; color: rgb(170, 174, 182); pointer-events: none; height: 0; }
+
 /* Marquee animation — horizontal continuous scroll */
 @keyframes marquee {
   0% { transform: translateX(0); }

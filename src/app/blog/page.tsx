@@ -5,7 +5,7 @@ import CtaSection from '@/components/CtaSection'
 import PageHero from '@/components/PageHero'
 import Link from 'next/link'
 import Image from 'next/image'
-import { blogPosts } from '@/lib/site-data'
+import { getBlogPosts } from '@/lib/cms/public-data'
 
 export const metadata = {
   title: 'SabShots | Paris Photography Tips & Guides',
@@ -23,7 +23,10 @@ export const metadata = {
   },
 }
 
-export default function BlogPage() {
+export const revalidate = 300
+
+export default async function BlogPage() {
+  const blogPosts = (await getBlogPosts()).filter((p) => !p.draft)
   return (
     <main style={{ background: 'rgb(240, 242, 248)', color: 'rgb(1,1,1)', fontFamily: 'Manrope, sans-serif', overflow: 'hidden' }}>
       <NavBar />
