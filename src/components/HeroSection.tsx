@@ -375,8 +375,8 @@ export default function HeroSection() {
 
             {/* Thumbnail 5 — _4 _5, mid-right (70x70, top:230, left:530) */}
             <Image
-              src="/assets/paris-candid-photoshoot-sunglasses.jpg"
-              alt="Candid photo session in a Paris street by SabShots"
+              src="/assets/paris-candid-portrait-photoshoot.jpg"
+              alt="Candid portrait photo session at the Sacre-Coeur in Paris by SabShots"
               className="htn htn-5"
               width={70}
               height={70}
