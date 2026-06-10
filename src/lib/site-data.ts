@@ -232,8 +232,8 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Street & Lifestyle',
     category: 'Lifestyle',
     year: '2025',
-    image: '/assets/paris-street-lifestyle-photoshoot-01.jpg',
-    imageAlt: 'Editorial street style model walking across the Passerelle Debilly bridge over the Seine in Paris by SabShots',
+    image: '/assets/paris-street-lifestyle-photoshoot-14.jpg',
+    imageAlt: 'Woman in a white corset top outside a Paris fruit shop, chic lifestyle street photography by SabShots',
     description: 'Candid, editorial moments captured in the streets and hidden corners of Paris.',
     images: [
       { src: '/assets/paris-street-lifestyle-photoshoot-01.jpg', alt: 'Editorial street style model walking across the Passerelle Debilly bridge over the Seine in Paris by SabShots', wide: true },
@@ -290,8 +290,8 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Instagrammable',
     category: 'Instagram',
     year: '2025',
-    image: '/assets/paris-instagrammable-photoshoot-01.jpg',
-    imageAlt: 'Woman enjoying a champagne breakfast on a balcony with an Eiffel Tower view, the most instagrammable Paris photo spot by SabShots',
+    image: '/assets/paris-instagrammable-photoshoot-02.jpg',
+    imageAlt: 'Woman beside the glowing Louvre Pyramid at golden sunset, an aesthetic instagrammable Paris photo spot by SabShots',
     description: 'The most photogenic spots across the whole city, ready for your feed.',
     images: [
       { src: '/assets/paris-instagrammable-photoshoot-01.jpg', alt: 'Woman enjoying a champagne breakfast on a balcony with an Eiffel Tower view, the most instagrammable Paris photo spot by SabShots', wide: true },
@@ -365,8 +365,8 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Families',
     category: 'Family',
     year: '2024',
-    image: '/assets/paris-family-photoshoot-01.jpg',
-    imageAlt: 'Joyful family of five smiling by the Seine with the Eiffel Tower behind during a Paris family photo session by SabShots',
+    image: '/assets/paris-family-photoshoot-03.jpg',
+    imageAlt: 'Elegant family of three in matching pink gowns in a Parisian colonnade for a family portrait in Paris by SabShots',
     description: 'Warm family moments in the heart of Paris that you will keep for years.',
     images: [
       { src: '/assets/portfolio-4.png', alt: 'Template photo to replace with your own Paris family landscape by SabShots', wide: true },
@@ -384,8 +384,8 @@ export const portfolioItems: PortfolioItem[] = [
     title: 'Weddings',
     category: 'Wedding',
     year: '2025',
-    image: '/assets/paris-wedding-photoshoot-01.jpg',
-    imageAlt: 'Intimate rooftop wedding ceremony with an Eiffel Tower view in Paris by SabShots',
+    image: '/assets/paris-wedding-photoshoot-05.jpg',
+    imageAlt: 'Elegant bride and groom embracing on a sunset terrace at a Paris wedding by SabShots',
     description: 'Elegant Paris weddings, from intimate ceremonies to celebrations across the city.',
     images: [
       { src: '/assets/paris-wedding-photoshoot-01.jpg', alt: 'Intimate rooftop wedding ceremony with an Eiffel Tower view in Paris by SabShots', wide: true },

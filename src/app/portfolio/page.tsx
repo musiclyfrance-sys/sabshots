@@ -19,7 +19,7 @@ export const metadata = {
     title: 'SabShots | Paris Photo Session Portfolio',
     description:
       'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
-    images: ['/assets/paris-eiffel-tower-photoshoot-cover.jpg'],
+    images: ['/assets/paris-eiffel-tower-photoshoot-01.jpg'],
   },
 }
 
