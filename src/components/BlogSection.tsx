@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
 
-interface BlogPost {
+export interface BlogTeaserPost {
   id: number
   title: string
   category: string
@@ -13,34 +13,7 @@ interface BlogPost {
   href: string
 }
 
-const blogPosts: BlogPost[] = [
-  {
-    id: 1,
-    title: 'The Best Photo Spots in Paris',
-    category: 'Guide',
-    image: '/assets/blog-1.png',
-    imageAlt: 'Best photo spots in Paris',
-    href: '/blog/best-photo-spots-in-paris',
-  },
-  {
-    id: 2,
-    title: 'When to Shoot at the Eiffel Tower',
-    category: 'Tips',
-    image: '/assets/blog-2.png',
-    imageAlt: 'Best time to photograph the Eiffel Tower',
-    href: '/blog/when-to-shoot-eiffel-tower',
-  },
-  {
-    id: 3,
-    title: 'How to Prepare for Your Paris Session',
-    category: 'Guide',
-    image: '/assets/blog-3.png',
-    imageAlt: 'Preparing for a Paris photo session',
-    href: '/blog/how-to-prepare-paris-session',
-  },
-]
-
-export function BlogSection() {
+export function BlogSection({ posts }: { posts: BlogTeaserPost[] }) {
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
@@ -189,7 +162,7 @@ export function BlogSection() {
               alignItems: 'center',
             }}
           >
-            {blogPosts.map((post, index) => (
+            {posts.map((post, index) => (
               <BlogCard
                 key={post.id}
                 post={post}
@@ -204,7 +177,7 @@ export function BlogSection() {
 }
 
 interface BlogCardProps {
-  post: BlogPost
+  post: BlogTeaserPost
   revealDelay: number
 }
 

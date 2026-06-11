@@ -9,12 +9,23 @@ import CtaSection from '@/components/CtaSection'
 import FaqSection from '@/components/FaqSection'
 import { BlogSection } from '@/components/BlogSection'
 import Footer from '@/components/Footer'
-import { getPortfolioItems } from '@/lib/cms/public-data'
+import { getPortfolioItems, getBlogPosts } from '@/lib/cms/public-data'
 
 export const revalidate = 300
 
 export default async function Home() {
   const projects = (await getPortfolioItems()).slice(0, 6)
+  const blogTeaser = (await getBlogPosts())
+    .filter((p) => !p.draft)
+    .slice(0, 3)
+    .map((p, i) => ({
+      id: i + 1,
+      title: p.title,
+      category: p.tag,
+      image: p.image,
+      imageAlt: p.imageAlt || p.title,
+      href: `/blog/${p.slug}`,
+    }))
   return (
     <main
       className="relative overflow-hidden"
@@ -29,7 +40,7 @@ export default async function Home() {
       <TestimonialsSection />
       <CtaSection />
       <FaqSection />
-      <BlogSection />
+      <BlogSection posts={blogTeaser} />
       <Footer />
     </main>
   )

@@ -27,6 +27,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${BASE}/blog/${post.slug}`,
       changeFrequency: 'monthly',
       priority: 0.6,
+      ...(post.updatedAt ? { lastModified: new Date(post.updatedAt) } : {}),
     }))
 
   return [...staticPages, ...albums, ...blog]

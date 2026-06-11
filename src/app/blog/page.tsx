@@ -59,7 +59,7 @@ export default async function BlogPage() {
               >
                 {/* Thumbnail */}
                 <div style={{ width: '100%', height: '220px', position: 'relative', backgroundColor: 'rgb(220,222,228)' }}>
-                  <Image src={post.image} alt={post.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
+                  <Image src={post.image} alt={post.imageAlt || post.title} fill style={{ objectFit: 'cover' }} sizes="(max-width: 768px) 100vw, 33vw" />
                 </div>
                 {/* Card footer */}
                 <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'center', padding: '16px 20px' }}>
