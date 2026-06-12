@@ -27,10 +27,10 @@ export const metadata: Metadata = {
       "Private photo sessions in Paris with SabShots, turning your Eiffel Tower moments and city walks into timeless photos.",
     images: [
       {
-        url: "/assets/sabshots-hero.png",
-        width: 1923,
-        height: 876,
-        alt: "SabShots, professional photographer in Paris",
+        url: "/seo/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Stylish woman in a beret on a Seine bridge with the Eiffel Tower, a private photo session in Paris by SabShots",
       },
     ],
   },
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     title: "SabShots | Paris Photographer for Private Photo Sessions",
     description:
       "Private photo sessions in Paris with SabShots, turning your Eiffel Tower moments and city walks into timeless photos.",
-    images: ["/assets/sabshots-hero.png"],
+    images: ["/seo/og-image.jpg"],
   },
 };
 
