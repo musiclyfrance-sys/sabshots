@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         url: "/seo/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Stylish woman in a beret on a Seine bridge with the Eiffel Tower, a private photo session in Paris by SabShots",
+        alt: "SabShots wordmark above the neon portrait of Yassir, photographer for private photo sessions in Paris",
       },
     ],
   },
