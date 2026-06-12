@@ -13,6 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/portfolio`, changeFrequency: 'monthly', priority: 0.9 },
     { url: `${BASE}/blog`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE}/faq`, changeFrequency: 'monthly', priority: 0.6 },
   ]
 
   const albums: MetadataRoute.Sitemap = portfolioItems.map((item) => ({

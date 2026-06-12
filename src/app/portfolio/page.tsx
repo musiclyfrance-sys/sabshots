@@ -8,17 +8,17 @@ import Image from 'next/image'
 import { getPortfolioItems } from '@/lib/cms/public-data'
 
 export const metadata = {
-  title: 'SabShots | Paris Photo Session Portfolio',
+  title: 'SabShots | Paris Photoshoot Portfolio and Albums',
   description:
-    'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
+    'Explore the SabShots Paris photoshoot portfolio: Eiffel Tower sessions, couples, proposals, families, weddings, street style, and instagrammable spots.',
   alternates: { canonical: '/portfolio' },
   openGraph: {
     type: 'website',
     siteName: 'SabShots',
     url: 'https://www.sabshots.com/portfolio',
-    title: 'SabShots | Paris Photo Session Portfolio',
+    title: 'SabShots | Paris Photoshoot Portfolio and Albums',
     description:
-      'Explore the SabShots Paris photo portfolio: Eiffel Tower, street photography, instagrammable spots, couples, proposals, and more.',
+      'Explore the SabShots Paris photoshoot portfolio: Eiffel Tower sessions, couples, proposals, families, weddings, street style, and instagrammable spots.',
     images: ['/assets/paris-eiffel-tower-photoshoot-01.jpg'],
   },
 }
@@ -33,8 +33,8 @@ export default async function PortfolioPage() {
 
       <PageHero
         badge="Creative Photography"
-        title="A Glimpse into My Perspective"
-        subtitle="I capture your vision through creative photography."
+        title="Paris Photoshoot Portfolio"
+        subtitle="I capture your vision through creative photography, album by album."
       />
 
       {/* Portfolio grid — horizontal album cards, all CLICKABLE */}

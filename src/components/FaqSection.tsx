@@ -15,6 +15,10 @@ const faqItems: FAQItem[] = [
     answer: 'Send me your preferred date and location, and I will confirm availability within 24 hours.',
   },
   {
+    question: 'How much does a photo session in Paris cost?',
+    answer: 'Every session is quoted individually, because the price depends on the duration, the location, the time of day, and the number of people. Send a message on WhatsApp with your dates and ideas, and you will receive a clear quote within a few hours.',
+  },
+  {
     question: 'How long is a photo session?',
     answer: 'It depends on the location you choose and the vision you have. You can set the duration yourself, or I can suggest a few options that fit your shoot.',
   },
