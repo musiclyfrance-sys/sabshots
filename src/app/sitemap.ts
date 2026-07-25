@@ -1,5 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { getPortfolioItems, getBlogPosts } from '@/lib/cms/public-data'
+import { EXPERIENCES } from '@/lib/experiences'
 
 const BASE = 'https://www.sabshots.com'
 
@@ -14,7 +15,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${BASE}/blog`, changeFrequency: 'weekly', priority: 0.8 },
     { url: `${BASE}/about`, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE}/faq`, changeFrequency: 'monthly', priority: 0.6 },
+    { url: `${BASE}/experiences`, changeFrequency: 'monthly', priority: 0.8 },
   ]
+
+  const experiences: MetadataRoute.Sitemap = EXPERIENCES.map((exp) => ({
+    url: `${BASE}/experiences/${exp.slug}`,
+    changeFrequency: 'monthly',
+    priority: 0.75,
+  }))
 
   const albums: MetadataRoute.Sitemap = portfolioItems.map((item) => ({
     url: `${BASE}/portfolio/${item.slug}`,
@@ -31,5 +39,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       ...(post.updatedAt ? { lastModified: new Date(post.updatedAt) } : {}),
     }))
 
-  return [...staticPages, ...albums, ...blog]
+  return [...staticPages, ...experiences, ...albums, ...blog]
 }

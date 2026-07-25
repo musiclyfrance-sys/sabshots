@@ -164,6 +164,29 @@ export default function Footer() {
                       Portfolio
                     </Link>
                   </div>
+                  <div style={{ padding: '8px 6px' }}>
+                    <Link
+                      href="/experiences"
+                      style={{
+                        fontSize: '14px',
+                        fontWeight: 300,
+                        fontFamily: 'Manrope, sans-serif',
+                        lineHeight: '20px',
+                        color: 'rgb(124, 124, 124)',
+                        textDecoration: 'none',
+                        display: 'block',
+                        transition: 'all',
+                      }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.color = 'rgb(1, 1, 1)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.color = 'rgb(124, 124, 124)'
+                      }}
+                    >
+                      Experiences
+                    </Link>
+                  </div>
                 </div>
 
                 {/* Informations column */}
