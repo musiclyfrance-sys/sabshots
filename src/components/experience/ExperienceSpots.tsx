@@ -92,7 +92,7 @@ export default function ExperienceSpots({
               maxWidth: '984px',
             }}
           >
-            {spots.map((spot, index) => (
+            {spots.map((spot) => (
               <div
                 key={spot.title}
                 className="flex flex-col items-start justify-start overflow-visible"
@@ -105,27 +105,21 @@ export default function ExperienceSpots({
                 }}
               >
                 <div className="flex flex-row items-center justify-between w-full">
-                  {/* Numbered disc, same marker language as the process steps */}
-                  <div
+                  {/* Location pin icon, same stroke family as the rest of the site */}
+                  <svg
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="rgb(1, 1, 1)"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     aria-hidden="true"
-                    style={{
-                      width: '26px',
-                      height: '26px',
-                      borderRadius: '999px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: '12px',
-                      fontWeight: 500,
-                      fontFamily: 'Manrope, sans-serif',
-                      lineHeight: 1,
-                      border: '1.5px solid rgb(1, 1, 1)',
-                      backgroundColor: 'rgb(1, 1, 1)',
-                      color: 'rgb(255, 255, 255)',
-                    }}
                   >
-                    {index + 1}
-                  </div>
+                    <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                  </svg>
                   <svg width="24" height="6" viewBox="0 0 24 6" fill="rgb(200,200,200)" aria-hidden="true">
                     <circle cx="3" cy="3" r="2" />
                     <circle cx="12" cy="3" r="2" />
@@ -163,6 +157,39 @@ export default function ExperienceSpots({
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* The list is a highlight, not a limit */}
+          <div
+            className="reveal reveal-delay-2"
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              backgroundColor: 'rgb(255, 255, 255)',
+              borderRadius: '99px',
+              padding: '8px 20px',
+              marginTop: '-18px',
+            }}
+          >
+            <svg width="18" height="6" viewBox="0 0 24 6" fill="rgb(1,1,1)" aria-hidden="true">
+              <circle cx="3" cy="3" r="2" />
+              <circle cx="12" cy="3" r="2" />
+              <circle cx="21" cy="3" r="2" />
+            </svg>
+            <span
+              style={{
+                fontSize: '14px',
+                fontWeight: 400,
+                fontFamily: 'Manrope, sans-serif',
+                lineHeight: '22px',
+                color: 'rgb(1, 1, 1)',
+              }}
+            >
+              &amp; more
+            </span>
           </div>
         </div>
       </div>

@@ -2,23 +2,18 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import type { ExperienceLink } from '@/lib/experiences'
 
-export interface LinksLineSegment {
-  text?: string
-  href?: string
-  label?: string
-}
-
-// SEO intro block: keyword H2 + three paragraphs (the second one is a
-// snippet-ready definition) + one sentence of descriptive internal links.
+// Compact SEO intro: keyword H2, two short paragraphs (the second one is a
+// snippet-ready definition), then two pill buttons for internal navigation.
 export default function ExperienceIntro({
   h2,
   paragraphs,
-  linksLine,
+  buttons,
 }: {
   h2: string
   paragraphs: string[]
-  linksLine: LinksLineSegment[]
+  buttons: ExperienceLink[]
 }) {
   const sectionRef = useRef<HTMLElement>(null)
 
@@ -56,6 +51,7 @@ export default function ExperienceIntro({
             backgroundColor: 'rgb(255, 255, 255)',
             borderRadius: '34px',
             padding: 'clamp(24px, 5vw, 40px)',
+            textAlign: 'center',
           }}
         >
           <h2
@@ -64,13 +60,13 @@ export default function ExperienceIntro({
               fontWeight: 500,
               lineHeight: '1.3',
               color: 'rgb(1, 1, 1)',
-              margin: '0 0 18px',
+              margin: '0 0 16px',
               fontFamily: 'Manrope, sans-serif',
             }}
           >
             {h2}
           </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'left' }}>
             {paragraphs.map((p, i) => (
               <p
                 key={i}
@@ -86,35 +82,59 @@ export default function ExperienceIntro({
                 {p}
               </p>
             ))}
-            {/* Internal links sentence with descriptive anchors */}
-            <p
-              style={{
-                fontSize: '16px',
-                fontWeight: 300,
-                lineHeight: '26px',
-                color: 'rgb(60, 60, 60)',
-                margin: 0,
-                fontFamily: 'Manrope, sans-serif',
-              }}
-            >
-              {linksLine.map((seg, i) =>
-                seg.href && seg.label ? (
-                  <Link
-                    key={i}
-                    href={seg.href}
-                    style={{
-                      color: 'rgb(1, 1, 1)',
-                      textDecoration: 'underline',
-                      textUnderlineOffset: '3px',
-                    }}
-                  >
-                    {seg.label}
-                  </Link>
-                ) : (
-                  <span key={i}>{seg.text}</span>
-                )
-              )}
-            </p>
+          </div>
+
+          {/* Internal navigation buttons, same pill language as the hero */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'row',
+              flexWrap: 'wrap',
+              justifyContent: 'center',
+              gap: '10px',
+              marginTop: '22px',
+            }}
+          >
+            {buttons.map((btn) => (
+              <Link
+                key={btn.href}
+                href={btn.href}
+                className="btn-back"
+                style={{
+                  fontSize: '14px',
+                  fontWeight: 400,
+                  color: 'rgb(1, 1, 1)',
+                  backgroundColor: 'rgb(247, 248, 253)',
+                  padding: '11px 20px',
+                  display: 'inline-flex',
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  gap: '8px',
+                  borderRadius: '99px',
+                  border: '1px solid rgb(240, 242, 246)',
+                  cursor: 'pointer',
+                  fontFamily: 'Manrope, sans-serif',
+                  textDecoration: 'none',
+                  whiteSpace: 'nowrap',
+                }}
+              >
+                {btn.label}
+                <svg
+                  width="15"
+                  height="15"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M7 17L17 7" />
+                  <path d="M8 7h9v9" />
+                </svg>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

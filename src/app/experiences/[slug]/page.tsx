@@ -122,8 +122,8 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
         secondaryHref={exp.secondaryCta.href}
         secondaryLabel={exp.secondaryCta.label}
       />
-      <ExperienceIntro h2={exp.introH2} paragraphs={exp.introParagraphs} linksLine={exp.linksLine} />
       <ExperienceGallery title={exp.galleryH2} subtitle={exp.gallerySubtitle} photos={galleryPhotos} />
+      <ExperienceIntro h2={exp.introH2} paragraphs={exp.introParagraphs} buttons={exp.introButtons} />
       <ExperienceSpots h2={exp.spotsH2} spots={exp.spots} />
       <ProcessSection />
       <ExperienceFaq

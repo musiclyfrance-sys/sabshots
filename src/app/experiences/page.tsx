@@ -94,8 +94,8 @@ export default async function ExperiencesPage() {
           }}
         >
           Every great Paris photography session starts with the right setting. As a Paris
-          photographer, I shoot each of these experiences week after week: sunrise at the
-          Eiffel Tower, golden reflections at the Louvre, quiet lanes in Montmartre and
+          photographer, I shoot each of these experiences week after week: the Eiffel
+          Tower, golden reflections at the Louvre, quiet lanes in Montmartre and
           Le Marais, surprise proposals, weddings, and nights out. Choose yours below,
           and I will handle the route, the timing, and the light.
         </p>
