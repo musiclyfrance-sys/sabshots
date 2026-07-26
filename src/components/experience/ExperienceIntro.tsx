@@ -95,7 +95,8 @@ export default function ExperienceIntro({
               marginTop: '22px',
             }}
           >
-            {buttons.map((btn) => (
+            {/* First button = the album link, rendered as the black primary pill */}
+            {buttons.map((btn, i) => (
               <Link
                 key={btn.href}
                 href={btn.href}
@@ -103,15 +104,15 @@ export default function ExperienceIntro({
                 style={{
                   fontSize: '14px',
                   fontWeight: 400,
-                  color: 'rgb(1, 1, 1)',
-                  backgroundColor: 'rgb(247, 248, 253)',
+                  color: i === 0 ? 'rgb(255, 255, 255)' : 'rgb(1, 1, 1)',
+                  backgroundColor: i === 0 ? 'rgb(1, 1, 1)' : 'rgb(247, 248, 253)',
                   padding: '11px 20px',
                   display: 'inline-flex',
                   flexDirection: 'row',
                   alignItems: 'center',
                   gap: '8px',
                   borderRadius: '99px',
-                  border: '1px solid rgb(240, 242, 246)',
+                  border: i === 0 ? '1px solid rgb(1, 1, 1)' : '1px solid rgb(240, 242, 246)',
                   cursor: 'pointer',
                   fontFamily: 'Manrope, sans-serif',
                   textDecoration: 'none',

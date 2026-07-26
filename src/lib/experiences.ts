@@ -99,8 +99,8 @@ export const EXPERIENCES: Experience[] = [
         "text": "Green lawns and tree-lined alleys, relaxed frames right under the tower."
       },
       {
-        "title": "Seine Riverbanks",
-        "text": "Stone quays and passing boats, with the Eiffel Tower along the water behind you."
+        "title": "Avenue de New York",
+        "text": "The riverside quay across the water, with the Eiffel Tower filling your frame."
       },
       {
         "title": "The Love Lock Bridge",
@@ -140,6 +140,7 @@ export const EXPERIENCES: Experience[] = [
       "href": "/portfolio",
       "label": "View Portfolio"
     },
+    "galleryAlbumSlug": "louvre",
     "galleryPhotos": [
       {
         "src": "/assets/paris-instagrammable-photoshoot-02.jpg",
@@ -164,8 +165,8 @@ export const EXPERIENCES: Experience[] = [
         "label": "See the aesthetic album"
       },
       {
-        "href": "/blog/best-photo-spots-in-paris",
-        "label": "Best photo spots guide"
+        "href": "/blog/louvre-photo-spots",
+        "label": "Louvre photo spots guide"
       }
     ],
     "ogImage": "/assets/paris-instagrammable-photoshoot-02.jpg",
@@ -225,6 +226,99 @@ export const EXPERIENCES: Experience[] = [
     ]
   },
   {
+    "slug": "arc-de-triomphe-photoshoot",
+    "name": "Arc de Triomphe",
+    "cardTagline": "The Etoile, the Champs-Elysees, and monumental frames.",
+    "badge": "Arc de Triomphe Sessions",
+    "h1": "Paris Photographer at the Arc de Triomphe",
+    "titleTag": "Arc de Triomphe Photoshoot on the Champs-Elysees",
+    "keyword": "Arc de Triomphe photoshoot",
+    "secondaryCta": {
+      "href": "/portfolio",
+      "label": "View Portfolio"
+    },
+    "galleryAlbumSlug": "arc-de-triomphe",
+    "galleryPhotos": [
+      {
+        "src": "https://kzoyeuyblxeailoypohf.supabase.co/storage/v1/object/public/sabshots/street-photography/1781185465968-x1q8cp.jpg",
+        "alt": "Man in a brown leather jacket posing at the Arc de Triomphe, Paris street style photography by SabShots"
+      },
+      {
+        "src": "https://kzoyeuyblxeailoypohf.supabase.co/storage/v1/object/public/sabshots/instagrammable-paris/1781186919749-vvufel.jpg",
+        "alt": "Woman in black leaning on a lamppost at the Arc de Triomphe, an instagrammable Paris moment by SabShots"
+      },
+      {
+        "src": "/assets/paris-couple-photoshoot-06.jpg",
+        "alt": "Elegant couple holding hands along a grand Haussmann avenue in Paris by SabShots"
+      }
+    ],
+    "introButtons": [
+      {
+        "href": "/portfolio/instagrammable-paris",
+        "label": "See the album"
+      },
+      {
+        "href": "/blog/arc-de-triomphe-photo-spots",
+        "label": "Arc photo spots guide"
+      }
+    ],
+    "ogImage": "https://kzoyeuyblxeailoypohf.supabase.co/storage/v1/object/public/sabshots/street-photography/1781185465968-x1q8cp.jpg",
+    "metaDescription": "Book an Arc de Triomphe photoshoot with a private Paris photographer, from the top of the Champs-Elysees to the grand avenues of the Place de l'Etoile.",
+    "heroSubtitle": "The most monumental backdrop in Paris, the Champs-Elysees at your feet, and a photographer who knows every clean angle of the Etoile.",
+    "introH2": "An Arc de Triomphe Photoshoot Above the Champs-Elysees",
+    "introParagraphs": [
+      "An Arc de Triomphe photoshoot puts the grandest monument in Paris behind you, with the Champs-Elysees rolling away at your feet. I am Yassir, a Paris photographer, and around the Place de l’Etoile I know exactly where to stand so the traffic disappears and the carved stone fills your frame.",
+      "An Arc de Triomphe photoshoot is a private photo session around the Place de l’Etoile and the top of the Champs-Elysees, using the monument’s carved facades, the avenue perspectives, and the elegant streets of the 8th arrondissement. The scale of the setting gives your portraits a grand, cinematic character."
+    ],
+    "spotsH2": "Where Are the Best Photo Spots at the Arc de Triomphe?",
+    "spots": [
+      {
+        "title": "Facing the Arc",
+        "text": "The full monument behind you, carved stone and a scale that reads instantly."
+      },
+      {
+        "title": "Champs-Elysees Perspective",
+        "text": "The most famous avenue in the world stretching toward the Arc behind you."
+      },
+      {
+        "title": "The Etoile Avenues",
+        "text": "Twelve grand avenues radiate from the Arc, each one a clean Haussmann backdrop."
+      },
+      {
+        "title": "Pedestrian Crossings",
+        "text": "Wide crossings where the Arc rises huge in the background of your frame."
+      },
+      {
+        "title": "Cafes and Storefronts",
+        "text": "Terraces, awnings and elegant details of the 8th for a chic Parisian scene."
+      },
+      {
+        "title": "Haussmann Facades",
+        "text": "Stone balconies and iron railings, refined frames a minute from the monument."
+      }
+    ],
+    "galleryH2": "Arc de Triomphe Photoshoot Gallery",
+    "gallerySubtitle": "Real sessions around the Etoile and the Champs-Elysees, shot by SabShots.",
+    "faq": [
+      {
+        "question": "Do we need to go up or inside the Arc de Triomphe?",
+        "answer": "No. The strongest frames are shot from around the Etoile and the top of the Champs-Elysees, so no tickets are needed. If you want portraits right at the base, the pedestrian underpass gets us there safely."
+      },
+      {
+        "question": "Is the traffic around the Etoile a problem for photos?",
+        "answer": "The roundabout is famous for its traffic, and that energy is part of the scene. I frame from islands and crossings so the cars blur away or vanish entirely, leaving you and the carved stone."
+      },
+      {
+        "question": "Can we combine the Arc de Triomphe with the Champs-Elysees?",
+        "answer": "They belong together. We start around the monument, then work down the avenue for storefronts, terraces and perspective shots with the Arc behind you. One session, two icons of Paris."
+      },
+      {
+        "question": "How do I book an Arc de Triomphe photoshoot?",
+        "answer": "Send me a WhatsApp message with your dates and ideas. I reply quickly, plan the route around the Etoile with you, and confirm everything in English, French, Spanish or Arabic."
+      }
+    ]
+  },
+  {
     "slug": "montmartre-photographer",
     "name": "Montmartre",
     "cardTagline": "Cobbled lanes, staircases, and the village charm.",
@@ -236,6 +330,7 @@ export const EXPERIENCES: Experience[] = [
       "href": "/portfolio",
       "label": "View Portfolio"
     },
+    "galleryAlbumSlug": "montmartre",
     "galleryPhotos": [
       {
         "src": "/assets/paris-couple-photoshoot-07.jpg",
@@ -252,12 +347,12 @@ export const EXPERIENCES: Experience[] = [
     ],
     "introButtons": [
       {
-        "href": "/blog/montmartre-photoshoot",
-        "label": "Montmartre photoshoot guide"
-      },
-      {
         "href": "/portfolio/instagrammable-paris",
         "label": "See the album"
+      },
+      {
+        "href": "/blog/montmartre-photoshoot",
+        "label": "Montmartre photoshoot guide"
       }
     ],
     "ogImage": "/assets/paris-couple-photoshoot-07.jpg",
@@ -328,6 +423,7 @@ export const EXPERIENCES: Experience[] = [
       "href": "/portfolio",
       "label": "View Portfolio"
     },
+    "galleryAlbumSlug": "sacre-coeur",
     "galleryPhotos": [
       {
         "src": "/assets/paris-instagrammable-photoshoot-09.jpg",
@@ -344,12 +440,12 @@ export const EXPERIENCES: Experience[] = [
     ],
     "introButtons": [
       {
-        "href": "/blog/montmartre-photoshoot",
-        "label": "Montmartre guide"
-      },
-      {
         "href": "/portfolio/instagrammable-paris",
         "label": "See the album"
+      },
+      {
+        "href": "/blog/sacre-coeur-photo-spots",
+        "label": "Sacre-Coeur photo guide"
       }
     ],
     "ogImage": "/assets/paris-instagrammable-photoshoot-09.jpg",
@@ -420,6 +516,7 @@ export const EXPERIENCES: Experience[] = [
       "href": "/portfolio",
       "label": "View Portfolio"
     },
+    "galleryAlbumSlug": "le-marais",
     "galleryPhotos": [
       {
         "src": "/assets/paris-instagrammable-photoshoot-18.jpg",
@@ -440,8 +537,8 @@ export const EXPERIENCES: Experience[] = [
         "label": "Street style album"
       },
       {
-        "href": "/blog/best-photo-spots-in-paris",
-        "label": "Photo spots guide"
+        "href": "/blog/le-marais-photo-spots",
+        "label": "Le Marais spots guide"
       }
     ],
     "ogImage": "/assets/paris-instagrammable-photoshoot-18.jpg",
@@ -677,8 +774,8 @@ export const EXPERIENCES: Experience[] = [
         "label": "Paris wedding album"
       },
       {
-        "href": "/experiences/surprise-proposal-paris",
-        "label": "Surprise proposal experience"
+        "href": "/blog/paris-wedding-photo-ideas",
+        "label": "Wedding photo ideas"
       }
     ],
     "ogImage": "/assets/paris-wedding-photoshoot-01.jpg",
@@ -756,8 +853,8 @@ export const EXPERIENCES: Experience[] = [
         "label": "Nightlife album"
       },
       {
-        "href": "/blog/birthday-photoshoot-paris",
-        "label": "Birthday photoshoot guide"
+        "href": "/blog/event-photography-tips",
+        "label": "Event photo tips guide"
       }
     ],
     "ogImage": "https://kzoyeuyblxeailoypohf.supabase.co/storage/v1/object/public/sabshots/crops/1781191892072-78t05j.jpg",

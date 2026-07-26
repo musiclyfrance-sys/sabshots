@@ -32,6 +32,7 @@ export interface CmsAlbum {
   coverOriginal?: string // uncropped cover source (for re-cropping)
   coverCrop?: CropArea
   description: string
+  hidden?: boolean // true = absent from the public portfolio; still editable in the admin (used by experience-page galleries)
   photos: CmsPhoto[] // ordered; 2-landscape + 6-portrait block structure enforced on save
 }
 

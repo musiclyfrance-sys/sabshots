@@ -240,6 +240,18 @@ export default function AlbumEditor() {
               <div><label style={labelStyle}>Titre</label><input value={album.title} onChange={(e) => update((a) => { a.title = e.target.value })} style={fieldStyle} /></div>
               <div><label style={labelStyle}>Catégorie</label><input value={album.category} onChange={(e) => update((a) => { a.category = e.target.value })} style={fieldStyle} /></div>
               <div style={{ gridColumn: '1 / -1' }}><label style={labelStyle}>Description</label><textarea value={album.description} onChange={(e) => update((a) => { a.description = e.target.value })} rows={2} style={{ ...fieldStyle, resize: 'vertical' }} /></div>
+              <div style={{ gridColumn: '1 / -1', display: 'flex', alignItems: 'center', gap: '10px' }}>
+                <input
+                  id="album-hidden"
+                  type="checkbox"
+                  checked={!!album.hidden}
+                  onChange={(e) => update((a) => { a.hidden = e.target.checked })}
+                  style={{ width: '16px', height: '16px', accentColor: 'rgb(17,17,19)', cursor: 'pointer' }}
+                />
+                <label htmlFor="album-hidden" style={{ fontSize: '13px', color: 'rgb(60,64,72)', cursor: 'pointer' }}>
+                  Masquer du portfolio public (galerie réservée à une page Experience)
+                </label>
+              </div>
             </div>
 
             {/* Upload */}

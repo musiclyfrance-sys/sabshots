@@ -82,7 +82,14 @@ function AlbumCard({ album, onDelete }: { album: CmsAlbum; onDelete: (slug: stri
           )}
         </div>
         <div style={{ padding: '14px 16px' }}>
-          <div style={{ fontWeight: 600, fontSize: '16px', letterSpacing: '-0.01em' }}>{album.title}</div>
+          <div style={{ fontWeight: 600, fontSize: '16px', letterSpacing: '-0.01em' }}>
+            {album.title}
+            {album.hidden ? (
+              <span style={{ marginLeft: '8px', fontSize: '11px', fontWeight: 600, color: 'rgb(107,114,128)', background: 'rgb(240,242,246)', borderRadius: '99px', padding: '3px 8px', verticalAlign: 'middle' }}>
+                Experience
+              </span>
+            ) : null}
+          </div>
           <div style={{ color: 'rgb(107,114,128)', fontSize: '13px', marginTop: '2px' }}>
             {realCount} photo{realCount > 1 ? 's' : ''}
             {tmplCount > 0 ? ` · ${tmplCount} à remplacer` : ''}

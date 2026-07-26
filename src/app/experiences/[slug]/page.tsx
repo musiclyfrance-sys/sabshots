@@ -10,7 +10,7 @@ import ExperienceSpots from '@/components/experience/ExperienceSpots'
 import ExperienceFaq from '@/components/experience/ExperienceFaq'
 import MoreExperiences from '@/components/experience/MoreExperiences'
 import { EXPERIENCES, getExperience } from '@/lib/experiences'
-import { getPortfolioItem, getPortfolioItems } from '@/lib/cms/public-data'
+import { getGalleryAlbum } from '@/lib/cms/public-data'
 
 export const revalidate = 300
 export const dynamicParams = false
@@ -44,29 +44,31 @@ export default async function ExperiencePage({ params }: { params: Promise<{ slu
   const exp = getExperience(slug)
   if (!exp) notFound()
 
-  // Gallery photos: from the linked CMS album (editable in the admin) when
-  // available, otherwise the curated list. Album covers also feed the cards.
+  // Gallery photos: from the linked CMS album (editable in the admin, hidden
+  // albums included) when available, otherwise the curated list.
   let galleryPhotos = exp.galleryPhotos ?? []
   if (exp.galleryAlbumSlug) {
-    const album = await getPortfolioItem(exp.galleryAlbumSlug)
+    const album = await getGalleryAlbum(exp.galleryAlbumSlug)
     if (album && album.images.length > 0) {
       galleryPhotos = album.images.slice(0, 6).map((img) => ({ src: img.src, alt: img.alt }))
     }
   }
 
-  // Sibling experiences for the cross-link grid (next three, cyclic).
+  // Sibling experiences for the cross-link grid (next three, cyclic). Card
+  // images follow the CMS album covers so admin edits show up here too.
   const index = EXPERIENCES.findIndex((e) => e.slug === slug)
   const siblings = [1, 2, 3].map((offset) => EXPERIENCES[(index + offset) % EXPERIENCES.length])
-  const albums = await getPortfolioItems()
-  const siblingCards = siblings.map((s) => {
-    const albumCover = s.galleryAlbumSlug ? albums.find((a) => a.slug === s.galleryAlbumSlug) : undefined
-    return {
-      href: `/experiences/${s.slug}`,
-      name: s.name,
-      image: albumCover?.image ?? s.galleryPhotos?.[0]?.src ?? s.ogImage,
-      imageAlt: albumCover?.imageAlt ?? s.galleryPhotos?.[0]?.alt ?? s.h1,
-    }
-  })
+  const siblingCards = await Promise.all(
+    siblings.map(async (s) => {
+      const albumCover = s.galleryAlbumSlug ? await getGalleryAlbum(s.galleryAlbumSlug) : null
+      return {
+        href: `/experiences/${s.slug}`,
+        name: s.name,
+        image: albumCover?.image || (s.galleryPhotos?.[0]?.src ?? s.ogImage),
+        imageAlt: albumCover?.image ? albumCover.imageAlt : (s.galleryPhotos?.[0]?.alt ?? s.h1),
+      }
+    })
+  )
 
   const base = 'https://www.sabshots.com'
   const abs = (src: string) => (src.startsWith('http') ? src : `${base}${src}`)

@@ -6,14 +6,14 @@ import CtaSection from '@/components/CtaSection'
 import FaqSection from '@/components/FaqSection'
 import PageHero from '@/components/PageHero'
 import { EXPERIENCES } from '@/lib/experiences'
-import { getPortfolioItems } from '@/lib/cms/public-data'
+import { getGalleryAlbum } from '@/lib/cms/public-data'
 
 export const revalidate = 300
 
 export const metadata = {
   title: 'SabShots | Paris Photoshoot Experiences, Spots and Themes',
   description:
-    'Explore Paris photoshoot experiences with SabShots: the Louvre, the Eiffel Tower, Montmartre, Le Marais, surprise proposals, weddings, and nights out in Paris.',
+    'Explore Paris photoshoot experiences with SabShots: the Eiffel Tower, the Louvre, the Arc de Triomphe, Montmartre, surprise proposals, weddings and nights out.',
   alternates: { canonical: '/experiences' },
   openGraph: {
     type: 'website',
@@ -21,7 +21,7 @@ export const metadata = {
     url: 'https://www.sabshots.com/experiences',
     title: 'SabShots | Paris Photoshoot Experiences, Spots and Themes',
     description:
-      'Explore Paris photoshoot experiences with SabShots: the Louvre, the Eiffel Tower, Montmartre, Le Marais, surprise proposals, weddings, and nights out in Paris.',
+      'Explore Paris photoshoot experiences with SabShots: the Eiffel Tower, the Louvre, the Arc de Triomphe, Montmartre, surprise proposals, weddings and nights out.',
     images: ['/seo/og-image.jpg'],
   },
 }
@@ -50,17 +50,20 @@ const itemListJsonLd = {
 }
 
 export default async function ExperiencesPage() {
-  const albums = await getPortfolioItems()
-  const cards = EXPERIENCES.map((e) => {
-    const albumCover = e.galleryAlbumSlug ? albums.find((a) => a.slug === e.galleryAlbumSlug) : undefined
-    return {
-      slug: e.slug,
-      name: e.name,
-      tagline: e.cardTagline,
-      image: albumCover?.image ?? e.galleryPhotos?.[0]?.src ?? e.ogImage,
-      imageAlt: albumCover?.imageAlt ?? e.galleryPhotos?.[0]?.alt ?? e.h1,
-    }
-  })
+  // Card images follow the CMS album covers (hidden albums included), so the
+  // main photo of each experience stays editable from the admin.
+  const cards = await Promise.all(
+    EXPERIENCES.map(async (e) => {
+      const albumCover = e.galleryAlbumSlug ? await getGalleryAlbum(e.galleryAlbumSlug) : null
+      return {
+        slug: e.slug,
+        name: e.name,
+        tagline: e.cardTagline,
+        image: albumCover?.image || (e.galleryPhotos?.[0]?.src ?? e.ogImage),
+        imageAlt: albumCover?.image ? albumCover.imageAlt : (e.galleryPhotos?.[0]?.alt ?? e.h1),
+      }
+    })
+  )
 
   return (
     <main
@@ -95,9 +98,9 @@ export default async function ExperiencesPage() {
         >
           Every great Paris photography session starts with the right setting. As a Paris
           photographer, I shoot each of these experiences week after week: the Eiffel
-          Tower, golden reflections at the Louvre, quiet lanes in Montmartre and
-          Le Marais, surprise proposals, weddings, and nights out. Choose yours below,
-          and I will handle the route, the timing, and the light.
+          Tower, the Louvre, the Arc de Triomphe above the Champs-Elysees, quiet lanes
+          in Montmartre and Le Marais, surprise proposals, weddings, and nights out.
+          Choose yours below, and I will handle the route and every detail.
         </p>
       </section>
 
