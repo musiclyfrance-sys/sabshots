@@ -95,24 +95,30 @@ export default function ExperienceIntro({
               marginTop: '22px',
             }}
           >
-            {/* First button = the album link, rendered as the black primary pill */}
+            {/* First button = the album link, rendered as the black primary pill.
+                Its colors live in the .btn-exp-album class so the hover state
+                (gray bg + black text) can override them. */}
             {buttons.map((btn, i) => (
               <Link
                 key={btn.href}
                 href={btn.href}
-                className="btn-back"
+                className={i === 0 ? 'btn-exp-album' : 'btn-back'}
                 style={{
                   fontSize: '14px',
                   fontWeight: 400,
-                  color: i === 0 ? 'rgb(255, 255, 255)' : 'rgb(1, 1, 1)',
-                  backgroundColor: i === 0 ? 'rgb(1, 1, 1)' : 'rgb(247, 248, 253)',
+                  ...(i === 0
+                    ? {}
+                    : {
+                        color: 'rgb(1, 1, 1)',
+                        backgroundColor: 'rgb(247, 248, 253)',
+                        border: '1px solid rgb(240, 242, 246)',
+                      }),
                   padding: '11px 20px',
                   display: 'inline-flex',
                   flexDirection: 'row',
                   alignItems: 'center',
                   gap: '8px',
                   borderRadius: '99px',
-                  border: i === 0 ? '1px solid rgb(1, 1, 1)' : '1px solid rgb(240, 242, 246)',
                   cursor: 'pointer',
                   fontFamily: 'Manrope, sans-serif',
                   textDecoration: 'none',

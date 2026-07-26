@@ -282,6 +282,18 @@ img {
 .btn-back:hover {
   background-color: rgb(240, 240, 240) !important;
 }
+/* Black album pill on experience pages: hover flips to gray bg + black text */
+.btn-exp-album {
+  background-color: rgb(1, 1, 1);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(1, 1, 1);
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.btn-exp-album:hover {
+  background-color: rgb(229, 231, 235);
+  color: rgb(1, 1, 1);
+  border-color: rgb(229, 231, 235);
+}
 @media (prefers-reduced-motion: reduce) {
   .btn-pulse { animation: none; }
   .btn-book::after,
